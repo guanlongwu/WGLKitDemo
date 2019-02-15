@@ -1,0 +1,19 @@
+//
+//  WGLKitDemo-prefix.pch
+//  WGLKitDemo
+//
+//  Created by wugl on 2019/2/15.
+//  Copyright © 2019年 huya. All rights reserved.
+//
+
+#ifndef WGLKitDemo_prefix_h
+#define WGLKitDemo_prefix_h
+
+#define iPhoneX     (HYScreenWidth == 375.f && HYScreenHeight == 812.f)
+#define ASpectHomeTabbarHeight    49.0f
+
+#define HYScreenWidth       [[UIScreen mainScreen]bounds].size.width
+#define HYScreenHeight      [[UIScreen mainScreen]bounds].size.height
+#define AspectFakeNavBarHeight    (iPhoneX ? 88.0f : 64.0f)
+
+#endif /* WGLKitDemo_prefix_h */

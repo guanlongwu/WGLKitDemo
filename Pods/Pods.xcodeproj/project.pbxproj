@@ -1,0 +1,711 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0585CCFB097EBC52275CF839BB5D559B /* WGLDownloadProvider-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 61757C7FC93A6FD099F82BC9449CBB24 /* WGLDownloadProvider-Info.plist */; };
+		1A86E4A3DBA3E2A9C483C8662A1860D3 /* WGLSegmentTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD4A5E4A7FA75CBFADEA54A7D9898D8 /* WGLSegmentTabBar.m */; };
+		21890BDCA5D74A704BF32345A1C2AF62 /* WGLDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9694E06F6AA2EBA8A6B7F3E062D63165 /* WGLDownloader.m */; };
+		24B86A375A76B376EE3E706AB198B0EA /* WGLDownloadProvider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 076A54FD98C8246D18BF88BC29F2330F /* WGLDownloadProvider-dummy.m */; };
+		2B5F6EA898D63FC031DF8C65A16309C0 /* WGLSegmentHorizontalScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E6571ABA0DC40706B5BEDF76D2FE6168 /* WGLSegmentHorizontalScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2C3302C10E1888F8F6FD9060C528E429 /* WGLDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = F866710BCF92EA5237A1CF99DBC0F46F /* WGLDownloadTask.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2EF379214C98C3EAF00603089C048F8E /* WGLSegmentMainTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = DD80500A1C02FA749C5855AB6E1925AD /* WGLSegmentMainTableView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6C15510CA504CD98955D5C6E42AAC912 /* WGLCenterSegmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B3304ED0AF29A3B770A351B0C73E9E /* WGLCenterSegmentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		711AFB903D7E98E2BF9F51CBB7FC2D82 /* WGLDownloadProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 830F637790322A172909553CC73D7804 /* WGLDownloadProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7269D8902FA9EA649CC60D23546DC5D5 /* WGLDownloadProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F677E9CDD87B0F56CA8E438E70C26D3 /* WGLDownloadProvider.m */; };
+		7AC821338BA13D8C5817C669B7CE9466 /* WGLSegmentMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF550CFFE7D2911A687BB71E0323F05 /* WGLSegmentMainTableView.m */; };
+		802FECE55C4E9D89B029239C6F38EE24 /* WGLCenterSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212C69C4DB457AB2809E5E2BDA75693B /* WGLCenterSegmentView.m */; };
+		8CE510BEA50C8DA70EAE0BF83BD8F4F9 /* WGLSubSegmentBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4B08469D2B631A5F6455610FA791 /* WGLSubSegmentBaseViewController.m */; };
+		8D079C3AE88BE8D5F6F35083C04C8847 /* WGLSegmentView-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = BF9FF466C8D251F9B78BE1BCA0970C87 /* WGLSegmentView-Info.plist */; };
+		BA568E730D9B196EF3D38BA862237C78 /* WGLSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58872C8589C66C611B1E064BFEC22E2B /* WGLSegmentView.m */; };
+		C85CCE7B18701611C6DA1718DD737FE7 /* WGLDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E21219ABB7F055038B4EA5A1CBF60F /* WGLDownloadTask.m */; };
+		CF896EC618186CB2F711A75A82E65F4F /* WGLSegmentView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F49BA210C867C9926A2496ADBA0B4999 /* WGLSegmentView-dummy.m */; };
+		E2F1D2F52AA9F21F7A7BA2BDA423B008 /* WGLSubSegmentBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBAE335F3895E370AF8044B1140CCCA /* WGLSubSegmentBaseViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E3E5B293E1437B496202CA0E166A2E32 /* WGLDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = C3616B15BDD49C17DCCEE9AC16534A24 /* WGLDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E42C5780BCABA5F848D1594E1F664F19 /* WGLSegmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = D18F85B865643BE2490C57F61DF67ED6 /* WGLSegmentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E65A8CCD8CB1A1D1F7BA835C3529FB55 /* WGLSegmentHorizontalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0139D83B269DBC5EAFB7E96B8F7330 /* WGLSegmentHorizontalScrollView.m */; };
+		F999C7E9D162EC8C6C6B553C1605EB97 /* Pods-WGLKitDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CC4842C3614C2466FC5E90E5F774BB /* Pods-WGLKitDemo-dummy.m */; };
+		FC338AAA9F302CF8E937C5A7FE109390 /* WGLSegmentTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E7B53F847752ABF2DE69E49D85FC614 /* WGLSegmentTabBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		628D096A9233F145E15881BB3743495A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38909B2064FE4A47BBDF46EB2D6FFA01;
+			remoteInfo = WGLDownloadProvider;
+		};
+		B13392D20F7E58599722116DC5D781AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 367B71C06ECCD1644FA39B24E0124D32;
+			remoteInfo = WGLSegmentView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02B3304ED0AF29A3B770A351B0C73E9E /* WGLCenterSegmentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLCenterSegmentView.h; path = WGLSegmentView/CenterSegmentView/WGLCenterSegmentView.h; sourceTree = "<group>"; };
+		076A54FD98C8246D18BF88BC29F2330F /* WGLDownloadProvider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WGLDownloadProvider-dummy.m"; sourceTree = "<group>"; };
+		0B415D64042FEE84918808DD4E78A179 /* WGLSegmentView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WGLSegmentView.xcconfig; sourceTree = "<group>"; };
+		1E4A34BF149DF40BFE9940A1E1F7DCEA /* libWGLSegmentView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWGLSegmentView.a; path = libWGLSegmentView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		212C69C4DB457AB2809E5E2BDA75693B /* WGLCenterSegmentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLCenterSegmentView.m; path = WGLSegmentView/CenterSegmentView/WGLCenterSegmentView.m; sourceTree = "<group>"; };
+		32E21219ABB7F055038B4EA5A1CBF60F /* WGLDownloadTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLDownloadTask.m; path = WGLDownloadProvider/Task/WGLDownloadTask.m; sourceTree = "<group>"; };
+		4E7B53F847752ABF2DE69E49D85FC614 /* WGLSegmentTabBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLSegmentTabBar.h; path = WGLSegmentView/SegmentTabBar/WGLSegmentTabBar.h; sourceTree = "<group>"; };
+		534B4B08469D2B631A5F6455610FA791 /* WGLSubSegmentBaseViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLSubSegmentBaseViewController.m; path = WGLSegmentView/SubSegmentVC/WGLSubSegmentBaseViewController.m; sourceTree = "<group>"; };
+		58872C8589C66C611B1E064BFEC22E2B /* WGLSegmentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLSegmentView.m; path = WGLSegmentView/WGLSegmentView.m; sourceTree = "<group>"; };
+		5AA737F5EA9B9056967AC874E6B64526 /* WGLSegmentView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WGLSegmentView-prefix.pch"; sourceTree = "<group>"; };
+		5DDE482D33F931081632D2F129B74C52 /* Pods-WGLKitDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WGLKitDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5F0139D83B269DBC5EAFB7E96B8F7330 /* WGLSegmentHorizontalScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLSegmentHorizontalScrollView.m; path = WGLSegmentView/MainTableView/WGLSegmentHorizontalScrollView.m; sourceTree = "<group>"; };
+		5F79DB12732E65DCD8A9875019BE25F3 /* WGLDownloadProvider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WGLDownloadProvider-prefix.pch"; sourceTree = "<group>"; };
+		61757C7FC93A6FD099F82BC9449CBB24 /* WGLDownloadProvider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "WGLDownloadProvider-Info.plist"; path = "WGLDownloadProvider/WGLDownloadProvider-Info.plist"; sourceTree = "<group>"; };
+		6BF550CFFE7D2911A687BB71E0323F05 /* WGLSegmentMainTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLSegmentMainTableView.m; path = WGLSegmentView/MainTableView/WGLSegmentMainTableView.m; sourceTree = "<group>"; };
+		7DC6DCBD70B5D7BECA05D16576A41139 /* libWGLDownloadProvider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWGLDownloadProvider.a; path = libWGLDownloadProvider.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBAE335F3895E370AF8044B1140CCCA /* WGLSubSegmentBaseViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLSubSegmentBaseViewController.h; path = WGLSegmentView/SubSegmentVC/WGLSubSegmentBaseViewController.h; sourceTree = "<group>"; };
+		7F677E9CDD87B0F56CA8E438E70C26D3 /* WGLDownloadProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLDownloadProvider.m; path = WGLDownloadProvider/WGLDownloadProvider.m; sourceTree = "<group>"; };
+		830F637790322A172909553CC73D7804 /* WGLDownloadProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLDownloadProvider.h; path = WGLDownloadProvider/WGLDownloadProvider.h; sourceTree = "<group>"; };
+		901884B0CAD1A99BA1A5873ADFCE8EED /* Pods-WGLKitDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WGLKitDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		9178933EF9008A45D39300B9811C2FD4 /* WGLDownloadProvider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WGLDownloadProvider.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9694E06F6AA2EBA8A6B7F3E062D63165 /* WGLDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLDownloader.m; path = WGLDownloadProvider/Downloader/WGLDownloader.m; sourceTree = "<group>"; };
+		A4CC4842C3614C2466FC5E90E5F774BB /* Pods-WGLKitDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WGLKitDemo-dummy.m"; sourceTree = "<group>"; };
+		BF9FF466C8D251F9B78BE1BCA0970C87 /* WGLSegmentView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "WGLSegmentView-Info.plist"; path = "WGLSegmentView/WGLSegmentView-Info.plist"; sourceTree = "<group>"; };
+		C3616B15BDD49C17DCCEE9AC16534A24 /* WGLDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLDownloader.h; path = WGLDownloadProvider/Downloader/WGLDownloader.h; sourceTree = "<group>"; };
+		C3838E0356CFEA556F728BD08BF30DDD /* Pods-WGLKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WGLKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D18F85B865643BE2490C57F61DF67ED6 /* WGLSegmentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLSegmentView.h; path = WGLSegmentView/WGLSegmentView.h; sourceTree = "<group>"; };
+		DD80500A1C02FA749C5855AB6E1925AD /* WGLSegmentMainTableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLSegmentMainTableView.h; path = WGLSegmentView/MainTableView/WGLSegmentMainTableView.h; sourceTree = "<group>"; };
+		E3EFE4FDB387FDEBE31AF4F84909E115 /* libPods-WGLKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-WGLKitDemo.a"; path = "libPods-WGLKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51BE21B55AE8A95EF7ACFABE00DAC9D /* Pods-WGLKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WGLKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E6571ABA0DC40706B5BEDF76D2FE6168 /* WGLSegmentHorizontalScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLSegmentHorizontalScrollView.h; path = WGLSegmentView/MainTableView/WGLSegmentHorizontalScrollView.h; sourceTree = "<group>"; };
+		EBD4A5E4A7FA75CBFADEA54A7D9898D8 /* WGLSegmentTabBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WGLSegmentTabBar.m; path = WGLSegmentView/SegmentTabBar/WGLSegmentTabBar.m; sourceTree = "<group>"; };
+		F49BA210C867C9926A2496ADBA0B4999 /* WGLSegmentView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WGLSegmentView-dummy.m"; sourceTree = "<group>"; };
+		F866710BCF92EA5237A1CF99DBC0F46F /* WGLDownloadTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WGLDownloadTask.h; path = WGLDownloadProvider/Task/WGLDownloadTask.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42BE57F0E17E1635290DA7708AF47CF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		751128200A3039E70B6E2266A0F989A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4A77F73B6AE4C0850240A6143E633C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0336CFB7E6E77B3380156A4521267400 /* WGLDownloadProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C3616B15BDD49C17DCCEE9AC16534A24 /* WGLDownloader.h */,
+				9694E06F6AA2EBA8A6B7F3E062D63165 /* WGLDownloader.m */,
+				830F637790322A172909553CC73D7804 /* WGLDownloadProvider.h */,
+				7F677E9CDD87B0F56CA8E438E70C26D3 /* WGLDownloadProvider.m */,
+				61757C7FC93A6FD099F82BC9449CBB24 /* WGLDownloadProvider-Info.plist */,
+				F866710BCF92EA5237A1CF99DBC0F46F /* WGLDownloadTask.h */,
+				32E21219ABB7F055038B4EA5A1CBF60F /* WGLDownloadTask.m */,
+				2CD847F178CBCAD4E51D27CFFE720E7E /* Support Files */,
+			);
+			name = WGLDownloadProvider;
+			path = WGLDownloadProvider;
+			sourceTree = "<group>";
+		};
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CD847F178CBCAD4E51D27CFFE720E7E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9178933EF9008A45D39300B9811C2FD4 /* WGLDownloadProvider.xcconfig */,
+				076A54FD98C8246D18BF88BC29F2330F /* WGLDownloadProvider-dummy.m */,
+				5F79DB12732E65DCD8A9875019BE25F3 /* WGLDownloadProvider-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WGLDownloadProvider";
+			sourceTree = "<group>";
+		};
+		5F643E56B8DAE9958AC3DFEA3BD3F4F9 /* Pods-WGLKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5DDE482D33F931081632D2F129B74C52 /* Pods-WGLKitDemo-acknowledgements.markdown */,
+				901884B0CAD1A99BA1A5873ADFCE8EED /* Pods-WGLKitDemo-acknowledgements.plist */,
+				A4CC4842C3614C2466FC5E90E5F774BB /* Pods-WGLKitDemo-dummy.m */,
+				C3838E0356CFEA556F728BD08BF30DDD /* Pods-WGLKitDemo.debug.xcconfig */,
+				E51BE21B55AE8A95EF7ACFABE00DAC9D /* Pods-WGLKitDemo.release.xcconfig */,
+			);
+			name = "Pods-WGLKitDemo";
+			path = "Target Support Files/Pods-WGLKitDemo";
+			sourceTree = "<group>";
+		};
+		69E2ACCF5EB3D7852C6244A30AF5B903 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F643E56B8DAE9958AC3DFEA3BD3F4F9 /* Pods-WGLKitDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		79431B28A4E15C48ADB1933561B1B04B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0336CFB7E6E77B3380156A4521267400 /* WGLDownloadProvider */,
+				C4627646F07BED324CF42A3C9C14991F /* WGLSegmentView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				79431B28A4E15C48ADB1933561B1B04B /* Pods */,
+				BCE74E672F972464D62753A1FA7F671B /* Products */,
+				69E2ACCF5EB3D7852C6244A30AF5B903 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BCE74E672F972464D62753A1FA7F671B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFE4FDB387FDEBE31AF4F84909E115 /* libPods-WGLKitDemo.a */,
+				7DC6DCBD70B5D7BECA05D16576A41139 /* libWGLDownloadProvider.a */,
+				1E4A34BF149DF40BFE9940A1E1F7DCEA /* libWGLSegmentView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4627646F07BED324CF42A3C9C14991F /* WGLSegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				02B3304ED0AF29A3B770A351B0C73E9E /* WGLCenterSegmentView.h */,
+				212C69C4DB457AB2809E5E2BDA75693B /* WGLCenterSegmentView.m */,
+				E6571ABA0DC40706B5BEDF76D2FE6168 /* WGLSegmentHorizontalScrollView.h */,
+				5F0139D83B269DBC5EAFB7E96B8F7330 /* WGLSegmentHorizontalScrollView.m */,
+				DD80500A1C02FA749C5855AB6E1925AD /* WGLSegmentMainTableView.h */,
+				6BF550CFFE7D2911A687BB71E0323F05 /* WGLSegmentMainTableView.m */,
+				4E7B53F847752ABF2DE69E49D85FC614 /* WGLSegmentTabBar.h */,
+				EBD4A5E4A7FA75CBFADEA54A7D9898D8 /* WGLSegmentTabBar.m */,
+				D18F85B865643BE2490C57F61DF67ED6 /* WGLSegmentView.h */,
+				58872C8589C66C611B1E064BFEC22E2B /* WGLSegmentView.m */,
+				BF9FF466C8D251F9B78BE1BCA0970C87 /* WGLSegmentView-Info.plist */,
+				7EBAE335F3895E370AF8044B1140CCCA /* WGLSubSegmentBaseViewController.h */,
+				534B4B08469D2B631A5F6455610FA791 /* WGLSubSegmentBaseViewController.m */,
+				D01E3A999009DC8CE7A95B464E13C80D /* Support Files */,
+			);
+			name = WGLSegmentView;
+			path = WGLSegmentView;
+			sourceTree = "<group>";
+		};
+		D01E3A999009DC8CE7A95B464E13C80D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B415D64042FEE84918808DD4E78A179 /* WGLSegmentView.xcconfig */,
+				F49BA210C867C9926A2496ADBA0B4999 /* WGLSegmentView-dummy.m */,
+				5AA737F5EA9B9056967AC874E6B64526 /* WGLSegmentView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WGLSegmentView";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		09267D2B80C9C989B92267B3876FB60F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C15510CA504CD98955D5C6E42AAC912 /* WGLCenterSegmentView.h in Headers */,
+				2B5F6EA898D63FC031DF8C65A16309C0 /* WGLSegmentHorizontalScrollView.h in Headers */,
+				2EF379214C98C3EAF00603089C048F8E /* WGLSegmentMainTableView.h in Headers */,
+				FC338AAA9F302CF8E937C5A7FE109390 /* WGLSegmentTabBar.h in Headers */,
+				E42C5780BCABA5F848D1594E1F664F19 /* WGLSegmentView.h in Headers */,
+				E2F1D2F52AA9F21F7A7BA2BDA423B008 /* WGLSubSegmentBaseViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E46597A146D6BB7C559EEA6EAF82A80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E5B293E1437B496202CA0E166A2E32 /* WGLDownloader.h in Headers */,
+				711AFB903D7E98E2BF9F51CBB7FC2D82 /* WGLDownloadProvider.h in Headers */,
+				2C3302C10E1888F8F6FD9060C528E429 /* WGLDownloadTask.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		683CFF24AEE18679601794CDE20FC5AF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2A4723B71D3035203A33C5B6E81AF59F /* Pods-WGLKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1904BC61A11227932B2E32CD551E205 /* Build configuration list for PBXNativeTarget "Pods-WGLKitDemo" */;
+			buildPhases = (
+				683CFF24AEE18679601794CDE20FC5AF /* Headers */,
+				4A2F5E107400E046E79EB5435BBAD617 /* Sources */,
+				751128200A3039E70B6E2266A0F989A8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E0F79F87A4B387F8D797A741D239CD0 /* PBXTargetDependency */,
+				FE34DC9AB76DC771339954524DBF998A /* PBXTargetDependency */,
+			);
+			name = "Pods-WGLKitDemo";
+			productName = "Pods-WGLKitDemo";
+			productReference = E3EFE4FDB387FDEBE31AF4F84909E115 /* libPods-WGLKitDemo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		367B71C06ECCD1644FA39B24E0124D32 /* WGLSegmentView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB3387B45DF897ADF02354407E8DDC41 /* Build configuration list for PBXNativeTarget "WGLSegmentView" */;
+			buildPhases = (
+				09267D2B80C9C989B92267B3876FB60F /* Headers */,
+				8A27920629075C595154A5A56E13906B /* Sources */,
+				F4A77F73B6AE4C0850240A6143E633C3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WGLSegmentView;
+			productName = WGLSegmentView;
+			productReference = 1E4A34BF149DF40BFE9940A1E1F7DCEA /* libWGLSegmentView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		38909B2064FE4A47BBDF46EB2D6FFA01 /* WGLDownloadProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB19F0F512B6C0968927A01022647DFF /* Build configuration list for PBXNativeTarget "WGLDownloadProvider" */;
+			buildPhases = (
+				3E46597A146D6BB7C559EEA6EAF82A80 /* Headers */,
+				3ADA6451AD021E44F744A8B9EE592E3A /* Sources */,
+				42BE57F0E17E1635290DA7708AF47CF2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WGLDownloadProvider;
+			productName = WGLDownloadProvider;
+			productReference = 7DC6DCBD70B5D7BECA05D16576A41139 /* libWGLDownloadProvider.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = BCE74E672F972464D62753A1FA7F671B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A4723B71D3035203A33C5B6E81AF59F /* Pods-WGLKitDemo */,
+				38909B2064FE4A47BBDF46EB2D6FFA01 /* WGLDownloadProvider */,
+				367B71C06ECCD1644FA39B24E0124D32 /* WGLSegmentView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3ADA6451AD021E44F744A8B9EE592E3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21890BDCA5D74A704BF32345A1C2AF62 /* WGLDownloader.m in Sources */,
+				24B86A375A76B376EE3E706AB198B0EA /* WGLDownloadProvider-dummy.m in Sources */,
+				0585CCFB097EBC52275CF839BB5D559B /* WGLDownloadProvider-Info.plist in Sources */,
+				7269D8902FA9EA649CC60D23546DC5D5 /* WGLDownloadProvider.m in Sources */,
+				C85CCE7B18701611C6DA1718DD737FE7 /* WGLDownloadTask.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A2F5E107400E046E79EB5435BBAD617 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F999C7E9D162EC8C6C6B553C1605EB97 /* Pods-WGLKitDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A27920629075C595154A5A56E13906B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				802FECE55C4E9D89B029239C6F38EE24 /* WGLCenterSegmentView.m in Sources */,
+				E65A8CCD8CB1A1D1F7BA835C3529FB55 /* WGLSegmentHorizontalScrollView.m in Sources */,
+				7AC821338BA13D8C5817C669B7CE9466 /* WGLSegmentMainTableView.m in Sources */,
+				1A86E4A3DBA3E2A9C483C8662A1860D3 /* WGLSegmentTabBar.m in Sources */,
+				CF896EC618186CB2F711A75A82E65F4F /* WGLSegmentView-dummy.m in Sources */,
+				8D079C3AE88BE8D5F6F35083C04C8847 /* WGLSegmentView-Info.plist in Sources */,
+				BA568E730D9B196EF3D38BA862237C78 /* WGLSegmentView.m in Sources */,
+				8CE510BEA50C8DA70EAE0BF83BD8F4F9 /* WGLSubSegmentBaseViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E0F79F87A4B387F8D797A741D239CD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WGLDownloadProvider;
+			target = 38909B2064FE4A47BBDF46EB2D6FFA01 /* WGLDownloadProvider */;
+			targetProxy = 628D096A9233F145E15881BB3743495A /* PBXContainerItemProxy */;
+		};
+		FE34DC9AB76DC771339954524DBF998A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WGLSegmentView;
+			target = 367B71C06ECCD1644FA39B24E0124D32 /* WGLSegmentView */;
+			targetProxy = B13392D20F7E58599722116DC5D781AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5B5E9B5CAF33D7CFBFC6659B9AD42101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9178933EF9008A45D39300B9811C2FD4 /* WGLDownloadProvider.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/WGLDownloadProvider/WGLDownloadProvider-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = WGLDownloadProvider;
+				PRODUCT_NAME = WGLDownloadProvider;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66168043B6552B49E041ED0082977F40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B415D64042FEE84918808DD4E78A179 /* WGLSegmentView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/WGLSegmentView/WGLSegmentView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = WGLSegmentView;
+				PRODUCT_NAME = WGLSegmentView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85B95B1234E227C814CCC2C7902D0916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A73625DEBD810B78234FA1958C191C8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B7B0BD08EBF17E94D0AFE6898FDF68B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3838E0356CFEA556F728BD08BF30DDD /* Pods-WGLKitDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE817FA6B2C2CA6AB82E4D4D27DB2750 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E51BE21B55AE8A95EF7ACFABE00DAC9D /* Pods-WGLKitDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAD97734C6DC140762AE4D1CA31D7F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9178933EF9008A45D39300B9811C2FD4 /* WGLDownloadProvider.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/WGLDownloadProvider/WGLDownloadProvider-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = WGLDownloadProvider;
+				PRODUCT_NAME = WGLDownloadProvider;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F02829EA5268EA471C7138CFE1F00388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B415D64042FEE84918808DD4E78A179 /* WGLSegmentView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/WGLSegmentView/WGLSegmentView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = WGLSegmentView;
+				PRODUCT_NAME = WGLSegmentView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73625DEBD810B78234FA1958C191C8C /* Debug */,
+				85B95B1234E227C814CCC2C7902D0916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB19F0F512B6C0968927A01022647DFF /* Build configuration list for PBXNativeTarget "WGLDownloadProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B5E9B5CAF33D7CFBFC6659B9AD42101 /* Debug */,
+				EAD97734C6DC140762AE4D1CA31D7F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1904BC61A11227932B2E32CD551E205 /* Build configuration list for PBXNativeTarget "Pods-WGLKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0BD08EBF17E94D0AFE6898FDF68B9 /* Debug */,
+				DE817FA6B2C2CA6AB82E4D4D27DB2750 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB3387B45DF897ADF02354407E8DDC41 /* Build configuration list for PBXNativeTarget "WGLSegmentView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F02829EA5268EA471C7138CFE1F00388 /* Debug */,
+				66168043B6552B49E041ED0082977F40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
