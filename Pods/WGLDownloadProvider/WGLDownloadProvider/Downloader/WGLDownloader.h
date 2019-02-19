@@ -7,25 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WGLUtil.h"
 @class WGLDownloaderInfo;
 @protocol WGLDownloaderDataSource;
 @protocol WGLDownloaderDelegate;
-
-typedef NS_ENUM(NSInteger, WGLDownloadErrorType) {
-    WGLDownloadErrorTypeHTTPError,              //http网络错误
-    WGLDownloadErrorTypeInvalidURL,             //非法URL
-    WGLDownloadErrorTypeInvalidDirectory,       //非法下载目录
-    WGLDownloadErrorTypeInvalidRequestRange,    //非法下载请求范围
-    WGLDownloadErrorTypeNotEnoughFreeSpace,     //下载空间不足
-};
-
-typedef NS_ENUM(NSInteger, WGLDownloadState) {
-    WGLDownloadStateReady = 0,
-    WGLDownloadStateDownloading,
-    WGLDownloadStateFinish,
-    WGLDownloadStateCancelled,
-    WGLDownloadStateFailed,
-};
 
 @interface WGLDownloader : NSObject
 

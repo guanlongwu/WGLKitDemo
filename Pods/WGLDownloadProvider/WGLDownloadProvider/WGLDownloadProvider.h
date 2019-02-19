@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WGLUtil.h"
 @protocol WGLDownloadProviderDataSource;
+@protocol WGLDownloadProviderDelegate;
 
 typedef NS_ENUM(NSInteger, WGLDownloadExeOrder) {
     // 以队列的方式，按照先进先出的顺序下载。这是默认的下载顺序
@@ -19,6 +21,7 @@ typedef NS_ENUM(NSInteger, WGLDownloadExeOrder) {
 @interface WGLDownloadProvider : NSObject
 
 @property (nonatomic, weak) id <WGLDownloadProviderDataSource> dataSource;
+@property (nonatomic, weak) id <WGLDownloadProviderDelegate> delegate;
 
 /**
  最大支持下载数
@@ -48,5 +51,22 @@ typedef NS_ENUM(NSInteger, WGLDownloadExeOrder) {
 
 //是否已缓存
 - (BOOL)downloadProvider:(WGLDownloadProvider *)dlProvider existCache:(NSString *)urlString;
+
+@end
+
+
+@protocol WGLDownloadProviderDelegate <NSObject>
+
+//下载开始
+- (void)downloadDidStart:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString;
+
+//下载中
+- (void)downloader:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString didReceiveLength:(uint64_t)receiveLength totalLength:(uint64_t)totalLength;
+
+//下载成功
+- (void)downloadDidFinish:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString filePath:(NSString *)filePath;
+
+//下载失败
+- (void)downloadDidFail:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString errorType:(WGLDownloadErrorType)errorType;
 
 @end

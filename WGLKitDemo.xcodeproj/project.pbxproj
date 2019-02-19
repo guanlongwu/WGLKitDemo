@@ -10,6 +10,7 @@
 		0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941970822166D970073AFFE /* SubSegmentViewController.m */; };
 		0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941970C22169B0D0073AFFE /* SegmentVC.m */; };
 		0941971F2216C2590073AFFE /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941971E2216C2590073AFFE /* DownloadVC.m */; };
+		09419792221A5CE50073AFFE /* DownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09419791221A5CE50073AFFE /* DownloadCell.m */; };
 		09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C3114F219D6C9A00C8701E /* AppDelegate.m */; };
 		09C31153219D6C9B00C8701E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31152219D6C9B00C8701E /* ViewController.m */; };
 		09C31156219D6C9B00C8701E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C31154219D6C9B00C8701E /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 		0941970E22169B6F0073AFFE /* WGLKitDemo-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WGLKitDemo-prefix.pch"; sourceTree = "<group>"; };
 		0941971D2216C2590073AFFE /* DownloadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadVC.h; sourceTree = "<group>"; };
 		0941971E2216C2590073AFFE /* DownloadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadVC.m; sourceTree = "<group>"; };
+		09419790221A5CE50073AFFE /* DownloadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadCell.h; sourceTree = "<group>"; };
+		09419791221A5CE50073AFFE /* DownloadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadCell.m; sourceTree = "<group>"; };
 		09C3114B219D6C9A00C8701E /* WGLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WGLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C3114E219D6C9A00C8701E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09C3114F219D6C9A00C8701E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 			children = (
 				0941971D2216C2590073AFFE /* DownloadVC.h */,
 				0941971E2216C2590073AFFE /* DownloadVC.m */,
+				09419790221A5CE50073AFFE /* DownloadCell.h */,
+				09419791221A5CE50073AFFE /* DownloadCell.m */,
 			);
 			path = DownloadProvider;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */,
+				09419792221A5CE50073AFFE /* DownloadCell.m in Sources */,
 				09C31153219D6C9B00C8701E /* ViewController.m in Sources */,
 				0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */,
 				09C3115E219D6C9B00C8701E /* main.m in Sources */,

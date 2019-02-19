@@ -1,20 +1,24 @@
 PODS:
-  - WGLDownloadProvider (0.0.5)
+  - WGLCircleProgressView (0.0.3)
+  - WGLDownloadProvider (0.0.7)
   - WGLSegmentView (0.4.0)
 
 DEPENDENCIES:
-  - WGLDownloadProvider (= 0.0.5)
+  - WGLCircleProgressView (= 0.0.3)
+  - WGLDownloadProvider (= 0.0.7)
   - WGLSegmentView (= 0.4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - WGLCircleProgressView
     - WGLDownloadProvider
     - WGLSegmentView
 
 SPEC CHECKSUMS:
-  WGLDownloadProvider: bef6ee88ad94e60f4188385b641d96ad24f7e53e
+  WGLCircleProgressView: fca0fcf8f24f9b119049aaf91ecd339984a4c20e
+  WGLDownloadProvider: d70b08dd99d28382bf387ec4161f066f72d941a4
   WGLSegmentView: 96bc39e1fed5bb5fbe76d36bc9ddd63123f7e82b
 
-PODFILE CHECKSUM: afd5c0b8128ef962ed890f2449e6f20831aa1169
+PODFILE CHECKSUM: b7b849459dd3e77202be1537333d1400aa42e8fc
 
 COCOAPODS: 1.6.0.beta.1

@@ -26,7 +26,7 @@
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(c_segment) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
     btn2.backgroundColor = [UIColor grayColor];
     [btn2 setTitle:@"下载控件" forState:UIControlStateNormal];
     [btn2 setTintColor:[UIColor whiteColor]];

@@ -145,7 +145,7 @@
     return nil;
 }
 
-#pragma mark - WGLDownloaderDelegate
+#pragma mark - WGLDownloaderDelegate / datasource
 
 - (NSString *)downloader:(WGLDownloader *)downloader getDirectory:(NSString *)urlString {
     return nil;
@@ -160,6 +160,12 @@
         task.state = WGLDownloadTaskStateDownloading;
         task.downloadFilePath = downloader.downloadFilePath;
         task.downloadFileSize = downloader.downloadFileSize;
+        
+        if ([self.delegate respondsToSelector:@selector(downloadDidStart:)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate downloadDidStart:self urlString:downloader.urlString];
+            });
+        }
     });
 }
 
@@ -172,6 +178,12 @@
         task.state = WGLDownloadTaskStateDownloading;
         task.receiveLength = receiveLength;
         task.totalLength = totalLength;
+        
+        if ([self.delegate respondsToSelector:@selector(downloader:didReceiveLength:totalLength:)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate downloader:self urlString:downloader.urlString didReceiveLength:receiveLength totalLength:totalLength];
+            });
+        }
     });
 }
 
@@ -186,6 +198,12 @@
         task.downloadFileSize = downloader.downloadFileSize;
         
         [self startDownload];
+        
+        if ([self.delegate respondsToSelector:@selector(downloadDidFinish:filePath:)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate downloadDidFinish:self urlString:downloader.urlString filePath:filePath];
+            });
+        }
     });
 }
 
@@ -199,6 +217,12 @@
         task.downloadFileSize = downloader.downloadFileSize;
         
         [self startDownload];
+        
+        if ([self.delegate respondsToSelector:@selector(downloadDidFail:errorType:)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate downloadDidFail:self urlString:downloader.urlString errorType:errorType];
+            });
+        }
     });
 }
 
