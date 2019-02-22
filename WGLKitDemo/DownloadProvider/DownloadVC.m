@@ -16,6 +16,10 @@
 
 @implementation DownloadVC
 
+- (void)dealloc {
+    NSLog(@"");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
@@ -66,20 +70,24 @@
         _infos =
         @[
           @{
-              @"name" : @"SegmentView文件",
-              @"url" : @"https://github.com/guanlongwu/WGLSegmentView",
+              @"name" : @"火影忍者",
+              @"url" : @"http://img.netbian.com/file/20120330/e15fca8315ae95771d1fd044ac69c467.jpg",
               },
           @{
-              @"name" : @"DownloadProvider文件",
-              @"url" : @"https://github.com/guanlongwu/WGLDownloadProvider",
+              @"name" : @"鸣人",
+              @"url" : @"http://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/eac4b74543a98226a0e691358b82b9014a90ebf9.jpg",
               },
           @{
-              @"name" : @"CircleProgressView文件",
-              @"url" : @"https://github.com/guanlongwu/WGLCircleProgressView",
+              @"name" : @"佐佐",
+              @"url" : @"http://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/4e4a20a4462309f71b4d36a8710e0cf3d7cad66e.jpg",
               },
           @{
-              @"name" : @"DesignPattern文件",
-              @"url" : @"https://github.com/guanlongwu/Design-Pattern-For-iOS",
+              @"name" : @"广东雨神",
+              @"url" : @"https://mms.msstatic.com/music/TjNwW2n5KJ.mp3",
+              },
+          @{
+              @"name" : @"失落沙洲",
+              @"url" : @"https://mms.msstatic.com/music/WyhNR2QsFX.mp3",
               }
           ];
     }

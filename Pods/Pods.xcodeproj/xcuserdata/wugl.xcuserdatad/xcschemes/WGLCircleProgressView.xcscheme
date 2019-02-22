@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3F003ECFDE0E3C6B6B8FD9389C8D33F"
+               BlueprintIdentifier = "CC58E431D5E4EE283E8B58B723DA39D1"
                BlueprintName = "WGLCircleProgressView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libWGLCircleProgressView.a">

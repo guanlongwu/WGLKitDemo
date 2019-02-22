@@ -23,6 +23,8 @@ typedef NS_ENUM(NSInteger, WGLDownloadExeOrder) {
 @property (nonatomic, weak) id <WGLDownloadProviderDataSource> dataSource;
 @property (nonatomic, weak) id <WGLDownloadProviderDelegate> delegate;
 
++ (instancetype)sharedProvider;
+
 /**
  最大支持下载数
  默认-1，表示不进行限制
@@ -51,6 +53,12 @@ typedef NS_ENUM(NSInteger, WGLDownloadExeOrder) {
 
 //是否已缓存
 - (BOOL)downloadProvider:(WGLDownloadProvider *)dlProvider existCache:(NSString *)urlString;
+
+//文件下载的存放目录
+- (NSString *)downloadProvider:(WGLDownloadProvider *)dlProvider getDirectory:(NSString *)urlString;
+
+//文件缓存的唯一key
+- (NSString *)downloadProvider:(WGLDownloadProvider *)dlProvider cacheFileName:(NSString *)urlString;
 
 @end
 
