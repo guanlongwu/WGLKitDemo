@@ -176,7 +176,7 @@
                 errorMsg = @"磁盘空间不足";
                 break;
             case WGLDownloadErrorTypeCacheInDiskError:
-                errorMsg = @"下载成功，缓存磁盘失败";
+                errorMsg = @"下载成功缓存失败";
                 break;
             default:
                 break;
