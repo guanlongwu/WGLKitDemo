@@ -1,0 +1,1 @@
+../../../WGLCategories/WGLCategories/Main/NSString/NSString+Trim.h

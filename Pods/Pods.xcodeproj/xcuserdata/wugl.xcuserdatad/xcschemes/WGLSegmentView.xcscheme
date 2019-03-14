@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "292DCE06D67909AFE15ED5F8F24AA58C"
+               BlueprintIdentifier = "E4C01A3D4C0744F6E97A2F6DDF968E0A"
                BlueprintName = "WGLSegmentView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libWGLSegmentView.a">

@@ -30,9 +30,39 @@
         [self.contentView addSubview:self.progressView];
         [self.contentView addSubview:self.progressLabel];
         [self.contentView addSubview:self.startBtn];
+        
+        NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *dir = paths[0];
+        NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:dir];
+        NSString *path = nil;
+        while ((path = [fileEnumerator nextObject]) != nil) {
+            NSLog(@"\n == %@ \n", path);
+        }
+        NSLog(@"");
     }
     return self;
 }
+
+
+//获取磁盘缓存中的文件数量。
+- (NSUInteger)getDiskCount {
+    __block NSUInteger count = 0;
+    NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:[self getDefaultCacheDirectory]];
+    count = fileEnumerator.allObjects.count;
+    return count;
+}
+
+- (NSString *)getDefaultCacheDirectory {
+    NSString *dir = [self getCacheDirectoryByAppendingPath:[NSString stringWithFormat:@"%@", @"defaultNameForWGLFileCache"]];
+    return dir;
+}
+
+- (NSString *)getCacheDirectoryByAppendingPath:(NSString *)subPath {
+    NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dir = [paths[0] stringByAppendingPathComponent:subPath];
+    return dir;
+}
+
 
 - (WGLDownloadProvider *)downloadProvider {
     if (!_downloadProvider) {

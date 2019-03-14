@@ -11,6 +11,9 @@
 		0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941970C22169B0D0073AFFE /* SegmentVC.m */; };
 		0941971F2216C2590073AFFE /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941971E2216C2590073AFFE /* DownloadVC.m */; };
 		09419792221A5CE50073AFFE /* DownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09419791221A5CE50073AFFE /* DownloadCell.m */; };
+		0941FB8F223758D50071B0E8 /* CategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FB8E223758D50071B0E8 /* CategoryVC.m */; };
+		0941FB9122375CEF0071B0E8 /* originImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941FB9022375CEF0071B0E8 /* originImage.jpg */; };
+		0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FC8E223A80140071B0E8 /* UIImageVC.m */; };
 		09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C3114F219D6C9A00C8701E /* AppDelegate.m */; };
 		09C31153219D6C9B00C8701E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31152219D6C9B00C8701E /* ViewController.m */; };
 		09C31156219D6C9B00C8701E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C31154219D6C9B00C8701E /* Main.storyboard */; };
@@ -49,6 +52,11 @@
 		0941971E2216C2590073AFFE /* DownloadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadVC.m; sourceTree = "<group>"; };
 		09419790221A5CE50073AFFE /* DownloadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadCell.h; sourceTree = "<group>"; };
 		09419791221A5CE50073AFFE /* DownloadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadCell.m; sourceTree = "<group>"; };
+		0941FB8D223758D50071B0E8 /* CategoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryVC.h; sourceTree = "<group>"; };
+		0941FB8E223758D50071B0E8 /* CategoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryVC.m; sourceTree = "<group>"; };
+		0941FB9022375CEF0071B0E8 /* originImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = originImage.jpg; sourceTree = "<group>"; };
+		0941FC8D223A80140071B0E8 /* UIImageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIImageVC.h; sourceTree = "<group>"; };
+		0941FC8E223A80140071B0E8 /* UIImageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIImageVC.m; sourceTree = "<group>"; };
 		09C3114B219D6C9A00C8701E /* WGLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WGLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C3114E219D6C9A00C8701E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09C3114F219D6C9A00C8701E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +126,18 @@
 			path = SegmentView;
 			sourceTree = "<group>";
 		};
+		0941FB8C223758B20071B0E8 /* CategoryDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0941FB8D223758D50071B0E8 /* CategoryVC.h */,
+				0941FB8E223758D50071B0E8 /* CategoryVC.m */,
+				0941FC8D223A80140071B0E8 /* UIImageVC.h */,
+				0941FC8E223A80140071B0E8 /* UIImageVC.m */,
+				0941FB9022375CEF0071B0E8 /* originImage.jpg */,
+			);
+			path = CategoryDemo;
+			sourceTree = "<group>";
+		};
 		09C31142219D6C9A00C8701E = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +169,7 @@
 				09C31152219D6C9B00C8701E /* ViewController.m */,
 				0941970722166D970073AFFE /* SegmentView */,
 				094196FB221552520073AFFE /* DownloadProvider */,
+				0941FB8C223758B20071B0E8 /* CategoryDemo */,
 				09C31154219D6C9B00C8701E /* Main.storyboard */,
 				09C31157219D6C9B00C8701E /* Assets.xcassets */,
 				09C31159219D6C9B00C8701E /* LaunchScreen.storyboard */,
@@ -302,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09C3115B219D6C9B00C8701E /* LaunchScreen.storyboard in Resources */,
+				0941FB9122375CEF0071B0E8 /* originImage.jpg in Resources */,
 				09C31158219D6C9B00C8701E /* Assets.xcassets in Resources */,
 				09C31156219D6C9B00C8701E /* Main.storyboard in Resources */,
 			);
@@ -349,8 +371,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0941FB8F223758D50071B0E8 /* CategoryVC.m in Sources */,
 				0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */,
 				09419792221A5CE50073AFFE /* DownloadCell.m in Sources */,
+				0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */,
 				09C31153219D6C9B00C8701E /* ViewController.m in Sources */,
 				0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */,
 				09C3115E219D6C9B00C8701E /* main.m in Sources */,

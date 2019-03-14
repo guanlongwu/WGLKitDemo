@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E73E0BBBC63AD61B00C501AE07DF87B5"
+               BlueprintIdentifier = "1308AA4D6C7952CA4209FA791BDAAD0C"
                BlueprintName = "WGLDownloadProvider"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libWGLDownloadProvider.a">

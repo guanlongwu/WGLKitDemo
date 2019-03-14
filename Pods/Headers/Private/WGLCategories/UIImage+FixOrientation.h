@@ -1,0 +1,1 @@
+../../../WGLCategories/WGLCategories/Main/UIImage/UIImage+FixOrientation.h
