@@ -19,11 +19,26 @@
     // 以字典形式将参数返回
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
+    // 查找参数
+    NSRange range = [self rangeOfString:@"?"];
+    if (range.location == NSNotFound) {
+        return params;
+    }
+    if(self.length < range.location + 1){
+        return params;
+    }
+    
+    // 截取参数
+    NSString *parametersString = [self substringFromIndex:range.location + 1];
+    if (parametersString.length == 0) {
+        return params;
+    }
+    
     // 判断参数是单个参数还是多个参数
-    if ([self containsString:@"&"]) {
+    if ([parametersString containsString:@"&"]) {
         
         // 多个参数，分割参数
-        NSArray *urlComponents = [self componentsSeparatedByString:@"&"];
+        NSArray *urlComponents = [parametersString componentsSeparatedByString:@"&"];
         
         for (NSString *keyValuePair in urlComponents) {
             // 生成Key/Value

@@ -11,17 +11,13 @@
 @interface NSString (Base64)
 
 /**
- *  将普通字符串转换成base64字符串
- *
- *  @return base64字符串
+ 将普通字符串转换成base64字符串
  */
-- (NSString *)toBase64String;
+- (NSString *)base64EncodedString;
 
 /**
- *  将base64字符串转换成普通字符串
- *
- *  @return 普通字符串
+ 将base64字符串转换成普通字符串
  */
-+ (NSString *)textFromBase64String:(NSString *)base64String;
++ (NSString *)stringWithBase64EncodedString:(NSString *)base64EncodedString;
 
 @end

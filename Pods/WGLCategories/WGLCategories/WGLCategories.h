@@ -34,6 +34,7 @@
 #import "NSData+Hash.h"
 #import "NSData+Encrypt.h"
 #import "NSData+Compress.h"
+#import "NSData+Encode.h"
 
 #import "UIDevice+DeviceInfo.h"
 #import "UIDevice+NetworkInfo.h"

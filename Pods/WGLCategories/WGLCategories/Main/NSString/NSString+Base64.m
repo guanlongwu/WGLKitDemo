@@ -7,36 +7,19 @@
 //
 
 #import "NSString+Base64.h"
+#import "NSData+Encode.h"
 
 @implementation NSString (Base64)
 
-/**
- *  将普通字符串转换成base64字符串
- *
- *  @return base64字符串
- */
-- (NSString *)toBase64String {
-    
-    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *base64String = [data base64EncodedStringWithOptions:0];
-    
-    return base64String;
+- (NSString *)base64EncodedString {
+    NSString *result = [[self dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString];
+    return result;
 }
 
-
-/**
- *  将base64字符串转换成普通字符串
- *
- *  @return 普通字符串
- */
-+ (NSString *)textFromBase64String:(NSString *)base64String {
-    if (!base64String) {
-        return nil;
-    }
-    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
-    NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    return text;
++ (NSString *)stringWithBase64EncodedString:(NSString *)base64EncodedString {
+    NSData *data = [NSData dataWithBase64EncodedString:base64EncodedString];
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return result;
 }
 
 @end

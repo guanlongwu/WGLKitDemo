@@ -11,10 +11,12 @@
 
 #import "UIImageVC.h"
 #import "NSStringVC.h"
+#import "NSTimerVC.h"
+#import "NSDataVC.h"
 
 @interface CategoryVC ()
 @property (nonatomic, strong) NSArray <NSString *> *titles;
-@property (nonatomic, strong) NSArray <UIViewController *> *controlViews;
+@property (nonatomic, strong) NSArray <NSString *> *controlViews;
 @end
 
 @implementation CategoryVC
@@ -47,7 +49,9 @@
 
 - (void)c_category:(UIButton *)sender {
     NSInteger idx = sender.tag;
-    UIViewController *vc = [self.controlViews safeObjectAtIndex:idx];
+    NSString *clsName = [self.controlViews safeObjectAtIndex:idx];
+    Class cls = NSClassFromString(clsName);
+    UIViewController *vc = [[cls alloc] init];
     if (vc) {
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -57,21 +61,23 @@
     if (!_titles) {
         _titles =
         [@[
-           @"UIImage", @"NSString", @"UIScrollView", @"NSTimer",
+           @"UIImage", @"NSString", @"NSTimer", @"NSData",
            @"NSArray", @"NSDictionary", @"UIColor", @"UIView",
-           @"NSBundle", @"NSData", @"NSDate", @"NSFileManager",
+           @"NSBundle", @"NSDate", @"NSFileManager", @"UIScrollView",
            @"UIControl", @"UIDevice", @"UIGestureRecognizer", @"UIScreen",
            ] mutableCopy];
     }
     return _titles;
 }
 
-- (NSArray <UIViewController *> *)controlViews {
+- (NSArray <NSString *> *)controlViews {
     if (!_controlViews) {
         _controlViews =
         [@[
-           [UIImageVC new],
-           [NSStringVC new],
+           NSStringFromClass([UIImageVC class]),
+           NSStringFromClass([NSStringVC class]),
+           NSStringFromClass([NSTimerVC class]),
+           NSStringFromClass([NSDataVC class]),
            ] mutableCopy];
     }
     return _controlViews;

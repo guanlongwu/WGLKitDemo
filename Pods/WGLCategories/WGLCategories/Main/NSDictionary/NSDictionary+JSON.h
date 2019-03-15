@@ -10,7 +10,15 @@
 
 @interface NSDictionary (JSON)
 
-// 字典转json字符串方法
+/**
+ 字典转json字符串方法
+ */
 - (NSString *)toJson;
+
+/**
+ 字典转json字符串方法
+ 会将空格和换行符去掉（" ","\n"）
+ */
+- (NSString *)toJsonByTrim;
 
 @end

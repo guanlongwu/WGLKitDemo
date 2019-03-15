@@ -8,87 +8,86 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSString (Hash)
 
 /**
- Returns a lowercase NSString for md2 hash.
+ 返回一个md2哈希的小写string
  */
 - (nullable NSString *)md2String;
 
 /**
- Returns a lowercase NSString for md4 hash.
+ 返回一个md4哈希的小写string
  */
 - (nullable NSString *)md4String;
 
 /**
- Returns a lowercase NSString for md5 hash.
+ 返回一个md5哈希的小写string
  */
 - (nullable NSString *)md5String;
 
 /**
- Returns a lowercase NSString for sha1 hash.
+ 返回一个sha1哈希的小写string
  */
 - (nullable NSString *)sha1String;
 
 /**
- Returns a lowercase NSString for sha224 hash.
+ 返回一个sha224哈希的小写string
  */
 - (nullable NSString *)sha224String;
 
 /**
- Returns a lowercase NSString for sha256 hash.
+ 返回一个sha256哈希的小写string
  */
 - (nullable NSString *)sha256String;
 
 /**
- Returns a lowercase NSString for sha384 hash.
+ 返回一个sha384哈希的小写string
  */
 - (nullable NSString *)sha384String;
 
 /**
- Returns a lowercase NSString for sha512 hash.
+ 返回一个sha512哈希的小写string
  */
 - (nullable NSString *)sha512String;
 
 /**
- Returns a lowercase NSString for hmac using algorithm md5 with key.
- @param key The hmac key.
- */
+ 返回一个带密钥key的md5算法的hmac小写string
+*/
 - (nullable NSString *)hmacMD5StringWithKey:(NSString *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha1 with key.
- @param key The hmac key.
+ 返回一个带密钥key的sha1算法的hmac小写string
  */
 - (nullable NSString *)hmacSHA1StringWithKey:(NSString *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha224 with key.
- @param key The hmac key.
+ 返回一个带密钥key的sha224算法的hmac小写string
  */
 - (nullable NSString *)hmacSHA224StringWithKey:(NSString *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha256 with key.
- @param key The hmac key.
+ 返回一个带密钥key的sha256算法的hmac小写string
  */
 - (nullable NSString *)hmacSHA256StringWithKey:(NSString *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha384 with key.
- @param key The hmac key.
+ 返回一个带密钥key的sha384算法的hmac小写string
  */
 - (nullable NSString *)hmacSHA384StringWithKey:(NSString *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha512 with key.
- @param key The hmac key.
+ 返回一个带密钥key的sha512算法的hmac小写string
  */
 - (nullable NSString *)hmacSHA512StringWithKey:(NSString *)key;
 
 /**
- Returns a lowercase NSString for crc32 hash.
+ 返回一个crc32哈希的小写string.
  */
 - (nullable NSString *)crc32String;
 
 @end
+
+NS_ASSUME_NONNULL_END
+

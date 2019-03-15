@@ -11,164 +11,152 @@
 @interface NSData (Hash)
 
 /**
- Returns a lowercase NSString for md2 hash.
+ 返回一个md2哈希的小写字符串.
  */
 - (NSString *)md2String;
 
 /**
- Returns an NSData for md2 hash.
+ 返回一个md2哈希的NSData.
  */
 - (NSData *)md2Data;
 
 /**
- Returns a lowercase NSString for md4 hash.
+ 返回一个md4哈希的小写字符串.
  */
 - (NSString *)md4String;
 
 /**
- Returns an NSData for md4 hash.
+ 返回一个md4哈希的NSData.
  */
 - (NSData *)md4Data;
 
 /**
- Returns a lowercase NSString for md5 hash.
+ 返回一个md5哈希的小写字符串.
  */
 - (NSString *)md5String;
 
 /**
- Returns an NSData for md5 hash.
+ 返回一个md5哈希的NSData.
  */
 - (NSData *)md5Data;
 
 /**
- Returns a lowercase NSString for sha1 hash.
+ 返回一个sha1哈希的小写字符串.
  */
 - (NSString *)sha1String;
 
 /**
- Returns an NSData for sha1 hash.
+ 返回一个sha1哈希的NSData.
  */
 - (NSData *)sha1Data;
 
 /**
- Returns a lowercase NSString for sha224 hash.
+ 返回一个sha224哈希的小写字符串.
  */
 - (NSString *)sha224String;
 
 /**
- Returns an NSData for sha224 hash.
+ 返回一个sha224哈希的NSData.
  */
 - (NSData *)sha224Data;
 
 /**
- Returns a lowercase NSString for sha256 hash.
+ 返回一个sha256哈希的小写字符串.
  */
 - (NSString *)sha256String;
 
 /**
- Returns an NSData for sha256 hash.
+ 返回一个sha256哈希的NSData.
  */
 - (NSData *)sha256Data;
 
 /**
- Returns a lowercase NSString for sha384 hash.
+ 返回一个sha384哈希的小写字符串.
  */
 - (NSString *)sha384String;
 
 /**
- Returns an NSData for sha384 hash.
+ 返回一个sha384哈希的NSData.
  */
 - (NSData *)sha384Data;
 
 /**
- Returns a lowercase NSString for sha512 hash.
+ 返回一个sha512哈希的小写字符串.
  */
 - (NSString *)sha512String;
 
 /**
- Returns an NSData for sha512 hash.
+ 返回一个sha512哈希的NSData.
  */
 - (NSData *)sha512Data;
 
 /**
- Returns a lowercase NSString for hmac using algorithm md5 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的md5哈希的小写字符串
  */
 - (NSString *)hmacMD5StringWithKey:(NSString *)key;
 
 /**
- Returns an NSData for hmac using algorithm md5 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的md5哈希的NSData
  */
 - (NSData *)hmacMD5DataWithKey:(NSData *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha1 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha1哈希的小写字符串
  */
 - (NSString *)hmacSHA1StringWithKey:(NSString *)key;
 
 /**
- Returns an NSData for hmac using algorithm sha1 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha1哈希的NSData
  */
 - (NSData *)hmacSHA1DataWithKey:(NSData *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha224 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha224哈希的小写字符串
  */
 - (NSString *)hmacSHA224StringWithKey:(NSString *)key;
 
 /**
- Returns an NSData for hmac using algorithm sha224 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha224哈希的NSData
  */
 - (NSData *)hmacSHA224DataWithKey:(NSData *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha256 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha256哈希的小写字符串
  */
 - (NSString *)hmacSHA256StringWithKey:(NSString *)key;
 
 /**
- Returns an NSData for hmac using algorithm sha256 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha256哈希的NSData
  */
 - (NSData *)hmacSHA256DataWithKey:(NSData *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha384 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha384哈希的小写字符串
  */
 - (NSString *)hmacSHA384StringWithKey:(NSString *)key;
 
 /**
- Returns an NSData for hmac using algorithm sha384 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha384哈希的NSData
  */
 - (NSData *)hmacSHA384DataWithKey:(NSData *)key;
 
 /**
- Returns a lowercase NSString for hmac using algorithm sha512 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha512哈希的小写字符串
  */
 - (NSString *)hmacSHA512StringWithKey:(NSString *)key;
 
 /**
- Returns an NSData for hmac using algorithm sha512 with key.
- @param key  The hmac key.
+ 返回一个使用带有密钥key的sha512哈希的NSData
  */
 - (NSData *)hmacSHA512DataWithKey:(NSData *)key;
 
 /**
- Returns a lowercase NSString for crc32 hash.
+ 返回一个crc32哈希的小写字符串.
  */
 - (NSString *)crc32String;
 
 /**
- Returns crc32 hash.
+ 返回crc32哈希。
  */
 - (uint32_t)crc32;
 
