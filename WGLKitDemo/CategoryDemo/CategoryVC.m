@@ -7,8 +7,10 @@
 //
 
 #import "CategoryVC.h"
-#import "UIImageVC.h"
 #import "NSArray+Safe.h"
+
+#import "UIImageVC.h"
+#import "NSStringVC.h"
 
 @interface CategoryVC ()
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -25,8 +27,8 @@
     CGFloat height = 50;
     for (int row = 0; row < 4; row++) {
         for (int column = 0; column < 4; column++) {
-            CGFloat originX = 10 + row * (width + 10);
-            CGFloat originY = 80 + column * (height + 30);
+            CGFloat originX = 10 + column * (width + 10);
+            CGFloat originY = 80 + row * (height + 30);
             
             UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, width, height)];
             btn.backgroundColor = [UIColor grayColor];
@@ -55,8 +57,8 @@
     if (!_titles) {
         _titles =
         [@[
-           @"UIImage", @"UIView", @"UIScrollView", @"NSTimer",
-           @"NSString", @"NSArray", @"NSDictionary", @"UIColor",
+           @"UIImage", @"NSString", @"UIScrollView", @"NSTimer",
+           @"NSArray", @"NSDictionary", @"UIColor", @"UIView",
            @"NSBundle", @"NSData", @"NSDate", @"NSFileManager",
            @"UIControl", @"UIDevice", @"UIGestureRecognizer", @"UIScreen",
            ] mutableCopy];
@@ -69,6 +71,7 @@
         _controlViews =
         [@[
            [UIImageVC new],
+           [NSStringVC new],
            ] mutableCopy];
     }
     return _controlViews;

@@ -21,7 +21,6 @@
 @property (nonatomic, strong) UIImage *image;
 
 @property (nonatomic, strong) NSArray <NSString *> *titles;
-
 @end
 
 @implementation UIImageVC
