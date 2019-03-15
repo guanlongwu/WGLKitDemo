@@ -7,11 +7,21 @@
 //
 
 #import "UIImageVC.h"
-#import "WGLCategories.h"
+#import "NSArray+Safe.h"
+
+#import "UIImage+Blur.h"
+#import "UIImage+Modify.h"
+#import "UIImage+Resize.h"
+#import "UIImage+FixOrientation.h"
+#import "UIImage+Transform.h"
+#import "UIImage+RoundCorner.h"
 
 @interface UIImageVC ()
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImage *image;
+
+@property (nonatomic, strong) NSArray <NSString *> *titles;
+
 @end
 
 @implementation UIImageVC
@@ -19,6 +29,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    CGFloat width = 80;
+    CGFloat height = 50;
+    for (int row = 0; row < 2; row++) {
+        for (int column = 0; column < 4; column++) {
+            CGFloat originX = 10 + column * (width + 10);
+            CGFloat originY = 400 + row * (height + 30);
+            
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, width, height)];
+            btn.backgroundColor = [UIColor grayColor];
+            [btn setTintColor:[UIColor whiteColor]];
+            btn.titleLabel.font = [UIFont systemFontOfSize:10];
+            [self.view addSubview:btn];
+            [btn addTarget:self action:@selector(c_image:) forControlEvents:UIControlEventTouchUpInside];
+            
+            NSInteger idx = 4 * row + column;
+            btn.tag = idx;
+            NSString *title = [self.titles safeObjectAtIndex:idx];
+            [btn setTitle:title ?: @"..." forState:UIControlStateNormal];
+        }
+    }
     
     self.image = [UIImage imageNamed:@"originImage.jpg"];
     
@@ -28,98 +59,75 @@
     self.imageView.image = self.image;
     [self.view addSubview:self.imageView];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(120, 320, 100, 50)];
-    btn.backgroundColor = [UIColor grayColor];
-    [btn setTitle:@"原图" forState:UIControlStateNormal];
-    [btn setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(c_origin) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(10, 400, 100, 50)];
-    btn1.backgroundColor = [UIColor grayColor];
-    [btn1 setTitle:@"裁剪" forState:UIControlStateNormal];
-    [btn1 setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn1];
-    [btn1 addTarget:self action:@selector(c_crop) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(120, 400, 100, 50)];
-    btn2.backgroundColor = [UIColor grayColor];
-    [btn2 setTitle:@"调整大小" forState:UIControlStateNormal];
-    [btn2 setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn2];
-    [btn2 addTarget:self action:@selector(c_resize) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(240, 400, 100, 50)];
-    btn3.backgroundColor = [UIColor grayColor];
-    [btn3 setTitle:@"AspectFit" forState:UIControlStateNormal];
-    [btn3 setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn3];
-    [btn3 addTarget:self action:@selector(c_aspectFit) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn4 = [[UIButton alloc] initWithFrame:CGRectMake(10, 500, 100, 50)];
-    btn4.backgroundColor = [UIColor grayColor];
-    [btn4 setTitle:@"AspectFill" forState:UIControlStateNormal];
-    [btn4 setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn4];
-    [btn4 addTarget:self action:@selector(c_aspectFill) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn5 = [[UIButton alloc] initWithFrame:CGRectMake(120, 500, 100, 50)];
-    btn5.backgroundColor = [UIColor grayColor];
-    [btn5 setTitle:@"Transform" forState:UIControlStateNormal];
-    [btn5 setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn5];
-    [btn5 addTarget:self action:@selector(c_transform) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn6 = [[UIButton alloc] initWithFrame:CGRectMake(240, 500, 100, 50)];
-    btn6.backgroundColor = [UIColor grayColor];
-    [btn6 setTitle:@"Transform2" forState:UIControlStateNormal];
-    [btn6 setTintColor:[UIColor whiteColor]];
-    [self.view addSubview:btn6];
-    [btn6 addTarget:self action:@selector(c_transform2) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
-- (void)c_origin {
-    self.imageView.image = self.image;
+- (NSArray <NSString *> *)titles {
+    if (!_titles) {
+        _titles =
+        [@[
+           @"Origin", @"Crop", @"Resize", @"AspectFit",
+           @"AspectFill", @"Transform", @"Transform2",
+           ] mutableCopy];
+    }
+    return _titles;
 }
 
-- (void)c_crop {
-    CGRect cropFrame = CGRectMake(-200, -300, CGImageGetWidth(self.image.CGImage), CGImageGetHeight(self.image.CGImage));
-    UIImage *cropImg = [self.image croppedImage:cropFrame];
-    self.imageView.image = cropImg;
-}
-
-- (void)c_resize {
-    CGSize cropSize = CGSizeMake(CGImageGetWidth(self.image.CGImage) / 3, CGImageGetHeight(self.image.CGImage));
-    UIImage *cropImg2 = [self.image resizedImage:cropSize interpolationQuality:0];
-    self.imageView.image = cropImg2;
-}
-
-- (void)c_aspectFit {
-    CGFloat imgW = CGImageGetWidth(self.image.CGImage);
-    CGFloat imgH = CGImageGetHeight(self.image.CGImage);
-    CGSize imgViewSize = self.imageView.frame.size;
-    CGSize cropSize = CGSizeMake(imgW, imgH);
-    UIImage *cropImg = [self.image imageByResizeToSize:cropSize contentMode:UIViewContentModeScaleAspectFit];
-    self.imageView.image = cropImg;
-}
-
-- (void)c_aspectFill {
-    CGSize cropSize = self.imageView.frame.size;
-    UIImage *cropImg = [self.image imageByResizeToSize:cropSize contentMode:UIViewContentModeScaleAspectFill];
-    self.imageView.image = cropImg;
-}
-
-- (void)c_transform {
-    CGFloat radius = DegreesToRadians(45);
-    UIImage *cropImg = [self.image imageByRotate:radius fitSize:YES];
-    self.imageView.image = cropImg;
-}
-
-- (void)c_transform2 {
-    CGFloat radius = DegreesToRadians(45);
-    UIImage *cropImg = [self.image imageByRotate:radius fitSize:NO];
-    self.imageView.image = cropImg;
+- (void)c_image:(UIButton *)sender {
+    NSInteger idx = sender.tag;
+    switch (idx) {
+        case 0: {
+            //原图
+            self.imageView.image = self.image;
+        }
+            break;
+        case 1: {
+            //裁剪
+            CGRect cropFrame = CGRectMake(-200, -300, CGImageGetWidth(self.image.CGImage), CGImageGetHeight(self.image.CGImage));
+            UIImage *cropImg = [self.image croppedImage:cropFrame];
+            self.imageView.image = cropImg;
+        }
+            break;
+        case 2: {
+            //大小调整
+            CGSize reSize = CGSizeMake(CGImageGetWidth(self.image.CGImage) / 3, CGImageGetHeight(self.image.CGImage));
+            UIImage *resizeImg = [self.image resizedImage:reSize interpolationQuality:0];
+            self.imageView.image = resizeImg;
+        }
+            break;
+        case 3: {
+            //AspectFit
+            CGFloat imgW = CGImageGetWidth(self.image.CGImage);
+            CGFloat imgH = CGImageGetHeight(self.image.CGImage);
+            CGSize imgViewSize = self.imageView.frame.size;
+            CGSize fitSize = CGSizeMake(imgW, imgH);
+            UIImage *fitImg = [self.image imageByResizeToSize:fitSize contentMode:UIViewContentModeScaleAspectFit];
+            self.imageView.image = fitImg;
+        }
+            break;
+        case 4: {
+            //AspectFill
+            CGSize fillSize = self.imageView.frame.size;
+            UIImage *fillImg = [self.image imageByResizeToSize:fillSize contentMode:UIViewContentModeScaleAspectFill];
+            self.imageView.image = fillImg;
+        }
+            break;
+        case 5: {
+            //Transform
+            CGFloat radius = DegreesToRadians(45);
+            UIImage *resultImg = [self.image imageByRotate:radius fitSize:YES];
+            self.imageView.image = resultImg;
+        }
+            break;
+        case 6: {
+            //Transform2
+            CGFloat radius = DegreesToRadians(45);
+            UIImage *resultImg = [self.image imageByRotate:radius fitSize:NO];
+            self.imageView.image = resultImg;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

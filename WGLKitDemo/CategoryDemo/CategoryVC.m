@@ -38,7 +38,7 @@
             NSInteger idx = 4 * row + column;
             btn.tag = idx;
             NSString *title = [self.titles safeObjectAtIndex:idx];
-            [btn setTitle:title forState:UIControlStateNormal];
+            [btn setTitle:title ?: @"..." forState:UIControlStateNormal];
         }
     }
 }
