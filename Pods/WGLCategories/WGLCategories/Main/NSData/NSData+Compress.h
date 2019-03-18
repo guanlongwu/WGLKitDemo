@@ -11,26 +11,22 @@
 @interface NSData (Compress)
 
 /**
- Decompress data from gzip data.
- @return Inflated data.
+ 从gzip数据中解压缩出的数据（解压）
  */
 - (nullable NSData *)gzipInflate;
 
 /**
- Comperss data to gzip in default compresssion level.
- @return Deflated data.
+ 将数据压缩成默认压缩级别的gzip数据（压缩）
  */
 - (nullable NSData *)gzipDeflate;
 
 /**
- Decompress data from zlib-compressed data.
- @return Inflated data.
+ 从zlib数据中解压缩出的数据（解压）
  */
 - (nullable NSData *)zlibInflate;
 
 /**
- Comperss data to zlib-compressed in default compresssion level.
- @return Deflated data.
+ 将数据压缩成默认压缩级别的zlib数据（压缩）
  */
 - (nullable NSData *)zlibDeflate;
 

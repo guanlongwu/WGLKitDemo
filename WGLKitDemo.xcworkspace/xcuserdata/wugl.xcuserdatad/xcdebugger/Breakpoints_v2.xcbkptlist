@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WGLKitDemo/CategoryDemo/NSTimerVC.m"
-            timestampString = "574347584.741977"
+            timestampString = "574592436.805086"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WGLKitDemo/CategoryDemo/NSDataVC.m"
-            timestampString = "574347584.742054"
+            filePath = "WGLKitDemo/CategoryDemo/UIDeviceVC.m"
+            timestampString = "574592436.8051651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-c_string:"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "523E07B2EE2DA44E16D909D504E22302"
+               BlueprintIdentifier = "41FD55E53F073AED3D7E960FEF499F7E"
                BlueprintName = "WGLFileCache"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libWGLFileCache.a">

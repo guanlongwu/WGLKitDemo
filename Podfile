@@ -6,7 +6,8 @@ pod 'WGLSegmentView', '0.4.0'
 pod 'WGLDownloadProvider', '0.0.15'
 pod 'WGLFileCache', '0.0.3'
 pod 'WGLCircleProgressView', '0.0.3'
-pod 'WGLCategories', '0.0.4'
+pod 'WGLCategories', '0.0.7'
+pod 'SSZipArchive', '~> 2.1.4'
 
 end
 

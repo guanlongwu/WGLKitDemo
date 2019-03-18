@@ -13,6 +13,9 @@
 #import "NSStringVC.h"
 #import "NSTimerVC.h"
 #import "NSDataVC.h"
+#import "NSFileManagerVC.h"
+#import "NSDateVC.h"
+#import "UIDeviceVC.h"
 
 @interface CategoryVC ()
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -62,9 +65,9 @@
         _titles =
         [@[
            @"UIImage", @"NSString", @"NSTimer", @"NSData",
-           @"NSArray", @"NSDictionary", @"UIColor", @"UIView",
-           @"NSBundle", @"NSDate", @"NSFileManager", @"UIScrollView",
-           @"UIControl", @"UIDevice", @"UIGestureRecognizer", @"UIScreen",
+           @"NSFileManager", @"NSDate", @"UIDevice", @"UIScreen",
+           @"NSArray", @"NSDictionary", @"UIControl", @"UIGestureRecognizer",
+           @"UIView", @"NSBundle", @"UIScrollView", @"UIColor",
            ] mutableCopy];
     }
     return _titles;
@@ -78,6 +81,9 @@
            NSStringFromClass([NSStringVC class]),
            NSStringFromClass([NSTimerVC class]),
            NSStringFromClass([NSDataVC class]),
+           NSStringFromClass([NSFileManagerVC class]),
+           NSStringFromClass([NSDateVC class]),
+           NSStringFromClass([UIDeviceVC class]),
            ] mutableCopy];
     }
     return _controlViews;

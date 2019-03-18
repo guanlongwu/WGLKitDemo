@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410030223F864C0071B0E8 /* NSFileManagerVC.m */; };
+		09410037223F8EDF0071B0E8 /* NSDateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410036223F8EDF0071B0E8 /* NSDateVC.m */; };
+		0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410039223F91420071B0E8 /* UIDeviceVC.m */; };
 		0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941970822166D970073AFFE /* SubSegmentViewController.m */; };
 		0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941970C22169B0D0073AFFE /* SegmentVC.m */; };
 		0941971F2216C2590073AFFE /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941971E2216C2590073AFFE /* DownloadVC.m */; };
@@ -17,6 +20,7 @@
 		0941FC92223B44EF0071B0E8 /* NSStringVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FC91223B44EF0071B0E8 /* NSStringVC.m */; };
 		0941FE0C223BAA8C0071B0E8 /* NSTimerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FE0B223BAA8C0071B0E8 /* NSTimerVC.m */; };
 		0941FE0F223BC9E10071B0E8 /* NSDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FE0E223BC9E10071B0E8 /* NSDataVC.m */; };
+		0941FFA8223F39DA0071B0E8 /* gzipPackage.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0941FFA7223F39DA0071B0E8 /* gzipPackage.zip */; };
 		09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C3114F219D6C9A00C8701E /* AppDelegate.m */; };
 		09C31153219D6C9B00C8701E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31152219D6C9B00C8701E /* ViewController.m */; };
 		09C31156219D6C9B00C8701E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C31154219D6C9B00C8701E /* Main.storyboard */; };
@@ -46,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0941002F223F864C0071B0E8 /* NSFileManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSFileManagerVC.h; sourceTree = "<group>"; };
+		09410030223F864C0071B0E8 /* NSFileManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerVC.m; sourceTree = "<group>"; };
+		09410035223F8EDF0071B0E8 /* NSDateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDateVC.h; sourceTree = "<group>"; };
+		09410036223F8EDF0071B0E8 /* NSDateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDateVC.m; sourceTree = "<group>"; };
+		09410038223F91420071B0E8 /* UIDeviceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDeviceVC.h; sourceTree = "<group>"; };
+		09410039223F91420071B0E8 /* UIDeviceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIDeviceVC.m; sourceTree = "<group>"; };
 		0941970822166D970073AFFE /* SubSegmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubSegmentViewController.m; sourceTree = "<group>"; };
 		0941970922166D970073AFFE /* SubSegmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubSegmentViewController.h; sourceTree = "<group>"; };
 		0941970B22169B0D0073AFFE /* SegmentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentVC.h; sourceTree = "<group>"; };
@@ -66,6 +76,7 @@
 		0941FE0B223BAA8C0071B0E8 /* NSTimerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerVC.m; sourceTree = "<group>"; };
 		0941FE0D223BC9E10071B0E8 /* NSDataVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDataVC.h; sourceTree = "<group>"; };
 		0941FE0E223BC9E10071B0E8 /* NSDataVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDataVC.m; sourceTree = "<group>"; };
+		0941FFA7223F39DA0071B0E8 /* gzipPackage.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gzipPackage.zip; sourceTree = "<group>"; };
 		09C3114B219D6C9A00C8701E /* WGLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WGLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C3114E219D6C9A00C8701E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09C3114F219D6C9A00C8701E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -148,7 +159,14 @@
 				0941FE0B223BAA8C0071B0E8 /* NSTimerVC.m */,
 				0941FE0D223BC9E10071B0E8 /* NSDataVC.h */,
 				0941FE0E223BC9E10071B0E8 /* NSDataVC.m */,
+				0941002F223F864C0071B0E8 /* NSFileManagerVC.h */,
+				09410030223F864C0071B0E8 /* NSFileManagerVC.m */,
+				09410035223F8EDF0071B0E8 /* NSDateVC.h */,
+				09410036223F8EDF0071B0E8 /* NSDateVC.m */,
+				09410038223F91420071B0E8 /* UIDeviceVC.h */,
+				09410039223F91420071B0E8 /* UIDeviceVC.m */,
 				0941FB9022375CEF0071B0E8 /* originImage.jpg */,
+				0941FFA7223F39DA0071B0E8 /* gzipPackage.zip */,
 			);
 			path = CategoryDemo;
 			sourceTree = "<group>";
@@ -340,6 +358,7 @@
 				09C3115B219D6C9B00C8701E /* LaunchScreen.storyboard in Resources */,
 				0941FB9122375CEF0071B0E8 /* originImage.jpg in Resources */,
 				09C31158219D6C9B00C8701E /* Assets.xcassets in Resources */,
+				0941FFA8223F39DA0071B0E8 /* gzipPackage.zip in Resources */,
 				09C31156219D6C9B00C8701E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,11 +410,14 @@
 				0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */,
 				09419792221A5CE50073AFFE /* DownloadCell.m in Sources */,
 				0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */,
+				09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */,
+				0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */,
 				0941FC92223B44EF0071B0E8 /* NSStringVC.m in Sources */,
 				09C31153219D6C9B00C8701E /* ViewController.m in Sources */,
 				0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */,
 				09C3115E219D6C9B00C8701E /* main.m in Sources */,
 				0941971F2216C2590073AFFE /* DownloadVC.m in Sources */,
+				09410037223F8EDF0071B0E8 /* NSDateVC.m in Sources */,
 				0941FE0C223BAA8C0071B0E8 /* NSTimerVC.m in Sources */,
 				09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */,
 			);

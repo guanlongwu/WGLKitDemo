@@ -8,6 +8,8 @@
 
 #import "NSDataVC.h"
 #import "NSArray+Safe.h"
+#import "WGLFileCache.h"
+#import <SSZipArchive/SSZipArchive.h>
 
 #import "NSData+Hash.h"
 #import "NSData+Encrypt.h"
@@ -89,18 +91,29 @@
             break;
         case 2: {
             //Compress
+            NSData *gzipData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gzipPackage" ofType:@"zip"]];
+            NSData *inflateData = [gzipData gzipDeflate];       //nil
+            /**
+             gzip和zip的压缩算法有所不同，gzip压缩的需要用gunzip解压，zip压缩的需要用unzip解压；
+             否则解压不出来。
+             */
+            BOOL unzipResult = [self unzipWithFilePath:[[NSBundle mainBundle] pathForResource:@"gzipPackage" ofType:@"zip"] destinationPath:[self unzipFilePath] unzipFileName:@"unzipPackage.unzip"];
+            NSData *unzipData = nil;
+            if (unzipResult) {
+                unzipData = [NSData dataWithContentsOfFile:[self unzipFilePath]];
+            }
             
+            NSData *imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"originImage" ofType:@"jpg"]];
+            //UIImageJPEGRepresentation([UIImage imageNamed:@"originImage.jpg"], 0);
+            NSData *dataDeflate = [imageData gzipDeflate];
+            NSData *dataInflate = [dataDeflate gzipInflate];
+            UIImage *imgDeflate = [UIImage imageWithData:dataDeflate];  //nil
+            UIImage *imgInflate = [UIImage imageWithData:dataInflate];
             NSLog(@"");
         }
             break;
         case 3: {
             //Encode
-            
-            NSLog(@"");
-        }
-            break;
-        case 4: {
-            //Trim
             
             NSLog(@"");
         }
@@ -128,5 +141,55 @@
     return _originData;
 }
 
+#pragma mark - SSZipArchive
+
+/**
+ 解压文件到指定的路径
+ 
+ @param filePath 将要解压文件的全路径
+ @param destinationPath 解压目标路径
+ @param fileName 解压文件名
+ @return 是否解压完成
+ */
+- (BOOL)unzipWithFilePath:(NSString *)filePath destinationPath:(NSString *)destinationPath unzipFileName:(NSString *)fileName {
+    __block BOOL unzipSucceed = NO;
+    NSString *unzipPath = [destinationPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", fileName, @"-unzip"]];
+    NSString *unzipCompletePath = [destinationPath stringByAppendingPathComponent:fileName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:destinationPath]) {
+        NSError *error = nil;
+        [fileManager createDirectoryAtPath:destinationPath withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            unzipSucceed = NO;
+            return unzipSucceed;
+        }
+    }
+                           
+    [SSZipArchive unzipFileAtPath:filePath toDestination:unzipPath progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        if (!succeeded) {
+            [[NSFileManager defaultManager] removeItemAtPath:unzipPath
+                                                       error:nil];
+            unzipSucceed = succeeded;
+        } else {
+            NSError * error = nil;
+            [[NSFileManager defaultManager] moveItemAtPath:unzipPath
+                                                    toPath:unzipCompletePath
+                                                     error:&error];
+            if (error) {
+                unzipSucceed = NO;
+            } else {
+                unzipSucceed = YES;
+            }
+            
+        }
+    }];
+    return unzipSucceed;
+}
+
+- (NSString *)unzipFilePath {
+    return [[WGLFileCache sharedCache] getCacheDirectoryByAppendingPath:@"NSDataCategory"];
+}
 
 @end
