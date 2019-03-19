@@ -9,6 +9,8 @@
 #import "DownloadVC.h"
 #import "DownloadCell.h"
 #import "WGLNetworkMonitor.h"
+#import "Toast.h"
+#import "SVProgressHUD.h"
 
 @interface DownloadVC ()
 @property (nonatomic, strong) UITableView *tableView;
@@ -26,21 +28,27 @@
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     
+    /**
+     TODO：
+     这一块copy会强引用self，导致self没办法释放
+     要对WGLNetworkMonitor的这个copy方法进行完善
+     */
     [[WGLNetworkMonitor sharedMonitor] startMonitoring];
     [WGLNetworkMonitor sharedMonitor].networkStatusChangeBlock = ^(WGLNetworkReachabilityStatus status) {
+        NSString *title = @"";
         switch (status) {
             case WGLNetworkReachabilityStatusUnknown:
-                self.title = @"未知网络";
+                title = @"未知网络";
                 break;
             case WGLNetworkReachabilityStatusNotReachable:
-                self.title = @"断网";
+                title = @"断网";
                 break;
             case WGLNetworkReachabilityStatusReachableViaWiFi:
-                self.title = @"WiFi";
+                title = @"WiFi";
                 break;
             case WGLNetworkReachabilityStatusReachableViaWWAN: {
                 WGLNetworkOperator operator = [WGLNetworkMonitor sharedMonitor].networkOperator;
-                NSString *desc = @"";
+                NSString *desc = @"unknow";
                 switch (operator) {
                     case WGLNetworkOperatorUnknown:
                         desc = @"未知运营商";
@@ -60,12 +68,64 @@
                     default:
                         break;
                 }
-                self.title = [NSString stringWithFormat:@"移动网络 : %@", desc];
+                WGLNetworkAccessTech accessTech = [WGLNetworkMonitor sharedMonitor].networkAccessTech;
+                NSString *desc2 = @"unknow";
+                switch (accessTech) {
+                    case WGLNetworkAccessTechLTE:
+                        desc2 = @"LTE";
+                        break;
+                    case WGLNetworkAccessTechGPRS:
+                        desc2 = @"GPRS";
+                        break;
+                    case WGLNetworkAccessTechEdge:
+                        desc2 = @"Edge";
+                        break;
+                    case WGLNetworkAccessTechHRPD:
+                        desc2 = @"HRPD";
+                        break;
+                    case WGLNetworkAccessTechHSDPA:
+                        desc2 = @"HSDPA";
+                        break;
+                    case WGLNetworkAccessTechHSUPA:
+                        desc2 = @"HSUPA";
+                        break;
+                    case WGLNetworkAccessTechWCDMA:
+                        desc2 = @"WCDMA";
+                        break;
+                    case WGLNetworkAccessTechCDMA1x:
+                        desc2 = @"CDMA1x";
+                        break;
+                    default:
+                        break;
+                }
+                
+                title = [NSString stringWithFormat:@"移动网络 : %@-%@", desc, desc2];
             }
                 break;
             default:
                 break;
         }
+        self.title = title;
+        
+        
+        //Toast使用
+        CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+        style.verticalPadding = 30;
+        style.horizontalPadding = 0;
+        style.titleFont = [UIFont systemFontOfSize:16];
+        style.messageFont = [UIFont systemFontOfSize:20];
+        style.titleAlignment = NSTextAlignmentCenter;
+        style.messageAlignment = NSTextAlignmentCenter;
+        style.cornerRadius = 30;
+        
+        __weak typeof(self) weakSelf = self;
+        [self.view makeToast:title duration:3 position:CSToastPositionCenter title:@"网络状态" image:[UIImage imageNamed:@"originImage.jpg"] style:style completion:^(BOOL didTap) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf.view makeToast:@"Toast完成block" duration:3 position:CSToastPositionCenter];
+        }];
+        
+        //SVProgressHUD
+        
     };
 }
 

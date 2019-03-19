@@ -8,7 +8,11 @@ pod 'WGLFileCache', '0.0.3'
 pod 'WGLCircleProgressView', '0.0.3'
 pod 'WGLCategories', '0.0.8'
 pod 'WGLNetworkMonitor', '0.0.1'
+
+#third SDK Library
 pod 'SSZipArchive', '~> 2.1.4'
+pod 'Toast', '~> 4.0.0'
+pod 'SVProgressHUD', '~> 2.2.5'
 
 end
 
