@@ -10,6 +10,7 @@
 #import "WGLCircleProgressView.h"
 #import "WGLDownloadProvider.h"
 #import "WGLFileCache.h"
+#import "WGLNetworkMonitor.h"
 
 @interface DownloadCell ()
 @property (nonatomic, strong) WGLDownloadProvider *downloadProvider;
@@ -134,10 +135,16 @@
 - (void)n_download {
     BOOL exist = [[WGLFileCache sharedCache] cacheExistForURLString:self.url];
     if (exist) {
+        //有缓存，则取缓存
         self.progressView.progress = 100;
         self.progressLabel.text = @"完成";
     }
     else {
+        //判断网络是否可用
+        if (NO == [WGLNetworkMonitor sharedMonitor].isReachable) {
+            self.progressLabel.text = @"无网";
+            return;
+        }
         [self.downloadProvider downloadWithURL:self.url];
     }
 }

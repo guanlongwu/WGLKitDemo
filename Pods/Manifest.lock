@@ -1,17 +1,19 @@
 PODS:
   - SSZipArchive (2.1.4)
-  - WGLCategories (0.0.7)
+  - WGLCategories (0.0.8)
   - WGLCircleProgressView (0.0.3)
-  - WGLDownloadProvider (0.0.15)
+  - WGLDownloadProvider (0.1.1)
   - WGLFileCache (0.0.3)
+  - WGLNetworkMonitor (0.0.1)
   - WGLSegmentView (0.4.0)
 
 DEPENDENCIES:
   - SSZipArchive (~> 2.1.4)
-  - WGLCategories (= 0.0.7)
+  - WGLCategories (= 0.0.8)
   - WGLCircleProgressView (= 0.0.3)
-  - WGLDownloadProvider (= 0.0.15)
+  - WGLDownloadProvider (= 0.1.1)
   - WGLFileCache (= 0.0.3)
+  - WGLNetworkMonitor (= 0.0.1)
   - WGLSegmentView (= 0.4.0)
 
 SPEC REPOS:
@@ -21,16 +23,18 @@ SPEC REPOS:
     - WGLCircleProgressView
     - WGLDownloadProvider
     - WGLFileCache
+    - WGLNetworkMonitor
     - WGLSegmentView
 
 SPEC CHECKSUMS:
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
-  WGLCategories: 2284737abe6cb6923142f7d2c24d824f512bef83
+  WGLCategories: 21c01df8f8188b44bd1699c91b21e0d9a045071c
   WGLCircleProgressView: fca0fcf8f24f9b119049aaf91ecd339984a4c20e
-  WGLDownloadProvider: 4dd74ec506e49e96359511ec5962f049f3a48810
+  WGLDownloadProvider: 1e5a5e633146a9a3d1d9dadabedef9c0519100d2
   WGLFileCache: dee526403b21733fd3319983117f6b802ce31d95
+  WGLNetworkMonitor: bc8360d8c04a327e65ac7d2faed2ca343ba13c96
   WGLSegmentView: 96bc39e1fed5bb5fbe76d36bc9ddd63123f7e82b
 
-PODFILE CHECKSUM: c0a04ad867d62969bf01aa16920656ea66a377e9
+PODFILE CHECKSUM: ae6917f292d44e7ba3a0f9cc770e57a30582f97a
 
 COCOAPODS: 1.6.0.beta.1

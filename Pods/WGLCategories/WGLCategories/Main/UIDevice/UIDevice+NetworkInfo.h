@@ -22,6 +22,10 @@
  */
 @property (nullable, nonatomic, readonly) NSString *ipAddressCell;
 
+@property (nullable, nonatomic, readonly) NSString *ipv4Address;
+
+@property (nullable, nonatomic, readonly) NSString *ipv6Address;
+
 /**
  Network traffic type:
  

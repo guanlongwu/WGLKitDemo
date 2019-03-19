@@ -23,6 +23,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+#pragma clang diagnostic push //收集当前的警告
+#pragma clang diagnostic ignored "-Wunused-variable"
+
     // 测试机：iphone 6s 64G
     NSUInteger cpuCount = [UIDevice currentDevice].cpuCount;    //2
     float cpuUsage = [UIDevice currentDevice].cpuUsage; //0.52190727
@@ -53,6 +56,11 @@
     NSString *ipAddressCell = [UIDevice currentDevice].ipAddressCell;   //10.253.33.7
     uint64_t networkTrafficBytes = [[UIDevice currentDevice] getNetworkTrafficBytes:YYNetworkTrafficTypeWIFI];  //4373847040
     
+    NSString *ipv4 = [UIDevice currentDevice].ipv4Address;  //172.26.152.158
+    NSString *ipv6 = [UIDevice currentDevice].ipv6Address;  //fe80::7418:f0cb:f231:71c6
+    
+#pragma clang diagnostic pop
+
     NSLog(@"");
     
 }

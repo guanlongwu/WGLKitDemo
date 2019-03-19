@@ -8,6 +8,7 @@
 
 #import "DownloadVC.h"
 #import "DownloadCell.h"
+#import "WGLNetworkMonitor.h"
 
 @interface DownloadVC ()
 @property (nonatomic, strong) UITableView *tableView;
@@ -18,11 +19,54 @@
 
 - (void)dealloc {
     NSLog(@"");
+    [[WGLNetworkMonitor sharedMonitor] stopMonitoring];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    
+    [[WGLNetworkMonitor sharedMonitor] startMonitoring];
+    [WGLNetworkMonitor sharedMonitor].networkStatusChangeBlock = ^(WGLNetworkReachabilityStatus status) {
+        switch (status) {
+            case WGLNetworkReachabilityStatusUnknown:
+                self.title = @"未知网络";
+                break;
+            case WGLNetworkReachabilityStatusNotReachable:
+                self.title = @"断网";
+                break;
+            case WGLNetworkReachabilityStatusReachableViaWiFi:
+                self.title = @"WiFi";
+                break;
+            case WGLNetworkReachabilityStatusReachableViaWWAN: {
+                WGLNetworkOperator operator = [WGLNetworkMonitor sharedMonitor].networkOperator;
+                NSString *desc = @"";
+                switch (operator) {
+                    case WGLNetworkOperatorUnknown:
+                        desc = @"未知运营商";
+                        break;
+                    case WGLNetworkOperatorChinaMobile:
+                        desc = @"中国移动";
+                        break;
+                    case WGLNetworkOperatorChinaUnicom:
+                        desc = @"中国联通";
+                        break;
+                    case WGLNetworkOperatorChinaTelecon:
+                        desc = @"中国电信";
+                        break;
+                    case WGLNetworkOperatorChinaTietong:
+                        desc = @"中国铁通";
+                        break;
+                    default:
+                        break;
+                }
+                self.title = [NSString stringWithFormat:@"移动网络 : %@", desc];
+            }
+                break;
+            default:
+                break;
+        }
+    };
 }
 
 - (UITableView *)tableView {

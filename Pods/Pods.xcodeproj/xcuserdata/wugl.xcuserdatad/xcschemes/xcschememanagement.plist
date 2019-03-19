@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WGLNetworkMonitor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>WGLSegmentView.xcscheme</key>
 		<dict>
 			<key>isShown</key>

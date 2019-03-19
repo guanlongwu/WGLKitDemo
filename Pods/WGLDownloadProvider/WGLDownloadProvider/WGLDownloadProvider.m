@@ -205,6 +205,9 @@
     task.receiveLength = task.totalLength;
     task.downloadFileSize = downloader.downloadFileSize;
     
+    //下载成功，从队列中移除
+    [self removeTask:task];
+    
     [self startDownload];
     
     if ([self.delegate respondsToSelector:@selector(downloadDidFinish:urlString:filePath:)]) {
@@ -221,6 +224,9 @@
     }
     task.state = WGLDownloadTaskStateFailure;
     task.downloadFileSize = downloader.downloadFileSize;
+    
+    //下载失败，从队列中移除
+    [self removeTask:task];
     
     [self startDownload];
     
@@ -300,5 +306,23 @@
     Unlock();
 }
 
+//移除下载任务
+- (void)removeTask:(WGLDownloadTask *)task {
+    if (!task) {
+        return;
+    }
+    Lock();
+    __block WGLDownloadTask *findTask = nil;
+    [self.tasks enumerateObjectsUsingBlock:^(WGLDownloadTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.urlString isEqualToString:task.urlString]) {
+            findTask = obj;
+            *stop = YES;
+        }
+    }];
+    if (findTask) {
+        [self.tasks removeObject:findTask];
+    }
+    Unlock();
+}
 
 @end

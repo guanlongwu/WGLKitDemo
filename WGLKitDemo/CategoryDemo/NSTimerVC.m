@@ -39,14 +39,14 @@
 
 - (void)createTimer {
     __weak typeof(self) weakSelf = self;
-    if (@available(iOS 10.0, *)) {
+//    if (@available(iOS 10.0, *)) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
             __strong typeof(weakSelf) strongSelf = weakSelf;
             strongSelf.label.text = [NSString stringWithFormat:@"origin_%u", arc4random() % 100];
         }];
-    } else {
-        // Fallback on earlier versions
-    }
+//    } else {
+//        // Fallback on earlier versions
+//    }
 }
 
 - (void)createTimer2 {

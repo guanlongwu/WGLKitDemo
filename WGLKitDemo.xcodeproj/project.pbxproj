@@ -584,7 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3L4GJ73USM;
+				DEVELOPMENT_TEAM = 6UPRDV6GY3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/wugl/Work/Codes/WGLKit/WGLKitDemo/WGLKitDemo/WGLKitDemo-prefix.pch";
 				INFOPLIST_FILE = WGLKitDemo/Info.plist;
@@ -594,7 +594,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WGLKitDemo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huya.WGL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huya.meaningjokes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -606,7 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3L4GJ73USM;
+				DEVELOPMENT_TEAM = 6UPRDV6GY3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/wugl/Work/Codes/WGLKit/WGLKitDemo/WGLKitDemo/WGLKitDemo-prefix.pch";
 				INFOPLIST_FILE = WGLKitDemo/Info.plist;
@@ -616,7 +616,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WGLKitDemo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huya.WGL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huya.meaningjokes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -20,6 +20,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+#pragma clang diagnostic push //收集当前的警告
+#pragma clang diagnostic ignored "-Wunused-variable"
+
     NSDate *curDate = [NSDate date];
     NSInteger year = curDate.year;
     NSInteger month = curDate.month;
@@ -33,6 +36,8 @@
     NSInteger isToday = curDate.isToday;
     NSInteger isYesterday = curDate.isYesterday;
     
+#pragma clang diagnostic pop
+
     NSLog(@"");
     
 }

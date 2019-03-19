@@ -50,6 +50,10 @@
 }
 
 - (void)c_string:(UIButton *)sender {
+    
+#pragma clang diagnostic push //收集当前的警告
+#pragma clang diagnostic ignored "-Wunused-variable"
+
     NSInteger idx = sender.tag;
     switch (idx) {
         case 0: {
@@ -121,6 +125,9 @@
         default:
             break;
     }
+    
+#pragma clang diagnostic pop
+    
 }
 
 - (NSArray <NSString *> *)titles {
