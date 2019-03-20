@@ -110,7 +110,7 @@
 
 - (void)segmentView:(WGLSegmentView *)segmentView didDisplaySegmentVC:(WGLSubSegmentBaseViewController *)segmentVC forIndex:(NSInteger)index {
     segmentVC.view.backgroundColor = (index % 2 == 0) ? [UIColor redColor] : [UIColor blueColor];
-    self.curSegmentVC = segmentVC;
+    self.curSegmentVC = (SubSegmentViewController *)segmentVC;
 }
 
 - (NSMutableArray <WGLSubSegmentBaseViewController *>*)subSegmentVCs {

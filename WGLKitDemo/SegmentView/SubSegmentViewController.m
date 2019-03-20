@@ -9,6 +9,7 @@
 #import "SubSegmentViewController.h"
 #import "UIColor+Convertor.h"
 #import "NSArray+Safe.h"
+#import "Toast.h"
 #import "UIScrollView+EmptyDataSet.h"
 
 @interface SubSegmentViewController () <DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
@@ -154,6 +155,11 @@
 - (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
     return nil;
 }
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
+    [self.view makeToast:@"点击了空占位图button" duration:2 position:CSToastPositionCenter];
+}
+
 
 #pragma mark - data
 
