@@ -24,6 +24,17 @@
                            borderLineJoin:kCGLineJoinMiter];
 }
 
+- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius
+                                       corners:(UIRectCorner)corners
+                                   borderWidth:(CGFloat)borderWidth
+                                   borderColor:(nullable UIColor *)borderColor {
+    return [self imageByRoundCornerRadius:radius
+                                  corners:corners
+                              borderWidth:borderWidth
+                              borderColor:borderColor
+                           borderLineJoin:kCGLineJoinMiter];
+}
+
 - (UIImage *)imageByRoundCornerRadius:(CGFloat)radius
                               corners:(UIRectCorner)corners
                           borderWidth:(CGFloat)borderWidth

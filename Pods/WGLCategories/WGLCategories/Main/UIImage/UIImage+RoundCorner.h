@@ -19,6 +19,11 @@
 - (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius
                                        corners:(UIRectCorner)corners
                                    borderWidth:(CGFloat)borderWidth
+                                   borderColor:(nullable UIColor *)borderColor;
+
+- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius
+                                       corners:(UIRectCorner)corners
+                                   borderWidth:(CGFloat)borderWidth
                                    borderColor:(nullable UIColor *)borderColor
                                 borderLineJoin:(CGLineJoin)borderLineJoin;
 

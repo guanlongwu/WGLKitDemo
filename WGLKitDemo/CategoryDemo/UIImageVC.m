@@ -16,6 +16,8 @@
 #import "UIImage+Transform.h"
 #import "UIImage+RoundCorner.h"
 
+#import "UIView+RoundCorner.h"
+
 @interface UIImageVC ()
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImage *image;
@@ -31,7 +33,7 @@
     
     CGFloat width = 80;
     CGFloat height = 50;
-    for (int row = 0; row < 2; row++) {
+    for (int row = 0; row < 3; row++) {
         for (int column = 0; column < 4; column++) {
             CGFloat originX = 10 + column * (width + 10);
             CGFloat originY = 400 + row * (height + 30);
@@ -65,7 +67,7 @@
         _titles =
         [@[
            @"Origin", @"Crop", @"Resize", @"AspectFit",
-           @"AspectFill", @"Transform", @"Transform2",
+           @"AspectFill", @"Transform", @"Transform2", @"RoundCorner", @"RoundCorner2",
            ] mutableCopy];
     }
     return _titles;
@@ -122,6 +124,20 @@
             CGFloat radius = DegreesToRadians(45);
             UIImage *resultImg = [self.image imageByRotate:radius fitSize:NO];
             self.imageView.image = resultImg;
+        }
+            break;
+        case 7: {
+            //RoundCorner
+            CGFloat radius = MIN(CGImageGetWidth(self.image.CGImage), CGImageGetHeight(self.image.CGImage)) / 2;
+            UIImage *resultImg = [self.image imageByRoundCornerRadius:radius corners:UIRectCornerTopRight | UIRectCornerBottomRight borderWidth:3 borderColor:nil];
+            self.imageView.image = resultImg;
+        }
+            break;
+        case 8: {
+            //RoundCorner2
+            CGFloat radius = MIN(CGRectGetWidth(self.imageView.frame), CGRectGetHeight(self.imageView.frame)) / 3;
+            self.imageView.image = self.image;
+            [self.imageView setRoundCornerRadius:radius corners:UIRectCornerTopLeft];
         }
             break;
         default:
