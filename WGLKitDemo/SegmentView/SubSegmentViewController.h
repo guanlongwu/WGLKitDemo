@@ -9,5 +9,5 @@
 #import "WGLSubSegmentBaseViewController.h"
 
 @interface SubSegmentViewController : WGLSubSegmentBaseViewController
-
+@property (nonatomic, assign) BOOL isDataEmpty;
 @end

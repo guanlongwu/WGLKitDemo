@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D465E8F31D982C3B150034360683C16F"
-               BlueprintName = "Toast"
+               BlueprintIdentifier = "1FCB0985BAF17C7FCA3C3F25313A84AA"
+               BlueprintName = "DZNEmptyDataSet"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libToast.a">
+               BuildableName = "libDZNEmptyDataSet.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

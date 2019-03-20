@@ -9,6 +9,8 @@
 #import "NSDataVC.h"
 #import "NSArray+Safe.h"
 #import "WGLFileCache.h"
+#import "SVProgressHUD.h"
+#import "Toast.h"
 #import <SSZipArchive/SSZipArchive.h>
 
 #import "NSData+Hash.h"
@@ -59,6 +61,7 @@
         case 0: {
             //Hash
             NSData *data = self.originData;
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSData *md5 = [data md5Data];
             //<8b7e28e1 12a557b2 66bba644 e4fb0b57>
             NSString *md5String = [data md5String];
@@ -76,7 +79,9 @@
             NSString *crc32Str = [data crc32String];
             //9e46ef15
             
-            NSLog(@"%@,%@,%@,%@,%@,%@,%@", md5, md5String, md5Str, sha1Str, sha1Data, sha256Str, crc32Str);
+            NSString *show = [NSString stringWithFormat:@"str : %@,\ndata : %@,\nmd5 : %@", str, self.originData, md5];
+            [self.view makeToast:show duration:8 position:nil];
+            
         }
             break;
         case 1: {
@@ -90,7 +95,8 @@
             NSData *decrypt = [encrypt aes256DecryptWithkey:key iv:nil];
             //<e6b58be8 af954e53 44617461 e79a84e5 8886e7b1 bbe696b9 e6b395>
             
-            NSLog(@"");
+            NSString *show = [NSString stringWithFormat:@"encrypt : %@,\ndecrypt : %@", encrypt, decrypt];
+            [self.view makeToast:show duration:8 position:nil];
         }
             break;
         case 2: {
@@ -113,13 +119,12 @@
             NSData *dataInflate = [dataDeflate gzipInflate];
             UIImage *imgDeflate = [UIImage imageWithData:dataDeflate];  //nil
             UIImage *imgInflate = [UIImage imageWithData:dataInflate];
-            NSLog(@"");
+            
         }
             break;
         case 3: {
             //Encode
             
-            NSLog(@"");
         }
             break;
         default:

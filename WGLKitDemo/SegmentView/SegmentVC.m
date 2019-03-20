@@ -7,12 +7,15 @@
 //
 
 #import "SegmentVC.h"
+#import "UIControl+Block.h"
+
 #import "WGLSegmentView.h"
 #import "SubSegmentViewController.h"
 
 @interface SegmentVC ()
 @property (nonatomic, strong) WGLSegmentView *segmentView;
 @property (nonatomic, strong) NSMutableArray <WGLSubSegmentBaseViewController *>* subSegmentVCs;
+@property (nonatomic, weak) SubSegmentViewController *curSegmentVC;
 @end
 
 @implementation SegmentVC
@@ -20,6 +23,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.segmentView];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 80, 120, 50)];
+    btn.backgroundColor = [UIColor grayColor];
+    [btn setTintColor:[UIColor whiteColor]];
+    btn.titleLabel.font = [UIFont systemFontOfSize:18];
+    [btn setTitle:@"reloadData" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    __weak typeof(self) weakSelf = self;
+    [btn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (strongSelf.curSegmentVC) {
+            strongSelf.curSegmentVC.isDataEmpty = !(strongSelf.curSegmentVC.isDataEmpty);
+            [strongSelf.curSegmentVC.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - 分页
@@ -92,6 +110,7 @@
 
 - (void)segmentView:(WGLSegmentView *)segmentView didDisplaySegmentVC:(WGLSubSegmentBaseViewController *)segmentVC forIndex:(NSInteger)index {
     segmentVC.view.backgroundColor = (index % 2 == 0) ? [UIColor redColor] : [UIColor blueColor];
+    self.curSegmentVC = segmentVC;
 }
 
 - (NSMutableArray <WGLSubSegmentBaseViewController *>*)subSegmentVCs {

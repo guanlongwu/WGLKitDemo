@@ -25,7 +25,7 @@
     
 #pragma clang diagnostic push //收集当前的警告
 #pragma clang diagnostic ignored "-Wunused-variable"
-
+    
     // 测试机：iphone 6s 64G
     NSUInteger cpuCount = [UIDevice currentDevice].cpuCount;    //2
     float cpuUsage = [UIDevice currentDevice].cpuUsage; //0.52190727
