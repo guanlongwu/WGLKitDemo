@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SVProgressHUD.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,9 @@
     ViewController *rootVC = [[ViewController alloc] init];
     UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:rootVC];
     [self.window setRootViewController:navC];
+    
+    [SVProgressHUD setSuccessImage:nil];
+    [SVProgressHUD setErrorImage:nil];
     
     return YES;
 }
