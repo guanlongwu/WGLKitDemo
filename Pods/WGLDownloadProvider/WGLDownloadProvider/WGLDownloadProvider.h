@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WGLUtil.h"
+#import "WGLDownloadTask.h"
 @protocol WGLDownloadProviderDataSource;
 @protocol WGLDownloadProviderDelegate;
 
@@ -43,8 +44,32 @@ typedef NS_ENUM(NSInteger, WGLDownloadExeOrder) {
  */
 @property (nonatomic, assign) WGLDownloadExeOrder executeOrder;
 
-//下载入口
+/**
+ 开始下载
+
+ @param urlString 下载url
+ */
 - (void)downloadWithURL:(NSString *)urlString;
+
+/**
+ 取消所有的下载
+ */
+- (void)cancelAllDownloads;
+
+/**
+ 取消指定下载
+
+ @param url 下载url
+ */
+- (void)cancelDownloadURL:(NSString *)url;
+
+/**
+ url对应的下载状态
+
+ @param url 下载url
+ @return 下载状态
+ */
+- (WGLDownloadState)downloadStateForURL:(NSString *)url;
 
 @end
 

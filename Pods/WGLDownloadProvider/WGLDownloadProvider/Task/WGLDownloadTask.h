@@ -7,13 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSInteger, WGLDownloadTaskState) {
-    WGLDownloadTaskStateWaiting,        //等待中
-    WGLDownloadTaskStateDownloading,    //下载中
-    WGLDownloadTaskStateFinish,         //下载完成
-    WGLDownloadTaskStateFailure,        //下载失败
-};
+#import "WGLUtil.h"
 
 @interface WGLDownloadTask : NSObject
 
@@ -35,7 +29,7 @@ typedef NS_ENUM(NSInteger, WGLDownloadTaskState) {
 /**
  任务状态
  */
-@property (nonatomic, assign) WGLDownloadTaskState state;
+@property (nonatomic, assign) WGLDownloadState state;
 
 /**
  已下载大小

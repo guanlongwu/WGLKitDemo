@@ -200,6 +200,7 @@
 				09C3114F219D6C9A00C8701E /* AppDelegate.m */,
 				09C31151219D6C9A00C8701E /* ViewController.h */,
 				09C31152219D6C9B00C8701E /* ViewController.m */,
+				09E4B73022438FEE00A6E8B3 /* VideoProcessing */,
 				0941970722166D970073AFFE /* SegmentView */,
 				094196FB221552520073AFFE /* DownloadProvider */,
 				0941FB8C223758B20071B0E8 /* CategoryDemo */,
@@ -229,6 +230,13 @@
 				09C31174219D6C9B00C8701E /* Info.plist */,
 			);
 			path = WGLKitDemoUITests;
+			sourceTree = "<group>";
+		};
+		09E4B73022438FEE00A6E8B3 /* VideoProcessing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoProcessing;
 			sourceTree = "<group>";
 		};
 		2905B58643B00B2C968F8948 /* Frameworks */ = {

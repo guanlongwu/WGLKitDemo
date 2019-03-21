@@ -81,15 +81,16 @@
         //调整下载优先级
         WGLDownloadTask *findTask = [self taskForUrl:urlString];
         if (findTask) {
-            if (findTask.state == WGLDownloadTaskStateWaiting
+            if (findTask.state == WGLDownloadStateWaiting
                 && self.executeOrder == WGLDownloadExeOrderLIFO) {
                 Lock();
                 [self.tasks removeObject:findTask];
                 [self.tasks insertObject:findTask atIndex:0];
                 Unlock();
+                
+                return;
             }
         }
-        return;
     }
     
     //限制任务数
@@ -98,7 +99,7 @@
     //添加到任务队列
     WGLDownloadTask *task = [[WGLDownloadTask alloc] init];
     task.urlString = urlString;
-    task.state = WGLDownloadTaskStateWaiting;
+    task.state = WGLDownloadStateWaiting;
     [self addTask:task];
     
     //触发下载
@@ -138,13 +139,47 @@
                 break;
             }
             
-            task.state = WGLDownloadTaskStateDownloading;
+            task.state = WGLDownloadStateDownloading;
             
             downloader.urlString = task.urlString;
             [downloader start];
         }
     });
 }
+
+//取消所有的下载
+- (void)cancelAllDownloads {
+    dispatch_async([WGLDownloadProvider downloadQueue], ^{
+        [self.downloaders enumerateObjectsUsingBlock:^(WGLDownloader * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj cancel];
+            
+            //TODO:
+            WGLDownloadTask *task = [self taskForUrl:obj.urlString];
+            task.state = WGLDownloadStateCancelled;
+        }];
+    });
+}
+
+//取消指定下载
+- (void)cancelDownloadURL:(NSString *)url {
+    if (!url
+        || url.length == 0) {
+        return;
+    }
+    dispatch_async([WGLDownloadProvider downloadQueue], ^{
+        [self.downloaders enumerateObjectsUsingBlock:^(WGLDownloader * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.urlString isEqualToString:url]) {
+                [obj cancel];
+                
+                //TODO:
+                WGLDownloadTask *task = [self taskForUrl:obj.urlString];
+                task.state = WGLDownloadStateCancelled;
+                *stop = YES;
+            }
+        }];
+    });
+}
+
 
 #pragma mark - WGLDownloaderDelegate / datasource
 
@@ -169,7 +204,7 @@
     if (!task) {
         return;
     }
-    task.state = WGLDownloadTaskStateDownloading;
+    task.state = WGLDownloadStateDownloading;
     task.downloadFilePath = downloader.downloadFilePath;
     task.downloadFileSize = downloader.downloadFileSize;
     
@@ -185,7 +220,7 @@
     if (!task) {
         return;
     }
-    task.state = WGLDownloadTaskStateDownloading;
+    task.state = WGLDownloadStateDownloading;
     task.receiveLength = receiveLength;
     task.totalLength = totalLength;
     
@@ -201,12 +236,9 @@
     if (!task) {
         return;
     }
-    task.state = WGLDownloadTaskStateFinish;
+    task.state = WGLDownloadStateFinish;
     task.receiveLength = task.totalLength;
     task.downloadFileSize = downloader.downloadFileSize;
-    
-    //下载成功，从队列中移除
-    [self removeTask:task];
     
     [self startDownload];
     
@@ -222,11 +254,8 @@
     if (!task) {
         return;
     }
-    task.state = WGLDownloadTaskStateFailure;
+    task.state = WGLDownloadStateFailed;
     task.downloadFileSize = downloader.downloadFileSize;
-    
-    //下载失败，从队列中移除
-    [self removeTask:task];
     
     [self startDownload];
     
@@ -237,6 +266,21 @@
     }
 }
 
+#pragma mark - getter
+
+- (WGLDownloadState)downloadStateForURL:(NSString *)url {
+    Lock();
+    __block WGLDownloadState state = WGLDownloadStateUnknow;
+    [self.tasks enumerateObjectsUsingBlock:^(WGLDownloadTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.urlString isEqualToString:url]) {
+            state = obj.state;
+            *stop = YES;
+        }
+    }];
+    Unlock();
+    return state;
+}
+
 
 #pragma mark - private interface
 
@@ -245,7 +289,7 @@
     WGLDownloadTask *findTask = nil;
     Lock();
     for (WGLDownloadTask *task in self.tasks) {
-        if (task.state == WGLDownloadTaskStateWaiting) {
+        if (task.state == WGLDownloadStateWaiting) {
             findTask = task;
         }
     }

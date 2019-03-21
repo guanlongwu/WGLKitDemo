@@ -176,25 +176,45 @@
         _infos =
         @[
           @{
-              @"name" : @"火影忍者",
+              @"name" : @"火影忍者.jpg",
               @"url" : @"http://img.netbian.com/file/20120330/e15fca8315ae95771d1fd044ac69c467.jpg",
               },
           @{
-              @"name" : @"鸣人",
-              @"url" : @"http://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/eac4b74543a98226a0e691358b82b9014a90ebf9.jpg",
-              },
-          @{
-              @"name" : @"佐佐",
+              @"name" : @"佐佐.jpg",
               @"url" : @"http://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/4e4a20a4462309f71b4d36a8710e0cf3d7cad66e.jpg",
               },
           @{
-              @"name" : @"广东雨神",
-              @"url" : @"https://mms.msstatic.com/music/TjNwW2n5KJ.mp3",
+              @"name" : @"女孩讲述被鬼附身（上）.mp3",
+              @"url" : @"https://mms.msstatic.com/music/wZkE7ERBKH.mp3",
               },
           @{
-              @"name" : @"失落沙洲",
+              @"name" : @"女孩讲述被鬼附身（下）.mp3",
+              @"url" : @"https://mms.msstatic.com/music/4ZQwAazJQK.mp3",
+              },
+          @{
+              @"name" : @"骨折女孩讲述离奇经历（上）.mp3",
+              @"url" : @"https://mms.msstatic.com/music/35aCMANk7E.mp3",
+              },
+          @{
+              @"name" : @"骨折女孩讲述离奇经历（下）.mp3",
+              @"url" : @"https://mms.msstatic.com/music/6mdms8y7aM.mp3",
+              },
+          @{
+              @"name" : @"碟仙的亲身体验.mp3",
+              @"url" : @"https://mms.msstatic.com/music/AkMiN4nAPh.mp3",
+              },
+          @{
+              @"name" : @"成都.mp3",
+              @"url" : @"https://mms.msstatic.com/music/p8k66cBkCW.mp3",
+              },
+          @{
+              @"name" : @"失落沙洲.mp3",
               @"url" : @"https://mms.msstatic.com/music/WyhNR2QsFX.mp3",
-              }
+              },
+          @{
+              @"name" : @"匆匆那年.mp3",
+              @"url" : @"https://mms.msstatic.com/music/xZ4N3wcG5K.mp3",
+              },
           ];
     }
     return _infos;

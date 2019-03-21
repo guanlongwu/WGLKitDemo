@@ -11,6 +11,7 @@
 #import "WGLDownloadProvider.h"
 #import "WGLFileCache.h"
 #import "WGLNetworkMonitor.h"
+#import "UIView+Extensions.h"
 
 @interface DownloadCell ()
 @property (nonatomic, strong) WGLDownloadProvider *downloadProvider;
@@ -117,11 +118,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.nameL.frame = CGRectMake(20, 0, 140, self.contentView.frame.size.height);
-    self.startBtn.frame = CGRectMake(160, 0, 50, 50);
     
-    self.progressView.frame = CGRectMake(220, 0, 50, 50);
-    self.progressLabel.frame = CGRectMake(280, 0, 200, 50);
+    self.progressLabel.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-50, 0, 50, 50);
+    self.progressView.frame = CGRectMake(self.progressLabel.left-50, 0, 50, 50);
+    self.startBtn.frame = CGRectMake(self.progressView.left-50, 0, 50, 50);
+    self.nameL.frame = CGRectMake(20, 0, self.startBtn.left-20, self.contentView.frame.size.height);
 }
 
 //下载进度值
@@ -133,19 +134,35 @@
 #pragma mark - event
 
 - (void)n_download {
-    BOOL exist = [[WGLFileCache sharedCache] cacheExistForURLString:self.url];
-    if (exist) {
-        //有缓存，则取缓存
-        self.progressView.progress = 100;
-        self.progressLabel.text = @"完成";
-    }
-    else {
+    WGLDownloadState state = [self.downloadProvider downloadStateForURL:self.url];
+    if (state == WGLDownloadStateDownloading) {
+        //暂停下载
+        
         //判断网络是否可用
         if (NO == [WGLNetworkMonitor sharedMonitor].isReachable) {
             self.progressLabel.text = @"无网";
             return;
         }
-        [self.downloadProvider downloadWithURL:self.url];
+        [self.downloadProvider cancelDownloadURL:self.url];
+        
+    }
+    else {
+        //开始下载
+        BOOL exist = [[WGLFileCache sharedCache] cacheExistForURLString:self.url];
+        if (exist) {
+            //有缓存，则取缓存
+            self.progressView.progress = 100;
+            self.progressLabel.text = @"完成";
+        }
+        else {
+            //判断网络是否可用
+            if (NO == [WGLNetworkMonitor sharedMonitor].isReachable) {
+                self.progressLabel.text = @"无网";
+                return;
+            }
+            self.progressLabel.text = @"等待下载";
+            [self.downloadProvider downloadWithURL:self.url];
+        }
     }
 }
 

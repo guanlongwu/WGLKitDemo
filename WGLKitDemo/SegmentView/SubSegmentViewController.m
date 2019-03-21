@@ -161,7 +161,7 @@
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    NSAttributedString *desc = [[NSAttributedString alloc] initWithString:@"~描述~"];
+    NSAttributedString *desc = [[NSAttributedString alloc] initWithString:@"~描述Description~"];
     return desc;
 }
 

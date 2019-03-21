@@ -43,8 +43,7 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
 }
 
 - (void)start {
-    if (self.downloadState == WGLDownloadStateReady
-        || self.downloadState == WGLDownloadStateDownloading) {
+    if (self.downloadState == WGLDownloadStateDownloading) {
         //已经处在下载中状态
         return;
     }
@@ -55,7 +54,7 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
     //下载准备
     [self prepare];
     
-    self.downloadState = WGLDownloadStateReady;
+    self.downloadState = WGLDownloadStateDownloading;
     self.receiveData = [[NSMutableData alloc] init];
     
     //开始新的下载
@@ -239,7 +238,6 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
         else {
             //开始下载
             
-            self.downloadState = WGLDownloadStateDownloading;
             self.fileHandle = [NSFileHandle fileHandleForWritingAtPath:self.tempDownloadFilePath];
             [self caculateDownloadFileSize];
             
@@ -256,7 +254,6 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
         || self.downloadState == WGLDownloadStateCancelled) {
         return;
     }
-    self.downloadState = WGLDownloadStateDownloading;
     
     [self.receiveData appendData:data];
     self.receivedDataLength += data.length;
