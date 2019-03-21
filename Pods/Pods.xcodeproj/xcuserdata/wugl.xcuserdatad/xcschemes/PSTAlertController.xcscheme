@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0EC6C8A310ECC4421EA0719646BCE4C"
-               BlueprintName = "WGLDownloadProvider"
+               BlueprintIdentifier = "0E71E6548FC8D6719300DBDB29AE94A3"
+               BlueprintName = "PSTAlertController"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libWGLDownloadProvider.a">
+               BuildableName = "libPSTAlertController.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

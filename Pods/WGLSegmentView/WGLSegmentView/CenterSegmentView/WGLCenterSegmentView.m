@@ -66,6 +66,7 @@
                 vc = [[WGLSubSegmentBaseViewController alloc] init];
             }
             vc.isSegmentTabFix = self.isSegmentTabFix;
+            vc.mainTableView = self.mainTableView;
             
             __weak typeof(self) weakSelf = self;
             vc.didScrollCallback = ^(UIScrollView *scrollView) {

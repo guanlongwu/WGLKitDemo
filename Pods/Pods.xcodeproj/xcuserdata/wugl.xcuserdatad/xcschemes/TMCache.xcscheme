@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0EC6C8A310ECC4421EA0719646BCE4C"
-               BlueprintName = "WGLDownloadProvider"
+               BlueprintIdentifier = "817FFEDF36333B4B0BA7A9A0E581A2D6"
+               BlueprintName = "TMCache"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libWGLDownloadProvider.a">
+               BuildableName = "libTMCache.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

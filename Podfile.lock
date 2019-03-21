@@ -1,32 +1,38 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
+  - PSTAlertController (1.2.0)
   - SSZipArchive (2.1.4)
   - SVProgressHUD (2.2.5)
+  - TMCache (2.1.0)
   - Toast (4.0.0)
   - WGLCategories (0.0.10)
   - WGLCircleProgressView (0.0.3)
   - WGLDownloadProvider (0.1.1)
   - WGLFileCache (0.0.3)
   - WGLNetworkMonitor (0.0.1)
-  - WGLSegmentView (0.4.0)
+  - WGLSegmentView (0.7.0)
 
 DEPENDENCIES:
   - DZNEmptyDataSet (~> 1.8.1)
+  - PSTAlertController (~> 1.2.0)
   - SSZipArchive (~> 2.1.4)
   - SVProgressHUD (~> 2.2.5)
+  - TMCache (~> 2.1.0)
   - Toast (~> 4.0.0)
   - WGLCategories (= 0.0.10)
   - WGLCircleProgressView (= 0.0.3)
   - WGLDownloadProvider (= 0.1.1)
   - WGLFileCache (= 0.0.3)
   - WGLNetworkMonitor (= 0.0.1)
-  - WGLSegmentView (= 0.4.0)
+  - WGLSegmentView (= 0.7.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DZNEmptyDataSet
+    - PSTAlertController
     - SSZipArchive
     - SVProgressHUD
+    - TMCache
     - Toast
     - WGLCategories
     - WGLCircleProgressView
@@ -37,16 +43,18 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  PSTAlertController: 9b802dfbda54fee2683bfd6dda7023a6de895d5b
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WGLCategories: d9048673ee83cb388b226e592ed2bb4ba6f51cc8
   WGLCircleProgressView: fca0fcf8f24f9b119049aaf91ecd339984a4c20e
   WGLDownloadProvider: 1e5a5e633146a9a3d1d9dadabedef9c0519100d2
   WGLFileCache: dee526403b21733fd3319983117f6b802ce31d95
   WGLNetworkMonitor: bc8360d8c04a327e65ac7d2faed2ca343ba13c96
-  WGLSegmentView: 96bc39e1fed5bb5fbe76d36bc9ddd63123f7e82b
+  WGLSegmentView: 8fd8f87e679e0d78bc1dec098ffb65413b540300
 
-PODFILE CHECKSUM: 2e0671969fce0a9988a1f6a2772ea85a5fe61463
+PODFILE CHECKSUM: 4153009bb898d17dd8154a3effccc554e6cf8c84
 
 COCOAPODS: 1.6.0.beta.1

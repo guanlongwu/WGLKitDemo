@@ -10,7 +10,9 @@
 #import "UIColor+Convertor.h"
 #import "NSArray+Safe.h"
 #import "Toast.h"
+#import "UIScrollView+Extensions.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "PSTAlertController.h"
 
 @interface SubSegmentViewController () <DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -90,9 +92,33 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row % 2 == 0) {
+        PSTAlertController *vc = [PSTAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:PSTAlertControllerStyleAlert];
+        NSString *title = [self.titles safeObjectAtIndex:indexPath.row];
+        PSTAlertAction *action = [PSTAlertAction actionWithTitle:title?:@"" handler:^(PSTAlertAction * _Nonnull action) {
+            [self.mainTableView makeToast:title?:@"" duration:3 position:CSToastPositionCenter];
+        }];
+        [vc addAction:action];
+        [vc showWithSender:self arrowDirection:UIPopoverArrowDirectionUp controller:self animated:YES completion:^{
+            
+        }];
+    }
+    else {
+        PSTAlertController *vc = [PSTAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:PSTAlertControllerStyleActionSheet];
+        NSString *title = [self.titles safeObjectAtIndex:indexPath.row];
+        PSTAlertAction *action = [PSTAlertAction actionWithTitle:title?:@"" handler:^(PSTAlertAction * _Nonnull action) {
+            [self.mainTableView makeToast:title?:@"" duration:3 position:CSToastPositionCenter style:nil];
+        }];
+        [vc addAction:action];
+        PSTAlertAction *action1 = [PSTAlertAction actionWithTitle:@"附加" handler:^(PSTAlertAction * _Nonnull action) {
+            [self.mainTableView makeToast:@"附加" duration:3 position:CSToastPositionCenter style:nil];
+        }];
+        [vc addAction:action1];
+        [vc showWithSender:self arrowDirection:UIPopoverArrowDirectionUp controller:self animated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -148,7 +174,14 @@
 }
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    NSAttributedString *btnTitle = [[NSAttributedString alloc] initWithString:@"~btn文案~"];
+    UIColor *forColor = [UIColor colorWithRGB:0xff0000];
+    NSDictionary *attributesDefault =
+    @{
+      NSFontAttributeName: [UIFont systemFontOfSize:20.0f],
+      NSForegroundColorAttributeName:forColor
+      };
+
+    NSAttributedString *btnTitle = [[NSAttributedString alloc] initWithString:@"点击重试" attributes:attributesDefault];
     return btnTitle;
 }
 
@@ -157,7 +190,8 @@
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
-    [self.view makeToast:@"点击了空占位图button" duration:2 position:CSToastPositionCenter];
+    self.isDataEmpty = !(self.isDataEmpty);
+    [self.tableView reloadData];
 }
 
 
@@ -178,11 +212,17 @@
 
 /**
  DZNEmptyDataSet使用总结：
+ 
  必须在@interface xx:xx_super <DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
  否则不会显示空数据占位图
  如果没有上面的写法，尽管
  [_tableView setEmptyDataSetSource:(id<DZNEmptyDataSetSource>)self];
  也是不会显示。
+ 
+ PSTAlertController使用总结：
+ 
+ 特点：内部封装了 UIActionSheet (showInView:superView)和 UIAlertView （show）两种系统控件
+ 缺陷：UI很难高度自定义
  */
 
 
