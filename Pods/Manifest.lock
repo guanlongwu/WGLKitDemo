@@ -7,7 +7,7 @@ PODS:
   - Toast (4.0.0)
   - WGLCategories (0.0.10)
   - WGLCircleProgressView (0.0.3)
-  - WGLDownloadProvider (0.1.2)
+  - WGLDownloadProvider (0.1.3)
   - WGLFileCache (0.0.3)
   - WGLNetworkMonitor (0.0.1)
   - WGLSegmentView (0.7.0)
@@ -21,7 +21,7 @@ DEPENDENCIES:
   - Toast (~> 4.0.0)
   - WGLCategories (= 0.0.10)
   - WGLCircleProgressView (= 0.0.3)
-  - WGLDownloadProvider (= 0.1.2)
+  - WGLDownloadProvider (= 0.1.3)
   - WGLFileCache (= 0.0.3)
   - WGLNetworkMonitor (= 0.0.1)
   - WGLSegmentView (= 0.7.0)
@@ -50,11 +50,11 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WGLCategories: d9048673ee83cb388b226e592ed2bb4ba6f51cc8
   WGLCircleProgressView: fca0fcf8f24f9b119049aaf91ecd339984a4c20e
-  WGLDownloadProvider: 930838705f904cf493288126402b879a868eb927
+  WGLDownloadProvider: ed08a363c031eade0913393281c99638102ee6a2
   WGLFileCache: dee526403b21733fd3319983117f6b802ce31d95
   WGLNetworkMonitor: bc8360d8c04a327e65ac7d2faed2ca343ba13c96
   WGLSegmentView: 8fd8f87e679e0d78bc1dec098ffb65413b540300
 
-PODFILE CHECKSUM: 38b2027d405d5a683ddbf128ed0fcfef6c6c96c4
+PODFILE CHECKSUM: 56e4b658081cfeb0988fa40d8a2dbd94bc66269a
 
 COCOAPODS: 1.6.0.beta.1

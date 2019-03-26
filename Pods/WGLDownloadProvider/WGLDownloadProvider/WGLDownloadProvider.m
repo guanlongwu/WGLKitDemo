@@ -9,6 +9,7 @@
 #import "WGLDownloadProvider.h"
 #import "WGLDownloadTask.h"
 #import "WGLDownloader.h"
+#import "WGLDownloadDelegate.h"
 
 #define Lock() dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal(self->_lock)
@@ -18,6 +19,7 @@
 }
 @property (nonatomic, strong) NSMutableArray <WGLDownloadTask *> *tasks; //任务队列
 @property (nonatomic, strong) NSMutableArray <WGLDownloader *> *downloaders; //下载队列
+@property (nonatomic, strong) NSMutableDictionary <NSString *, WGLDownloadDelegate *> *taskDelegatesForUrl; //下载任务对应的回调代理
 @end
 
 @implementation WGLDownloadProvider
@@ -38,6 +40,7 @@
         _executeOrder = WGLDownloadExeOrderFIFO;
         _tasks = [[NSMutableArray alloc] init];
         _downloaders = [[NSMutableArray alloc] init];
+        _taskDelegatesForUrl = [[NSMutableDictionary alloc] init];
         [self setMaxConcurrentDownloadCount:2];
     }
     return self;
@@ -70,6 +73,20 @@
 
 //下载入口
 - (void)downloadWithURL:(NSString *)urlString {
+    [self downloadWithURL:urlString startBlock:nil progressBlock:nil successBlock:nil failBlock:nil];
+}
+
+- (void)downloadWithURL:(NSString *)urlString startBlock:(WGLDownloadProviderStartBlock)startBlock progressBlock:(WGLDownloadProviderProgressBlock)progressBlock successBlock:(WGLDownloadProviderSuccessBlock)successBlock failBlock:(WGLDownloadProviderFailBlock)failBlock {
+    
+    //设置delegate
+    WGLDownloadDelegate *delegate = [[WGLDownloadDelegate alloc] init];
+    delegate.urlString = urlString;
+    delegate.startBlock = startBlock;
+    delegate.progressBlock = progressBlock;
+    delegate.successBlock = successBlock;
+    delegate.failBlock = failBlock;
+    [self setDelegate:delegate forUrlString:urlString];
+    
     //是否命中缓存
     if ([self existInCache:urlString]) {
         return;
@@ -78,17 +95,24 @@
     //已在任务队列中
     if ([self existInTasks:urlString]) {
         
-        //调整下载优先级
         WGLDownloadTask *findTask = [self taskForUrl:urlString];
         if (findTask) {
             if (findTask.state == WGLDownloadStateWaiting
                 && self.executeOrder == WGLDownloadExeOrderLIFO) {
+                //调整下载优先级
+                
                 Lock();
                 [self.tasks removeObject:findTask];
                 [self.tasks insertObject:findTask atIndex:0];
                 Unlock();
                 
                 return;
+            }
+            else {
+                //作为新的下载任务，重新下载
+                Lock();
+                [self.tasks removeObject:findTask];
+                Unlock();
             }
         }
     }
@@ -213,6 +237,14 @@
             [self.delegate downloadDidStart:self urlString:downloader.urlString];
         });
     }
+    
+    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+    if (delegate
+        && [delegate.urlString isEqualToString:downloader.urlString]) {
+        if (delegate.startBlock) {
+            delegate.startBlock(self, downloader.urlString);
+        }
+    }
 }
 
 - (void)downloader:(WGLDownloader *)downloader didReceiveLength:(uint64_t)receiveLength totalLength:(uint64_t)totalLength {
@@ -228,6 +260,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate downloader:self urlString:downloader.urlString didReceiveLength:receiveLength totalLength:totalLength];
         });
+    }
+    
+    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+    if (delegate
+        && [delegate.urlString isEqualToString:downloader.urlString]) {
+        if (delegate.progressBlock) {
+            delegate.progressBlock(self, downloader.urlString, receiveLength, totalLength);
+        }
     }
 }
 
@@ -247,6 +287,16 @@
             [self.delegate downloadDidFinish:self urlString:downloader.urlString filePath:filePath];
         });
     }
+    
+    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+    if (delegate
+        && [delegate.urlString isEqualToString:downloader.urlString]) {
+        if (delegate.successBlock) {
+            delegate.successBlock(self, downloader.urlString, filePath);
+            
+            [self removeDelegateForUrlString:downloader.urlString];
+        }
+    }
 }
 
 - (void)downloadDidFail:(WGLDownloader *)downloader errorType:(WGLDownloadErrorType)errorType {
@@ -263,6 +313,16 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate downloadDidFail:self urlString:downloader.urlString errorType:errorType];
         });
+    }
+    
+    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+    if (delegate
+        && [delegate.urlString isEqualToString:downloader.urlString]) {
+        if (delegate.failBlock) {
+            delegate.failBlock(self, downloader.urlString, errorType);
+            
+            [self removeDelegateForUrlString:downloader.urlString];
+        }
     }
 }
 
@@ -283,6 +343,36 @@
 
 
 #pragma mark - private interface
+
+//设置回调
+- (void)setDelegate:(WGLDownloadDelegate *)delegate forUrlString:(NSString *)urlString {
+    NSParameterAssert(urlString);
+    NSParameterAssert(delegate);
+    
+    Lock();
+    [self.taskDelegatesForUrl setObject:delegate forKey:urlString];
+    Unlock();
+}
+
+//删除回调
+- (void)removeDelegateForUrlString:(NSString *)urlString {
+    NSParameterAssert(urlString);
+    
+    Lock();
+    [self.taskDelegatesForUrl removeObjectForKey:urlString];
+    Unlock();
+}
+
+//下载任务对应的回调
+- (WGLDownloadDelegate *)delegateForUrlString:(NSString *)urlString {
+    NSParameterAssert(urlString);
+    
+    WGLDownloadDelegate *delegate = nil;
+    Lock();
+    delegate = [self.taskDelegatesForUrl objectForKey:urlString];
+    Unlock();
+    return delegate;
+}
 
 //获取等待下载的任务
 - (WGLDownloadTask *)preferredWaittingTask {

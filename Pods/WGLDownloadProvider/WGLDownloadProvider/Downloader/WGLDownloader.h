@@ -19,7 +19,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "WGLUtil.h"
+#import "WGLDownloadUtil.h"
 @class WGLDownloaderInfo;
 @protocol WGLDownloaderDataSource;
 @protocol WGLDownloaderDelegate;

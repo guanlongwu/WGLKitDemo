@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WGLUtil.h"
+#import "WGLDownloadUtil.h"
 
 @interface WGLDownloadTask : NSObject
 
