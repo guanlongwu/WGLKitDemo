@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"UIImage类别";
     
     CGFloat width = 80;
     CGFloat height = 50;

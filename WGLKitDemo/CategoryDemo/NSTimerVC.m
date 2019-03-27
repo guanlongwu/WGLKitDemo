@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"NSTimer类别";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 100)];

@@ -3,7 +3,7 @@ platform :ios, '8.0'
 target :WGLKitDemo do 
 
 pod 'WGLSegmentView', '0.7.0'
-pod 'WGLDownloadProvider', '0.1.3'
+pod 'WGLDownloadProvider', '0.1.6'
 pod 'WGLFileCache', '0.0.3'
 pod 'WGLCircleProgressView', '0.0.3'
 pod 'WGLCategories', '0.0.10'

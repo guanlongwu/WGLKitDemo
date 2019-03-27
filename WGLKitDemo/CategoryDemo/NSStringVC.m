@@ -35,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"NSString类别";
+    
     self.view.backgroundColor = [UIColor whiteColor];
 //    [SVProgressHUD setMinimumDismissTimeInterval:10];
     [SVProgressHUD setMaximumDismissTimeInterval:7];

@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WGLKitDemo/CategoryDemo/NSTimerVC.m"
-            timestampString = "574656196.697165"
+            filePath = "../WGLM3U8Processing/WGLM3U8Processing/WGLM3U8Processing.m"
+            timestampString = "575384841.622251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "-dealloc"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-convert"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../WGLM3U8Processing/WGLM3U8Processing/WGLM3U8Processing.m"
+            timestampString = "575384844.436288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-convert"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

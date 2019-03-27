@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"NSFileManager类别";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     CGFloat width = self.view.width;

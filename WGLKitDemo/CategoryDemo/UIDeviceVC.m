@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"UIDevice类别";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
 #pragma clang diagnostic push //收集当前的警告

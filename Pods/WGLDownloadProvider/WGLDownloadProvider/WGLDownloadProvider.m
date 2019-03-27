@@ -232,19 +232,19 @@
     task.downloadFilePath = downloader.downloadFilePath;
     task.downloadFileSize = downloader.downloadFileSize;
     
-    if ([self.delegate respondsToSelector:@selector(downloadDidStart:urlString:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(downloadDidStart:urlString:)]) {
             [self.delegate downloadDidStart:self urlString:downloader.urlString];
-        });
-    }
-    
-    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
-    if (delegate
-        && [delegate.urlString isEqualToString:downloader.urlString]) {
-        if (delegate.startBlock) {
-            delegate.startBlock(self, downloader.urlString);
         }
-    }
+        
+        WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+        if (delegate
+            && [delegate.urlString isEqualToString:downloader.urlString]) {
+            if (delegate.startBlock) {
+                delegate.startBlock(self, downloader.urlString);
+            }
+        }
+    });
 }
 
 - (void)downloader:(WGLDownloader *)downloader didReceiveLength:(uint64_t)receiveLength totalLength:(uint64_t)totalLength {
@@ -256,19 +256,19 @@
     task.receiveLength = receiveLength;
     task.totalLength = totalLength;
     
-    if ([self.delegate respondsToSelector:@selector(downloader:urlString:didReceiveLength:totalLength:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(downloader:urlString:didReceiveLength:totalLength:)]) {
             [self.delegate downloader:self urlString:downloader.urlString didReceiveLength:receiveLength totalLength:totalLength];
-        });
-    }
-    
-    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
-    if (delegate
-        && [delegate.urlString isEqualToString:downloader.urlString]) {
-        if (delegate.progressBlock) {
-            delegate.progressBlock(self, downloader.urlString, receiveLength, totalLength);
         }
-    }
+        
+        WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+        if (delegate
+            && [delegate.urlString isEqualToString:downloader.urlString]) {
+            if (delegate.progressBlock) {
+                delegate.progressBlock(self, downloader.urlString, receiveLength, totalLength);
+            }
+        }
+    });
 }
 
 - (void)downloadDidFinish:(WGLDownloader *)downloader filePath:(NSString *)filePath {
@@ -282,21 +282,21 @@
     
     [self startDownload];
     
-    if ([self.delegate respondsToSelector:@selector(downloadDidFinish:urlString:filePath:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(downloadDidFinish:urlString:filePath:)]) {
             [self.delegate downloadDidFinish:self urlString:downloader.urlString filePath:filePath];
-        });
-    }
-    
-    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
-    if (delegate
-        && [delegate.urlString isEqualToString:downloader.urlString]) {
-        if (delegate.successBlock) {
-            delegate.successBlock(self, downloader.urlString, filePath);
-            
-            [self removeDelegateForUrlString:downloader.urlString];
         }
-    }
+        
+        WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+        if (delegate
+            && [delegate.urlString isEqualToString:downloader.urlString]) {
+            if (delegate.successBlock) {
+                delegate.successBlock(self, downloader.urlString, filePath);
+                
+                [self removeDelegateForUrlString:downloader.urlString];
+            }
+        }
+    });
 }
 
 - (void)downloadDidFail:(WGLDownloader *)downloader errorType:(WGLDownloadErrorType)errorType {
@@ -309,28 +309,28 @@
     
     [self startDownload];
     
-    if ([self.delegate respondsToSelector:@selector(downloadDidFail:urlString:errorType:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(downloadDidFail:urlString:errorType:)]) {
             [self.delegate downloadDidFail:self urlString:downloader.urlString errorType:errorType];
-        });
-    }
-    
-    WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
-    if (delegate
-        && [delegate.urlString isEqualToString:downloader.urlString]) {
-        if (delegate.failBlock) {
-            delegate.failBlock(self, downloader.urlString, errorType);
-            
-            [self removeDelegateForUrlString:downloader.urlString];
         }
-    }
+        
+        WGLDownloadDelegate *delegate = [self delegateForUrlString:downloader.urlString];
+        if (delegate
+            && [delegate.urlString isEqualToString:downloader.urlString]) {
+            if (delegate.failBlock) {
+                delegate.failBlock(self, downloader.urlString, errorType);
+                
+                [self removeDelegateForUrlString:downloader.urlString];
+            }
+        }
+    });
 }
 
 #pragma mark - getter
 
 - (WGLDownloadState)downloadStateForURL:(NSString *)url {
-    Lock();
     __block WGLDownloadState state = WGLDownloadStateUnknow;
+    Lock();
     [self.tasks enumerateObjectsUsingBlock:^(WGLDownloadTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.urlString isEqualToString:url]) {
             state = obj.state;
@@ -445,8 +445,8 @@
     if (!task) {
         return;
     }
-    Lock();
     __block WGLDownloadTask *findTask = nil;
+    Lock();
     [self.tasks enumerateObjectsUsingBlock:^(WGLDownloadTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.urlString isEqualToString:task.urlString]) {
             findTask = obj;

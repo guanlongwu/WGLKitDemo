@@ -27,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"NSData类别";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     CGFloat width = 80;

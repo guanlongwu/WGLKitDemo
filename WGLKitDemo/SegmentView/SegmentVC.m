@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"分页组件";
+    
     [self.view addSubview:self.segmentView];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 80, 120, 50)];

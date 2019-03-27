@@ -45,27 +45,6 @@
     return self;
 }
 
-
-//获取磁盘缓存中的文件数量。
-- (NSUInteger)getDiskCount {
-    __block NSUInteger count = 0;
-    NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:[self getDefaultCacheDirectory]];
-    count = fileEnumerator.allObjects.count;
-    return count;
-}
-
-- (NSString *)getDefaultCacheDirectory {
-    NSString *dir = [self getCacheDirectoryByAppendingPath:[NSString stringWithFormat:@"%@", @"defaultNameForWGLFileCache"]];
-    return dir;
-}
-
-- (NSString *)getCacheDirectoryByAppendingPath:(NSString *)subPath {
-    NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dir = [paths[0] stringByAppendingPathComponent:subPath];
-    return dir;
-}
-
-
 - (WGLDownloadProvider *)downloadProvider {
     if (!_downloadProvider) {
         _downloadProvider = [[WGLDownloadProvider alloc] init];
@@ -161,7 +140,28 @@
                 return;
             }
             self.progressLabel.text = @"等待下载";
+            
+            /*
             [self.downloadProvider downloadWithURL:self.url];
+             */
+            
+            [self.downloadProvider downloadWithURL:self.url startBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString) {
+                
+            } progressBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, uint64_t receiveLength, uint64_t totalLength) {
+                
+                int progress = (int)(receiveLength * 100 / totalLength);
+                self.progressView.progress = progress;
+                self.progressLabel.text = [NSString stringWithFormat:@"%d%%", progress];
+            } successBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, NSString *filePath) {
+                
+                self.progressLabel.text = @"完成";
+            } failBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, WGLDownloadErrorType errorType) {
+                
+                NSString *errorMsg = [self errorMsg:errorType];
+                NSLog(@"error msg : %@", errorMsg);
+                self.progressLabel.text = errorMsg;
+            }];
+            
         }
     }
 }
@@ -212,32 +212,59 @@
 //下载失败
 - (void)downloadDidFail:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString errorType:(WGLDownloadErrorType)errorType {
     if ([self.url isEqualToString:urlString]) {
-        NSString *errorMsg = @"";
-        switch (errorType) {
-            case WGLDownloadErrorTypeHTTPError:
-                errorMsg = @"HTTP请求出错";
-                break;
-            case WGLDownloadErrorTypeInvalidURL:
-                errorMsg = @"URL不合法";
-                break;
-            case WGLDownloadErrorTypeInvalidRequestRange:
-                errorMsg = @"下载范围不对";
-                break;
-            case WGLDownloadErrorTypeInvalidDirectory:
-                errorMsg = @"下载目录出错";
-                break;
-            case WGLDownloadErrorTypeNotEnoughFreeSpace:
-                errorMsg = @"磁盘空间不足";
-                break;
-            case WGLDownloadErrorTypeCacheInDiskError:
-                errorMsg = @"下载成功缓存失败";
-                break;
-            default:
-                break;
-        }
+        NSString *errorMsg = [self errorMsg:errorType];
         NSLog(@"error msg : %@", errorMsg);
         self.progressLabel.text = errorMsg;
     }
 }
+
+- (NSString *)errorMsg:(WGLDownloadErrorType)errorType {
+    NSString *errorMsg = @"";
+    switch (errorType) {
+        case WGLDownloadErrorTypeHTTPError:
+            errorMsg = @"HTTP请求出错";
+            break;
+        case WGLDownloadErrorTypeInvalidURL:
+            errorMsg = @"URL不合法";
+            break;
+        case WGLDownloadErrorTypeInvalidRequestRange:
+            errorMsg = @"下载范围不对";
+            break;
+        case WGLDownloadErrorTypeInvalidDirectory:
+            errorMsg = @"下载目录出错";
+            break;
+        case WGLDownloadErrorTypeNotEnoughFreeSpace:
+            errorMsg = @"磁盘空间不足";
+            break;
+        case WGLDownloadErrorTypeCacheInDiskError:
+            errorMsg = @"下载成功缓存失败";
+            break;
+        default:
+            break;
+    }
+    return errorMsg;
+}
+
+#pragma mark - deprecated method
+
+//获取磁盘缓存中的文件数量。
+- (NSUInteger)getDiskCount {
+    __block NSUInteger count = 0;
+    NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:[self getDefaultCacheDirectory]];
+    count = fileEnumerator.allObjects.count;
+    return count;
+}
+
+- (NSString *)getDefaultCacheDirectory {
+    NSString *dir = [self getCacheDirectoryByAppendingPath:[NSString stringWithFormat:@"%@", @"defaultNameForWGLFileCache"]];
+    return dir;
+}
+
+- (NSString *)getCacheDirectoryByAppendingPath:(NSString *)subPath {
+    NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dir = [paths[0] stringByAppendingPathComponent:subPath];
+    return dir;
+}
+
 
 @end

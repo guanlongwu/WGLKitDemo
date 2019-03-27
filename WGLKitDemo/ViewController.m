@@ -7,11 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "NSArray+Safe.h"
+
 #import "SegmentVC.h"
 #import "DownloadVC.h"
 #import "CategoryVC.h"
+#import "M3U8VC.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) NSArray <NSString *> *titles;
+@property (nonatomic, strong) NSArray <NSString *> *controlViews;
 @end
 
 @implementation ViewController
@@ -20,44 +25,58 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, 100, 50)];
-    btn.backgroundColor = [UIColor grayColor];
-    [btn setTitle:@"分页控件" forState:UIControlStateNormal];
-    [btn setTintColor:[UIColor whiteColor]];
-    btn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(c_segment) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(120, 100, 100, 50)];
-    btn2.backgroundColor = [UIColor grayColor];
-    [btn2 setTitle:@"下载控件" forState:UIControlStateNormal];
-    [btn2 setTintColor:[UIColor whiteColor]];
-    btn2.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:btn2];
-    [btn2 addTarget:self action:@selector(c_download) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(240, 100, 100, 50)];
-    btn3.backgroundColor = [UIColor grayColor];
-    [btn3 setTitle:@"category" forState:UIControlStateNormal];
-    [btn3 setTintColor:[UIColor whiteColor]];
-    btn3.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:btn3];
-    [btn3 addTarget:self action:@selector(c_category) forControlEvents:UIControlEventTouchUpInside];
+    CGFloat width = 80;
+    CGFloat height = 50;
+    for (int row = 0; row < 2; row++) {
+        for (int column = 0; column < 4; column++) {
+            CGFloat originX = 10 + column * (width + 10);
+            CGFloat originY = 80 + row * (height + 30);
+            
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, width, height)];
+            btn.backgroundColor = [UIColor grayColor];
+            [btn setTintColor:[UIColor whiteColor]];
+            btn.titleLabel.font = [UIFont systemFontOfSize:10];
+            [self.view addSubview:btn];
+            [btn addTarget:self action:@selector(c_kitDemo:) forControlEvents:UIControlEventTouchUpInside];
+            
+            NSInteger idx = 4 * row + column;
+            btn.tag = idx;
+            NSString *title = [self.titles safeObjectAtIndex:idx];
+            [btn setTitle:title ?: @"..." forState:UIControlStateNormal];
+        }
+    }
 }
 
-- (void)c_segment {
-    SegmentVC *svc = [SegmentVC new];
-    [self.navigationController pushViewController:svc animated:YES];
+- (void)c_kitDemo:(UIButton *)sender {
+    NSInteger idx = sender.tag;
+    NSString *clsName = [self.controlViews safeObjectAtIndex:idx];
+    Class cls = NSClassFromString(clsName);
+    UIViewController *vc = [[cls alloc] init];
+    if (vc) {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+- (NSArray <NSString *> *)titles {
+    if (!_titles) {
+        _titles =
+        [@[
+           @"SegmentView", @"Downloader", @"Categories", @"M3U8Processing",
+           ] mutableCopy];
+    }
+    return _titles;
 }
 
-- (void)c_download {
-    DownloadVC *dvc = [DownloadVC new];
-    [self.navigationController pushViewController:dvc animated:YES];
-}
-
-- (void)c_category {
-    CategoryVC *cvc = [CategoryVC new];
-    [self.navigationController pushViewController:cvc animated:YES];
+- (NSArray <NSString *> *)controlViews {
+    if (!_controlViews) {
+        _controlViews =
+        [@[
+           NSStringFromClass([SegmentVC class]),
+           NSStringFromClass([DownloadVC class]),
+           NSStringFromClass([CategoryVC class]),
+           NSStringFromClass([M3U8VC class]),
+           ] mutableCopy];
+    }
+    return _controlViews;
 }
 
 
