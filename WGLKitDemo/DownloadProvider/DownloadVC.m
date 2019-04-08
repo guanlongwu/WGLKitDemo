@@ -55,7 +55,7 @@
     if (!_speedLabel) {
         _speedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, self.view.width, 40)];
         _speedLabel.textAlignment = NSTextAlignmentCenter;
-        _speedLabel.font = [UIFont systemFontOfSize:16];
+        _speedLabel.font = [UIFont systemFontOfSize:14];
         _speedLabel.textColor = [UIColor blueColor];
         _speedLabel.backgroundColor = [UIColor colorWithHexString:@"0xf2f2f2"];
     }
@@ -211,7 +211,6 @@
     WGLNetworkReachabilityStatus status = [WGLNetworkMonitor sharedMonitor].networkReachabilityStatus;
     uint64_t wwanSpeed = 0;
     uint64_t wifiSpeed = 0;
-    uint64_t allSpeed = [[WGLTrafficMonitor sharedMonitor] getNetworkTrafficSpeed:WGLNetworkTrafficTypeALL];
     switch (status) {
         case WGLNetworkReachabilityStatusUnknown: {
             
@@ -232,8 +231,10 @@
         default:
             break;
     }
+//    uint64_t allSpeed = [[WGLTrafficMonitor sharedMonitor] getNetworkTrafficSpeed:WGLNetworkTrafficTypeALL];
+    uint64_t allTrafficBytes = [[WGLTrafficMonitor sharedMonitor] getNetworkTrafficBytes:WGLNetworkTrafficTypeALL] / 1024;
     
-    NSString *traffic = [NSString stringWithFormat:@"网速 wifi:%llu kb/s, wwan:%llu kb/s, all:%llu kb/s", wifiSpeed, wwanSpeed, allSpeed];
+    NSString *traffic = [NSString stringWithFormat:@"网速 wifi:%llu KB/s, wwan:%llu KB/s, 累积流量 %llu KB", wifiSpeed, wwanSpeed, allTrafficBytes];
     self.speedLabel.text = traffic;
     
 }
