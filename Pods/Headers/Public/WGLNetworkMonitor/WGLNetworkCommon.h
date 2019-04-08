@@ -1,1 +1,1 @@
-../../../WGLNetworkMonitor/WGLNetworkMonitor/WGLNetworkCommon.h
+../../../WGLNetworkMonitor/WGLNetworkMonitor/Core/WGLNetworkCommon.h

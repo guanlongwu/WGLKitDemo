@@ -8,7 +8,7 @@
 
 #import "WGLCircleProgressView.h"
 
-#define WGLCircleLineDefaultWidth  10.0f
+#define WGLCircleLineDefaultWidth  3.0f
 #define WGLCircleDefaultColor      [UIColor colorWithRed:0/255.0 green:191/255.0 blue:255/255.0 alpha:1]
 
 @interface WGLCircleProgressView ()

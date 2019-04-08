@@ -7,6 +7,7 @@
 //
 
 #import "UIDeviceVC.h"
+#import "SVProgressHUD.h"
 
 #import "UIDevice+CPU.h"
 #import "UIDevice+DeviceInfo.h"
@@ -63,7 +64,7 @@
     
 #pragma clang diagnostic pop
 
-    NSLog(@"");
+    [SVProgressHUD showSuccessWithStatus:@"请添加断点调试！"];
     
 }
 

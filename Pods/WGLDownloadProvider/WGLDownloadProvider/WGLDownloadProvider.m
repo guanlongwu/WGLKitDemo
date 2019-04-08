@@ -10,6 +10,7 @@
 #import "WGLDownloadTask.h"
 #import "WGLDownloader.h"
 #import "WGLDownloadDelegate.h"
+#import "WGLFileCache.h"
 
 #define Lock() dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal(self->_lock)

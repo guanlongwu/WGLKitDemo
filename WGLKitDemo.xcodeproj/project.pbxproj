@@ -27,8 +27,6 @@
 		09C31158219D6C9B00C8701E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C31157219D6C9B00C8701E /* Assets.xcassets */; };
 		09C3115B219D6C9B00C8701E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C31159219D6C9B00C8701E /* LaunchScreen.storyboard */; };
 		09C3115E219D6C9B00C8701E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C3115D219D6C9B00C8701E /* main.m */; };
-		09C31168219D6C9B00C8701E /* WGLKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31167219D6C9B00C8701E /* WGLKitDemoTests.m */; };
-		09C31173219D6C9B00C8701E /* WGLKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31172219D6C9B00C8701E /* WGLKitDemoUITests.m */; };
 		09E4BE72224B966500A6E8B3 /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BDC6224B966500A6E8B3 /* ffmpeg_opt.c */; };
 		09E4BE73224B966500A6E8B3 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BDCA224B966500A6E8B3 /* ffmpeg_filter.c */; };
 		09E4BE74224B966500A6E8B3 /* cmdutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BDCB224B966500A6E8B3 /* cmdutils.c */; };
@@ -116,11 +114,7 @@
 		09C3115C219D6C9B00C8701E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09C3115D219D6C9B00C8701E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		09C31163219D6C9B00C8701E /* WGLKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WGLKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		09C31167219D6C9B00C8701E /* WGLKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGLKitDemoTests.m; sourceTree = "<group>"; };
-		09C31169219D6C9B00C8701E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09C3116E219D6C9B00C8701E /* WGLKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WGLKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		09C31172219D6C9B00C8701E /* WGLKitDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGLKitDemoUITests.m; sourceTree = "<group>"; };
-		09C31174219D6C9B00C8701E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09E4BDC0224B966500A6E8B3 /* WGLM3U8Processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8Processing.h; sourceTree = "<group>"; };
 		09E4BDC3224B966500A6E8B3 /* FFmpegManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFmpegManager.h; sourceTree = "<group>"; };
 		09E4BDC5224B966500A6E8B3 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
@@ -372,8 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				09C3114D219D6C9A00C8701E /* WGLKitDemo */,
-				09C31166219D6C9B00C8701E /* WGLKitDemoTests */,
-				09C31171219D6C9B00C8701E /* WGLKitDemoUITests */,
 				09C3114C219D6C9A00C8701E /* Products */,
 				DCD0EB7D31763784B6218F25 /* Pods */,
 				2905B58643B00B2C968F8948 /* Frameworks */,
@@ -410,24 +402,6 @@
 				09E4BDBF224B966500A6E8B3 /* WGLM3U8Processing */,
 			);
 			path = WGLKitDemo;
-			sourceTree = "<group>";
-		};
-		09C31166219D6C9B00C8701E /* WGLKitDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				09C31167219D6C9B00C8701E /* WGLKitDemoTests.m */,
-				09C31169219D6C9B00C8701E /* Info.plist */,
-			);
-			path = WGLKitDemoTests;
-			sourceTree = "<group>";
-		};
-		09C31171219D6C9B00C8701E /* WGLKitDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				09C31172219D6C9B00C8701E /* WGLKitDemoUITests.m */,
-				09C31174219D6C9B00C8701E /* Info.plist */,
-			);
-			path = WGLKitDemoUITests;
 			sourceTree = "<group>";
 		};
 		09E4BDBF224B966500A6E8B3 /* WGLM3U8Processing */ = {
@@ -1029,7 +1003,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C31168219D6C9B00C8701E /* WGLKitDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,7 +1010,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C31173219D6C9B00C8701E /* WGLKitDemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

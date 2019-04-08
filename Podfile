@@ -3,11 +3,13 @@ platform :ios, '8.0'
 target :WGLKitDemo do 
 
 pod 'WGLSegmentView', '0.7.0'
-pod 'WGLDownloadProvider', '0.1.6'
+pod 'WGLDownloadProvider', '0.1.8'
 pod 'WGLFileCache', '0.0.3'
-pod 'WGLCircleProgressView', '0.0.3'
+pod 'WGLCircleProgressView', '0.0.4'
 pod 'WGLCategories', '0.0.10'
-pod 'WGLNetworkMonitor', '0.0.1'
+pod 'WGLNetworkMonitor', '0.0.12'
+pod 'WGLTrafficMonitor', '0.0.5'
+
 
 #third SDK Library
 #pod 'ZipArchive', '1.4.0'

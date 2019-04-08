@@ -8,6 +8,7 @@
 
 #import "WGLNetworkMonitor.h"
 #import "WGLNetworkReachabilityManager.h"
+#import "WGLNetworkInfoHelper.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
 
@@ -114,15 +115,15 @@
 
 - (BOOL)is2G {
     WGLNetworkAccessTech value = self.networkAccessTech;
-    return value == WGLNetworkAccessTechEdge || value == WGLNetworkAccessTechGPRS;
+    return (value == WGLNetworkAccessTechEdge
+            || value == WGLNetworkAccessTechGPRS);
 }
 
 - (BOOL)is3G {
     WGLNetworkAccessTech value = self.networkAccessTech;
     return (value != WGLNetworkAccessTechUnknown)
-    && (value != WGLNetworkAccessTechLTE)
-    && (value != WGLNetworkAccessTechGPRS)
-    && (value != WGLNetworkAccessTechEdge);
+    && (NO != self.is2G)
+    && (NO != self.is4G);
 }
 
 - (BOOL)is4G {
@@ -179,5 +180,26 @@
         return WGLNetworkAccessTechUnknown;
     }
 }
+
+
+#pragma mark - 设备网络信息
+
+- (NSString *)ipAddressWIFI {
+    return [WGLNetworkInfoHelper ipAddressWIFI];
+}
+
+- (NSString *)ipAddressCell {
+    return [WGLNetworkInfoHelper ipAddressCell];
+}
+
+- (NSString *)ipv4Address {
+    return [WGLNetworkInfoHelper ipv4Address];
+}
+
+- (NSString *)ipv6Address {
+    return [WGLNetworkInfoHelper ipv6Address];
+}
+
+
 
 @end

@@ -1,1 +1,1 @@
-../../../WGLNetworkMonitor/WGLNetworkMonitor/WGLNetworkReachabilityManager.h
+../../../WGLNetworkMonitor/WGLNetworkMonitor/Core/WGLNetworkReachabilityManager.h

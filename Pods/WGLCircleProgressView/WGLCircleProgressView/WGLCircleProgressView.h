@@ -11,7 +11,7 @@
 
 @interface WGLCircleProgressView : UIView
 
-@property (nonatomic, assign) CGFloat progress;//进度值
+@property (nonatomic, assign) CGFloat progress;//进度值 0.0 ~ 1.0
 @property (nonatomic, assign) CGFloat circleLineWidth;//进度线宽
 @property (nonatomic, strong) UIColor *circleLineColor;//进度线颜色
 

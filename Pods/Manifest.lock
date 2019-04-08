@@ -6,11 +6,13 @@ PODS:
   - TMCache (2.1.0)
   - Toast (4.0.0)
   - WGLCategories (0.0.10)
-  - WGLCircleProgressView (0.0.3)
-  - WGLDownloadProvider (0.1.6)
+  - WGLCircleProgressView (0.0.4)
+  - WGLDownloadProvider (0.1.8):
+    - WGLFileCache (~> 0.0.3)
   - WGLFileCache (0.0.3)
-  - WGLNetworkMonitor (0.0.1)
+  - WGLNetworkMonitor (0.0.12)
   - WGLSegmentView (0.7.0)
+  - WGLTrafficMonitor (0.0.5)
 
 DEPENDENCIES:
   - DZNEmptyDataSet (~> 1.8.1)
@@ -20,11 +22,12 @@ DEPENDENCIES:
   - TMCache (~> 2.1.0)
   - Toast (~> 4.0.0)
   - WGLCategories (= 0.0.10)
-  - WGLCircleProgressView (= 0.0.3)
-  - WGLDownloadProvider (= 0.1.6)
+  - WGLCircleProgressView (= 0.0.4)
+  - WGLDownloadProvider (= 0.1.8)
   - WGLFileCache (= 0.0.3)
-  - WGLNetworkMonitor (= 0.0.1)
+  - WGLNetworkMonitor (= 0.0.12)
   - WGLSegmentView (= 0.7.0)
+  - WGLTrafficMonitor (= 0.0.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -40,6 +43,7 @@ SPEC REPOS:
     - WGLFileCache
     - WGLNetworkMonitor
     - WGLSegmentView
+    - WGLTrafficMonitor
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -49,12 +53,13 @@ SPEC CHECKSUMS:
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WGLCategories: d9048673ee83cb388b226e592ed2bb4ba6f51cc8
-  WGLCircleProgressView: fca0fcf8f24f9b119049aaf91ecd339984a4c20e
-  WGLDownloadProvider: 90045fb40e00f30af3b1e647fea0987d9ece9099
+  WGLCircleProgressView: f3452c8349d813e8ce1232ed47cf7cbc398e4352
+  WGLDownloadProvider: 42691a4493a7d07244ff80b90ad4c5e57aeb7cde
   WGLFileCache: dee526403b21733fd3319983117f6b802ce31d95
-  WGLNetworkMonitor: bc8360d8c04a327e65ac7d2faed2ca343ba13c96
+  WGLNetworkMonitor: ad531e5aab5e45aae22287b94740ccf925e198bf
   WGLSegmentView: 8fd8f87e679e0d78bc1dec098ffb65413b540300
+  WGLTrafficMonitor: f127177ae7375c1485241fb56eb0af50322cfd78
 
-PODFILE CHECKSUM: 37b2773c02d2595e130caa0e7dbd5455f11fbd1e
+PODFILE CHECKSUM: 28be7cd9752abe678c9f01759267caaeb4658fb7
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.1

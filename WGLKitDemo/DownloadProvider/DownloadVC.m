@@ -8,12 +8,17 @@
 
 #import "DownloadVC.h"
 #import "DownloadCell.h"
-#import "WGLNetworkMonitor.h"
 #import "Toast.h"
 #import "SVProgressHUD.h"
+#import "UIView+Extensions.h"
+#import "UIColor+Convertor.h"
+#import "NSTimer+Block.h"
+#import "WGLNetworkMonitor.h"
+#import "WGLTrafficMonitor.h"
 
 @interface DownloadVC ()
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UILabel *speedLabel;
 @property (nonatomic, strong) NSArray <NSDictionary *>* infos;
 @end
 
@@ -22,124 +27,42 @@
 - (void)dealloc {
     NSLog(@"");
     [[WGLNetworkMonitor sharedMonitor] stopMonitoring];
+    [[WGLTrafficMonitor sharedMonitor] stopMonitoring];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.tableView];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    /**
-     TODO：
-     这一块copy会强引用self，导致self没办法释放
-     要对WGLNetworkMonitor的这个copy方法进行完善
-     */
-    [[WGLNetworkMonitor sharedMonitor] startMonitoring];
-    [WGLNetworkMonitor sharedMonitor].networkStatusChangeBlock = ^(WGLNetworkReachabilityStatus status) {
-        NSString *title = @"";
-        switch (status) {
-            case WGLNetworkReachabilityStatusUnknown:
-                title = @"未知网络";
-                break;
-            case WGLNetworkReachabilityStatusNotReachable:
-                title = @"断网";
-                break;
-            case WGLNetworkReachabilityStatusReachableViaWiFi:
-                title = @"WiFi";
-                break;
-            case WGLNetworkReachabilityStatusReachableViaWWAN: {
-                WGLNetworkOperator operator = [WGLNetworkMonitor sharedMonitor].networkOperator;
-                NSString *desc = @"unknow";
-                switch (operator) {
-                    case WGLNetworkOperatorUnknown:
-                        desc = @"未知运营商";
-                        break;
-                    case WGLNetworkOperatorChinaMobile:
-                        desc = @"中国移动";
-                        break;
-                    case WGLNetworkOperatorChinaUnicom:
-                        desc = @"中国联通";
-                        break;
-                    case WGLNetworkOperatorChinaTelecon:
-                        desc = @"中国电信";
-                        break;
-                    case WGLNetworkOperatorChinaTietong:
-                        desc = @"中国铁通";
-                        break;
-                    default:
-                        break;
-                }
-                WGLNetworkAccessTech accessTech = [WGLNetworkMonitor sharedMonitor].networkAccessTech;
-                NSString *desc2 = @"unknow";
-                switch (accessTech) {
-                    case WGLNetworkAccessTechLTE:
-                        desc2 = @"LTE";
-                        break;
-                    case WGLNetworkAccessTechGPRS:
-                        desc2 = @"GPRS";
-                        break;
-                    case WGLNetworkAccessTechEdge:
-                        desc2 = @"Edge";
-                        break;
-                    case WGLNetworkAccessTechHRPD:
-                        desc2 = @"HRPD";
-                        break;
-                    case WGLNetworkAccessTechHSDPA:
-                        desc2 = @"HSDPA";
-                        break;
-                    case WGLNetworkAccessTechHSUPA:
-                        desc2 = @"HSUPA";
-                        break;
-                    case WGLNetworkAccessTechWCDMA:
-                        desc2 = @"WCDMA";
-                        break;
-                    case WGLNetworkAccessTechCDMA1x:
-                        desc2 = @"CDMA1x";
-                        break;
-                    default:
-                        break;
-                }
-                
-                title = [NSString stringWithFormat:@"移动网络 : %@-%@", desc, desc2];
-            }
-                break;
-            default:
-                break;
-        }
-        self.title = title;
-        
-        
-        //Toast使用
-        CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
-        style.verticalPadding = 30;
-        style.horizontalPadding = 0;
-        style.titleFont = [UIFont systemFontOfSize:16];
-        style.messageFont = [UIFont systemFontOfSize:20];
-        style.titleAlignment = NSTextAlignmentCenter;
-        style.messageAlignment = NSTextAlignmentCenter;
-        style.cornerRadius = 30;
-        
-        __weak typeof(self) weakSelf = self;
-        [self.view makeToast:title duration:3 position:CSToastPositionCenter title:@"网络状态" image:[UIImage imageNamed:@"originImage.jpg"] style:style completion:^(BOOL didTap) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf.view makeToast:@"Toast完成block" duration:3 position:CSToastPositionCenter];
-        }];
-        
-        //SVProgressHUD
-//        [SVProgressHUD setSuccessImage:nil];
-//        [SVProgressHUD showSuccessWithStatus:title];
-        
-    };
+    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.speedLabel];
+    
+    [self addNetworkMonitor];
+    [self addTrafficMonitor];
 }
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 120, self.view.width, self.view.height - 120) style:UITableViewStylePlain];
         _tableView.delegate = (id<UITableViewDelegate>)self;
         _tableView.dataSource = (id<UITableViewDataSource>)self;
         [_tableView registerClass:[DownloadCell class] forCellReuseIdentifier:NSStringFromClass([DownloadCell class])];
     }
     return _tableView;
 }
+
+- (UILabel *)speedLabel {
+    if (!_speedLabel) {
+        _speedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, self.view.width, 40)];
+        _speedLabel.textAlignment = NSTextAlignmentCenter;
+        _speedLabel.font = [UIFont systemFontOfSize:16];
+        _speedLabel.textColor = [UIColor blueColor];
+        _speedLabel.backgroundColor = [UIColor colorWithHexString:@"0xf2f2f2"];
+    }
+    return _speedLabel;
+}
+
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -170,6 +93,152 @@
         dCell.url = url;
     }
 }
+
+#pragma mark - network monitor
+
+- (void)addNetworkMonitor {
+    /**
+     TODO：
+     这一块copy会强引用self，导致self没办法释放
+     要对WGLNetworkMonitor的这个copy方法进行完善,
+     建议改为通知的方式
+     */
+    [[WGLNetworkMonitor sharedMonitor] startMonitoring];
+    [WGLNetworkMonitor sharedMonitor].networkStatusChangeBlock = ^(WGLNetworkReachabilityStatus status) {
+        NSString *title = @"";
+        switch (status) {
+                case WGLNetworkReachabilityStatusUnknown:
+                title = @"未知网络";
+                break;
+                case WGLNetworkReachabilityStatusNotReachable:
+                title = @"断网";
+                break;
+                case WGLNetworkReachabilityStatusReachableViaWiFi:
+                title = @"WiFi";
+                break;
+                case WGLNetworkReachabilityStatusReachableViaWWAN: {
+                    WGLNetworkOperator operator = [WGLNetworkMonitor sharedMonitor].networkOperator;
+                    NSString *desc = @"unknow";
+                    switch (operator) {
+                            case WGLNetworkOperatorUnknown:
+                            desc = @"未知运营商";
+                            break;
+                            case WGLNetworkOperatorChinaMobile:
+                            desc = @"中国移动";
+                            break;
+                            case WGLNetworkOperatorChinaUnicom:
+                            desc = @"中国联通";
+                            break;
+                            case WGLNetworkOperatorChinaTelecon:
+                            desc = @"中国电信";
+                            break;
+                            case WGLNetworkOperatorChinaTietong:
+                            desc = @"中国铁通";
+                            break;
+                        default:
+                            break;
+                    }
+                    WGLNetworkAccessTech accessTech = [WGLNetworkMonitor sharedMonitor].networkAccessTech;
+                    NSString *desc2 = @"unknow";
+                    switch (accessTech) {
+                            case WGLNetworkAccessTechLTE:
+                            desc2 = @"LTE";
+                            break;
+                            case WGLNetworkAccessTechGPRS:
+                            desc2 = @"GPRS";
+                            break;
+                            case WGLNetworkAccessTechEdge:
+                            desc2 = @"Edge";
+                            break;
+                            case WGLNetworkAccessTechHRPD:
+                            desc2 = @"HRPD";
+                            break;
+                            case WGLNetworkAccessTechHSDPA:
+                            desc2 = @"HSDPA";
+                            break;
+                            case WGLNetworkAccessTechHSUPA:
+                            desc2 = @"HSUPA";
+                            break;
+                            case WGLNetworkAccessTechWCDMA:
+                            desc2 = @"WCDMA";
+                            break;
+                            case WGLNetworkAccessTechCDMA1x:
+                            desc2 = @"CDMA1x";
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    title = [NSString stringWithFormat:@"移动网络 : %@-%@", desc, desc2];
+                }
+                break;
+            default:
+                break;
+        }
+        self.title = title;
+        
+        
+        //Toast使用
+        CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+        style.verticalPadding = 30;
+        style.horizontalPadding = 0;
+        style.titleFont = [UIFont systemFontOfSize:16];
+        style.messageFont = [UIFont systemFontOfSize:20];
+        style.titleAlignment = NSTextAlignmentCenter;
+        style.messageAlignment = NSTextAlignmentCenter;
+        style.cornerRadius = 30;
+        
+        __weak typeof(self) weakSelf = self;
+        [self.view makeToast:title duration:3 position:CSToastPositionCenter title:@"网络状态" image:[UIImage imageNamed:@"originImage.jpg"] style:style completion:^(BOOL didTap) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf.view makeToast:@"Toast完成block" duration:3 position:CSToastPositionCenter];
+        }];
+        
+        //SVProgressHUD
+//        [SVProgressHUD setSuccessImage:nil];
+//        [SVProgressHUD showSuccessWithStatus:title];
+        
+    };
+}
+
+- (void)addTrafficMonitor {
+    [[WGLTrafficMonitor sharedMonitor] startMonitoring];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTrafficSpeed) name:WGLNetworkTrafficSpeedDidChangeNotification object:nil];
+}
+
+- (void)getTrafficSpeed {
+    
+    WGLNetworkReachabilityStatus status = [WGLNetworkMonitor sharedMonitor].networkReachabilityStatus;
+    uint64_t wwanSpeed = 0;
+    uint64_t wifiSpeed = 0;
+    uint64_t allSpeed = [[WGLTrafficMonitor sharedMonitor] getNetworkTrafficSpeed:WGLNetworkTrafficTypeALL];
+    switch (status) {
+        case WGLNetworkReachabilityStatusUnknown: {
+            
+        }
+            break;
+        case WGLNetworkReachabilityStatusNotReachable: {
+            
+        }
+            break;
+        case WGLNetworkReachabilityStatusReachableViaWWAN: {
+            wwanSpeed = [[WGLTrafficMonitor sharedMonitor] getNetworkTrafficSpeed:WGLNetworkTrafficTypeWWAN];
+        }
+            break;
+        case WGLNetworkReachabilityStatusReachableViaWiFi: {
+            wifiSpeed = [[WGLTrafficMonitor sharedMonitor] getNetworkTrafficSpeed:WGLNetworkTrafficTypeWIFI];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    NSString *traffic = [NSString stringWithFormat:@"网速 wifi:%llu kb/s, wwan:%llu kb/s, all:%llu kb/s", wifiSpeed, wwanSpeed, allSpeed];
+    self.speedLabel.text = traffic;
+    
+}
+
+#pragma mark - model
 
 - (NSArray <NSDictionary *> *)infos {
     if (!_infos) {

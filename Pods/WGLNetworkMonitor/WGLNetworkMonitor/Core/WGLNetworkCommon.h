@@ -53,6 +53,7 @@ typedef NS_ENUM(NSUInteger, WGLNetworkAccessTech) {
 FOUNDATION_EXPORT NSString * const WGLNetworkingReachabilityDidChangeNotification;
 FOUNDATION_EXPORT NSString * const WGLNetworkingReachabilityNotificationStatusItem;
 
+
 /**
  网络状态变化回调block
  */

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "WGLNetworkCommon.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface WGLNetworkMonitor : NSObject
 
 /**
@@ -64,4 +66,31 @@
  */
 - (void)stopMonitoring;
 
+
+/********************* UIDevice Network Information *********************/
+
+/**
+ 获取该设备的无线IP地址(can be nil) e.g. @"192.168.1.111"
+ */
+@property (nullable, nonatomic, readonly) NSString *ipAddressWIFI;
+
+/**
+ 获取该设备的cell IP地址(can be nil) e.g. @"10.2.2.222"
+ */
+@property (nullable, nonatomic, readonly) NSString *ipAddressCell;
+
+/**
+ 获取该设备的ipv4地址(can be nil) e.g. @"172.26.152.158"
+ */
+@property (nullable, nonatomic, readonly) NSString *ipv4Address;
+
+/**
+ 获取该设备的ipv6地址(can be nil) e.g. @"fe80::7418:f0cb:f231:71c6"
+ */
+@property (nullable, nonatomic, readonly) NSString *ipv6Address;
+
+
 @end
+
+NS_ASSUME_NONNULL_END
+

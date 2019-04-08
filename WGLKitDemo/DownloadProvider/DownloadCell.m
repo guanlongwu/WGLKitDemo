@@ -7,11 +7,11 @@
 //
 
 #import "DownloadCell.h"
+#import "UIView+Extensions.h"
 #import "WGLCircleProgressView.h"
 #import "WGLDownloadProvider.h"
 #import "WGLFileCache.h"
 #import "WGLNetworkMonitor.h"
-#import "UIView+Extensions.h"
 
 @interface DownloadCell ()
 @property (nonatomic, strong) WGLDownloadProvider *downloadProvider;
@@ -30,7 +30,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self.contentView addSubview:self.nameL];
         [self.contentView addSubview:self.progressView];
-        [self.contentView addSubview:self.progressLabel];
+        [self.progressView addSubview:self.progressLabel];
         [self.contentView addSubview:self.startBtn];
         
         NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -88,7 +88,7 @@
 - (UILabel *)progressLabel {
     if (!_progressLabel) {
         _progressLabel = [[UILabel alloc] init];
-        _progressLabel.textAlignment = NSTextAlignmentLeft;
+        _progressLabel.textAlignment = NSTextAlignmentCenter;
         _progressLabel.font = [UIFont systemFontOfSize:13];
         _progressLabel.textColor = [UIColor redColor];
     }
@@ -98,8 +98,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.progressLabel.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-50, 0, 50, 50);
-    self.progressView.frame = CGRectMake(self.progressLabel.left-50, 0, 50, 50);
+    self.progressView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-100, 0, 50, 50);
+    self.progressLabel.frame = self.progressView.bounds;
     self.startBtn.frame = CGRectMake(self.progressView.left-50, 0, 50, 50);
     self.nameL.frame = CGRectMake(20, 0, self.startBtn.left-20, self.contentView.frame.size.height);
 }
@@ -130,7 +130,7 @@
         BOOL exist = [[WGLFileCache sharedCache] cacheExistForURLString:self.url];
         if (exist) {
             //有缓存，则取缓存
-            self.progressView.progress = 100;
+            self.progressView.progress = 1;
             self.progressLabel.text = @"完成";
         }
         else {
@@ -149,9 +149,10 @@
                 
             } progressBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, uint64_t receiveLength, uint64_t totalLength) {
                 
-                int progress = (int)(receiveLength * 100 / totalLength);
+                int proPercent = (int)(receiveLength * 100 / totalLength);
+                float progress = (float)receiveLength / (float)totalLength;
                 self.progressView.progress = progress;
-                self.progressLabel.text = [NSString stringWithFormat:@"%d%%", progress];
+                self.progressLabel.text = [NSString stringWithFormat:@"%d%%", proPercent];
             } successBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, NSString *filePath) {
                 
                 self.progressLabel.text = @"完成";
