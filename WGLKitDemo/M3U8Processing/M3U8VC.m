@@ -17,7 +17,7 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
 
 @interface M3U8VC ()
 @property (nonatomic, strong) UILabel *tipLabel;
-@property (nonatomic, strong) UITextView *m3u8URLView, *mp4URLView;
+@property (nonatomic, strong) UITextView *m3u8URLView, *compURLView, *mp4URLView;
 @property (nonatomic, strong) WGLCircleProgressView *progressView;
 @property (nonatomic, strong) UILabel *progressLabel;
 @property (nonatomic, strong) UIButton *clickBtn;
@@ -31,12 +31,13 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
     self.title = @"m3u8转码mp4";
     
     [self.view addSubview:self.tipLabel];
-    [self.view addSubview:self.m3u8URLView];
-    [self.view addSubview:self.mp4URLView];
     [self.view addSubview:self.progressView];
     [self.progressView addSubview:self.progressLabel];
-    
     [self.view addSubview:self.clickBtn];
+    
+    [self.view addSubview:self.m3u8URLView];
+    [self.view addSubview:self.compURLView];
+    [self.view addSubview:self.mp4URLView];
     
 }
 
@@ -44,34 +45,17 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
     if (!_tipLabel) {
         _tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, self.view.width, 50)];
         _tipLabel.textAlignment = NSTextAlignmentCenter;
-        _tipLabel.textColor = [UIColor blackColor];
+        _tipLabel.textColor = [UIColor redColor];
+        _tipLabel.font = [UIFont systemFontOfSize:24];
+        _tipLabel.text = @"准备中...";
     }
     return _tipLabel;
 }
 
-- (UITextView *)m3u8URLView {
-    if (!_m3u8URLView) {
-        _m3u8URLView = [[UITextView alloc] initWithFrame:CGRectMake(20, 150, self.view.width - 40, 100)];
-        _m3u8URLView.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
-        _m3u8URLView.text = _m3u8URL;
-        _m3u8URLView.font = [UIFont systemFontOfSize:18];
-    }
-    return _m3u8URLView;
-}
-
-- (UITextView *)mp4URLView {
-    if (!_mp4URLView) {
-        _mp4URLView = [[UITextView alloc] initWithFrame:CGRectMake(20, 300, self.view.width - 40, 100)];
-        _mp4URLView.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
-        _mp4URLView.font = [UIFont systemFontOfSize:18];
-    }
-    return _mp4URLView;
-}
-
 - (WGLCircleProgressView *)progressView {
     if (!_progressView) {
-        _progressView = [[WGLCircleProgressView alloc] initWithFrame:CGRectMake(50, 450, 80, 80)];
-        _progressView.circleLineColor = [UIColor colorWithHexString:@"f2f2f2"];
+        _progressView = [[WGLCircleProgressView alloc] initWithFrame:CGRectMake((self.view.width - 80) / 2, 150, 80, 80)];
+        _progressView.circleLineColor = [UIColor colorWithHexString:@"0xff0000"];
         _progressView.circleLineWidth = 1.5;
         _progressView.userInteractionEnabled = NO;
     }
@@ -82,7 +66,7 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
     if (!_progressLabel) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
         [self.view addSubview:label];
-        label.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
+        label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor redColor];
         label.font = [UIFont systemFontOfSize:18];
         label.textAlignment = NSTextAlignmentCenter;
@@ -91,12 +75,48 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
     return _progressLabel;
 }
 
+- (UITextView *)m3u8URLView {
+    if (!_m3u8URLView) {
+        _m3u8URLView = [[UITextView alloc] initWithFrame:CGRectMake(20, 320, self.view.width - 40, 80)];
+        _m3u8URLView.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
+        _m3u8URLView.text = _m3u8URL;
+        _m3u8URLView.font = [UIFont systemFontOfSize:15];
+        _m3u8URLView.clipsToBounds = YES;
+        _m3u8URLView.layer.cornerRadius = 20;
+    }
+    return _m3u8URLView;
+}
+
+- (UITextView *)compURLView {
+    if (!_compURLView) {
+        _compURLView = [[UITextView alloc] initWithFrame:CGRectMake(20, 420, self.view.width - 40, 100)];
+        _compURLView.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
+        _compURLView.font = [UIFont systemFontOfSize:15];
+        _compURLView.clipsToBounds = YES;
+        _compURLView.layer.cornerRadius = 20;
+    }
+    return _compURLView;
+}
+
+- (UITextView *)mp4URLView {
+    if (!_mp4URLView) {
+        _mp4URLView = [[UITextView alloc] initWithFrame:CGRectMake(20, 540, self.view.width - 40, 100)];
+        _mp4URLView.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
+        _mp4URLView.font = [UIFont systemFontOfSize:15];
+        _mp4URLView.clipsToBounds = YES;
+        _mp4URLView.layer.cornerRadius = 20;
+    }
+    return _mp4URLView;
+}
+
 #pragma mark - 点击转码
 
 - (UIButton *)clickBtn {
     if (!_clickBtn) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(200, 450, 100, 50)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake((self.view.width - 100) / 2, 250, 100, 50)];
         btn.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
+        btn.layer.cornerRadius = 10;
+        btn.clipsToBounds = YES;
         [btn setTitle:@"转码" forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -113,7 +133,8 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
                 weakSelf.progressView.progress = process;
                 weakSelf.progressLabel.text = [NSString stringWithFormat:@"%d%%", (int)(process * 100)];
                 
-            } success:^(WGLM3U8Processing *processing, NSString *m3u8Url, NSString *mp4FilePath) {
+            } success:^(WGLM3U8Processing *processing, NSString *m3u8Url, NSString *compositeTsFilePath, NSString *mp4FilePath) {
+                weakSelf.compURLView.text = compositeTsFilePath;
                 weakSelf.mp4URLView.text = mp4FilePath;
             } failure:^(WGLM3U8Processing *processing, NSString *m3u8Url) {
                 
