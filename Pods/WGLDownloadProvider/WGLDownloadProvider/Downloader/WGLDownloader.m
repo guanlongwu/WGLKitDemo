@@ -13,15 +13,8 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
 #import <CommonCrypto/CommonDigest.h>
 
 @interface WGLDownloader ()
-@property (nonatomic, copy) NSString *downloadFilePath;     //下载文件的存放路径
 @property (nonatomic, assign) uint64_t downloadFileSize;
 @property (nonatomic, assign) WGLDownloadState downloadState;
-@property (nonatomic, copy) NSString *downloadDirectory;    //下载文件的存放目录
-@property (nonatomic, copy) NSString *defaultDirectory;     //默认下载目录NSTemporaryDirectory()
-@property (nonatomic, copy) NSString *defaultFilePath;      //默认下载路径
-@property (nonatomic, copy) NSString *cacheFileName;        //文件缓存名
-@property (nonatomic, copy) NSString *tempDownloadDirectory;    //临时下载目录
-@property (nonatomic, copy) NSString *tempDownloadFilePath;     //临时下载路径
 
 @property (nonatomic, strong) NSMutableURLRequest *request;
 @property (nonatomic, strong) NSURLConnection *connection;

@@ -121,5 +121,10 @@
     return dir;
 }
 
+#pragma mark -
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
+}
 
 @end

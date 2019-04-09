@@ -117,6 +117,7 @@
         _downloadProvider = [WGLDownloadProvider sharedProvider];
         _downloadProvider.delegate = (id<WGLDownloadProviderDelegate>)self;
         _downloadProvider.dataSource = (id<WGLDownloadProviderDataSource>)self;
+        _downloadProvider.maxConcurrentDownloadCount = 5;
     }
     return _downloadProvider;
 }
