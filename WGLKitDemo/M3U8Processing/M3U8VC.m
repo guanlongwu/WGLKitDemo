@@ -134,6 +134,9 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
                 weakSelf.progressLabel.text = [NSString stringWithFormat:@"%d%%", (int)(process * 100)];
                 
             } success:^(WGLM3U8Processing *processing, NSString *m3u8Url, NSString *compositeTsFilePath, NSString *mp4FilePath) {
+                weakSelf.tipLabel.text = @"转码完成";
+                weakSelf.progressView.progress = 1.0;
+                weakSelf.progressLabel.text = [NSString stringWithFormat:@"100%%"];
                 weakSelf.compURLView.text = compositeTsFilePath;
                 weakSelf.mp4URLView.text = mp4FilePath;
             } failure:^(WGLM3U8Processing *processing, NSString *m3u8Url) {
@@ -144,8 +147,6 @@ static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/810
     }
     return _clickBtn;
 }
-
-
 
 
 @end
