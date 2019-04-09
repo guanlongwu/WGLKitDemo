@@ -1,13 +1,13 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
   - PSTAlertController (1.2.0)
-  - SSZipArchive (2.1.4)
+  - SSZipArchive (2.1.5)
   - SVProgressHUD (2.2.5)
   - TMCache (2.1.0)
   - Toast (4.0.0)
   - WGLCategories (0.0.10)
   - WGLCircleProgressView (0.0.4)
-  - WGLDownloadProvider (0.1.8):
+  - WGLDownloadProvider (0.2.1):
     - WGLFileCache (~> 0.0.3)
   - WGLFileCache (0.0.3)
   - WGLNetworkMonitor (0.0.12)
@@ -23,7 +23,7 @@ DEPENDENCIES:
   - Toast (~> 4.0.0)
   - WGLCategories (= 0.0.10)
   - WGLCircleProgressView (= 0.0.4)
-  - WGLDownloadProvider (= 0.1.8)
+  - WGLDownloadProvider (= 0.2.1)
   - WGLFileCache (= 0.0.3)
   - WGLNetworkMonitor (= 0.0.12)
   - WGLSegmentView (= 0.7.0)
@@ -48,18 +48,18 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   PSTAlertController: 9b802dfbda54fee2683bfd6dda7023a6de895d5b
-  SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
+  SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WGLCategories: d9048673ee83cb388b226e592ed2bb4ba6f51cc8
   WGLCircleProgressView: f3452c8349d813e8ce1232ed47cf7cbc398e4352
-  WGLDownloadProvider: 42691a4493a7d07244ff80b90ad4c5e57aeb7cde
+  WGLDownloadProvider: 06ff0c80517f80d71a826ca4c1ac71e38a838dfa
   WGLFileCache: dee526403b21733fd3319983117f6b802ce31d95
   WGLNetworkMonitor: ad531e5aab5e45aae22287b94740ccf925e198bf
   WGLSegmentView: 8fd8f87e679e0d78bc1dec098ffb65413b540300
   WGLTrafficMonitor: f127177ae7375c1485241fb56eb0af50322cfd78
 
-PODFILE CHECKSUM: 28be7cd9752abe678c9f01759267caaeb4658fb7
+PODFILE CHECKSUM: b18b8b9f7b1bea5af9b010792b8a6a40bea35f2a
 
 COCOAPODS: 1.6.1

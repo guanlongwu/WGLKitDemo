@@ -13,6 +13,9 @@
 #import "UIView+Extensions.h"
 #import "UIColor+Convertor.h"
 #import "NSTimer+Block.h"
+
+#import "WGLDownloadProvider.h"
+#import "WGLFileCache.h"
 #import "WGLNetworkMonitor.h"
 #import "WGLTrafficMonitor.h"
 
@@ -20,6 +23,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UILabel *speedLabel;
 @property (nonatomic, strong) NSArray <NSDictionary *>* infos;
+@property (nonatomic, strong) WGLDownloadProvider *downloadProvider;
 @end
 
 @implementation DownloadVC
@@ -81,6 +85,10 @@
     if (!cell) {
         cell = [[DownloadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([DownloadCell class])];
     }
+    __weak typeof(self) weakSelf = self;
+    cell.clickHandler = ^(DownloadCell *cell, NSString *urlString) {
+        [weakSelf downloadURL:urlString forCell:cell];
+    };
     return cell;
 }
 
@@ -92,6 +100,165 @@
         NSString *url = info[@"url"];
         dCell.url = url;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    NSDictionary *info = self.infos[indexPath.row];
+    NSString *url = info[@"url"];
+    DownloadCell *cell = (DownloadCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    [self downloadURL:url forCell:cell];
+}
+
+#pragma mark - download
+
+- (WGLDownloadProvider *)downloadProvider {
+    if (!_downloadProvider) {
+        _downloadProvider = [WGLDownloadProvider sharedProvider];
+        _downloadProvider.delegate = (id<WGLDownloadProviderDelegate>)self;
+        _downloadProvider.dataSource = (id<WGLDownloadProviderDataSource>)self;
+    }
+    return _downloadProvider;
+}
+
+- (void)downloadURL:(NSString *)url forCell:(DownloadCell *)cell {
+    WGLDownloadState state = [self.downloadProvider downloadStateForURL:url];
+    if (state == WGLDownloadStateDownloading) {
+        //暂停下载
+        
+        //判断网络是否可用
+        if (NO == [WGLNetworkMonitor sharedMonitor].isReachable) {
+            cell.progressLabel.text = @"无网";
+            return;
+        }
+        [self.downloadProvider cancelDownloadURL:url];
+        
+    }
+    else {
+        //开始下载
+        BOOL exist = [[WGLFileCache sharedCache] cacheExistForURLString:url];
+        if (exist) {
+            //有缓存，则取缓存
+            cell.progressView.progress = 1;
+            cell.progressLabel.text = @"完成";
+        }
+        else {
+            //判断网络是否可用
+            if (NO == [WGLNetworkMonitor sharedMonitor].isReachable) {
+                cell.progressLabel.text = @"无网";
+                return;
+            }
+            cell.progressLabel.text = @"等待下载";
+            
+            /*
+             [self.downloadProvider downloadWithURL:url];
+             */
+            
+            [self.downloadProvider downloadWithURL:url startBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString) {
+                
+            } progressBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, uint64_t receiveLength, uint64_t totalLength) {
+                
+                int proPercent = (int)(receiveLength * 100 / totalLength);
+                float progress = (float)receiveLength / (float)totalLength;
+                cell.progressView.progress = progress;
+                cell.progressLabel.text = [NSString stringWithFormat:@"%d%%", proPercent];
+            } successBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, NSString *filePath) {
+                
+                cell.progressLabel.text = @"完成";
+            } failBlock:^(WGLDownloadProvider *dlProvider, NSString *_urlString, WGLDownloadErrorType errorType) {
+                
+                NSString *errorMsg = [self errorMsg:errorType];
+                NSLog(@"error msg : %@", errorMsg);
+                cell.progressLabel.text = errorMsg;
+            }];
+            
+        }
+    }
+}
+
+#pragma mark - WGLDownloadProviderDataSource / delegate
+
+//是否已缓存
+- (BOOL)downloadProvider:(WGLDownloadProvider *)dlProvider existCache:(NSString *)urlString {
+    BOOL exist = [[WGLFileCache sharedCache] cacheExistForURLString:urlString];
+    return exist;
+}
+
+//文件下载的存放目录
+- (NSString *)downloadProvider:(WGLDownloadProvider *)dlProvider getDirectory:(NSString *)urlString {
+    NSString *dir = [[WGLFileCache sharedCache] getDefaultCacheDirectory];
+    return dir;
+}
+
+//文件缓存的唯一key
+- (NSString *)downloadProvider:(WGLDownloadProvider *)dlProvider cacheFileName:(NSString *)urlString {
+    NSString *cacheName = [[WGLFileCache sharedCache] cacheFileNameForURLString:urlString];
+    return cacheName;
+}
+
+//下载开始
+- (void)downloadDidStart:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString {
+    
+}
+
+//下载中
+- (void)downloader:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString didReceiveLength:(uint64_t)receiveLength totalLength:(uint64_t)totalLength {
+    DownloadCell *cell = [self cellForUrl:urlString];
+    int progress = (int)(receiveLength * 100 / totalLength);
+    cell.progressView.progress = progress;
+    cell.progressLabel.text = [NSString stringWithFormat:@"%d%%", progress];
+}
+
+//下载成功
+- (void)downloadDidFinish:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString filePath:(NSString *)filePath {
+    DownloadCell *cell = [self cellForUrl:urlString];
+    cell.progressLabel.text = @"完成";
+}
+
+//下载失败
+- (void)downloadDidFail:(WGLDownloadProvider *)dlProvider urlString:(NSString *)urlString errorType:(WGLDownloadErrorType)errorType {
+    DownloadCell *cell = [self cellForUrl:urlString];
+    NSString *errorMsg = [self errorMsg:errorType];
+    NSLog(@"error msg : %@", errorMsg);
+    cell.progressLabel.text = errorMsg;
+}
+
+- (NSString *)errorMsg:(WGLDownloadErrorType)errorType {
+    NSString *errorMsg = @"";
+    switch (errorType) {
+            case WGLDownloadErrorTypeHTTPError:
+            errorMsg = @"HTTP请求出错";
+            break;
+            case WGLDownloadErrorTypeInvalidURL:
+            errorMsg = @"URL不合法";
+            break;
+            case WGLDownloadErrorTypeInvalidRequestRange:
+            errorMsg = @"下载范围不对";
+            break;
+            case WGLDownloadErrorTypeInvalidDirectory:
+            errorMsg = @"下载目录出错";
+            break;
+            case WGLDownloadErrorTypeNotEnoughFreeSpace:
+            errorMsg = @"磁盘空间不足";
+            break;
+            case WGLDownloadErrorTypeCacheInDiskError:
+            errorMsg = @"下载成功缓存失败";
+            break;
+        default:
+            break;
+    }
+    return errorMsg;
+}
+
+//获取对应cell
+- (DownloadCell *)cellForUrl:(NSString *)urlString {
+    for (int i=0; i<self.infos.count; i++) {
+        DownloadCell *cell = (DownloadCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if ([cell.url isEqualToString:urlString]) {
+            return cell;
+        }
+    }
+    return nil;
 }
 
 #pragma mark - network monitor
@@ -200,6 +367,8 @@
         
     };
 }
+
+#pragma mark - Traffic Monitor
 
 - (void)addTrafficMonitor {
     [[WGLTrafficMonitor sharedMonitor] startMonitoring];

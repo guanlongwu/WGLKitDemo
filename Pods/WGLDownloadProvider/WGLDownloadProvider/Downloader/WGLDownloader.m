@@ -30,7 +30,6 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
 @property (nonatomic, assign) uint64_t receivedDataLength;
 @property (nonatomic, strong) NSFileHandle *fileHandle;
 
-
 @end
 
 @implementation WGLDownloader
@@ -316,6 +315,10 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
         return YES;
     }
     else {
+        if (516 == error.code) {
+            //缓存失败的原因是：File exists（目的地址已经存在该文件）
+            return YES;
+        }
         //保存失败
         return NO;
     }
@@ -325,75 +328,64 @@ static const double kBufferSize = (1); //每下载1 MB数据则写一次磁盘
 
 //下载文件存放的目录
 - (NSString *)downloadDirectory {
-    if (!_downloadDirectory) {
-        if ([self.dataSource respondsToSelector:@selector(downloaderGetDirectory:urlString:)]) {
-            _downloadDirectory = [self.dataSource downloaderGetDirectory:self urlString:self.urlString];
-        }
-        if (_downloadDirectory.length < 5) {
-            _downloadDirectory = self.defaultDirectory;
-        }
+    NSString *dir = nil;
+    if ([self.dataSource respondsToSelector:@selector(downloaderGetDirectory:urlString:)]) {
+        dir = [self.dataSource downloaderGetDirectory:self urlString:self.urlString];
     }
-    return _downloadDirectory;
+    if (dir.length < 5) {
+        dir = self.defaultDirectory;
+    }
+    return dir;
 }
 
 //下载文件存放的路径
 - (NSString *)downloadFilePath {
-    if (!_downloadFilePath) {
-        _downloadFilePath = [self.downloadDirectory stringByAppendingPathComponent:self.cacheFileName];
-        if (_downloadFilePath.length < 5) {
-            _downloadFilePath = self.defaultFilePath;
-        }
+    NSString *filePath = nil;
+    filePath = [self.downloadDirectory stringByAppendingPathComponent:self.cacheFileName];
+    if (filePath.length < 5) {
+        filePath = self.defaultFilePath;
     }
-    return _downloadFilePath;
+    return filePath;
 }
 
 #pragma mark - 默认下载目录/路径
 
 //默认下载目录
 - (NSString *)defaultDirectory {
-    if (!_defaultDirectory) {
-        _defaultDirectory = [[NSString alloc] initWithString:NSTemporaryDirectory()];
-    }
-    return _defaultDirectory;
+    NSString *defaultDir = NSTemporaryDirectory();
+    return defaultDir;
 }
 
 //默认下载路径
 - (NSString *)defaultFilePath {
-    if (!_defaultFilePath) {
-        _defaultFilePath = [self.defaultDirectory stringByAppendingPathComponent:self.cacheFileName];
-    }
-    return _defaultFilePath;
+    NSString *filePath = [self.defaultDirectory stringByAppendingPathComponent:self.cacheFileName];
+    return filePath;
 }
 
 #pragma mark - 临时下载目录/路径
 
 - (NSString *)tempDownloadDirectory {
-    if (!_tempDownloadDirectory) {
-        _tempDownloadDirectory = [NSString stringWithFormat:@"%@tempDownloadDirectory", self.defaultDirectory];
-    }
-    return _tempDownloadDirectory;
+    NSString *tempDir = [NSString stringWithFormat:@"%@tempDownloadDirectory", self.defaultDirectory];
+    return tempDir;
 }
 
 - (NSString *)tempDownloadFilePath {
-    if (!_tempDownloadFilePath) {
-        _tempDownloadFilePath = [self.tempDownloadDirectory stringByAppendingPathComponent:self.cacheFileName];
-    }
-    return _tempDownloadFilePath;
+    NSString *tempFilePath = [self.tempDownloadDirectory stringByAppendingPathComponent:self.cacheFileName];
+    return tempFilePath;
 }
 
 #pragma mark -
 
 //文件缓存key
 - (NSString *)cacheFileName {
-    if (!_cacheFileName) {
-        if ([self.dataSource respondsToSelector:@selector(downloaderCacheFileName:urlString:)]) {
-            _cacheFileName = [self.dataSource downloaderCacheFileName:self urlString:self.urlString];
-        }
-        if (_cacheFileName.length < 5) {
-            _cacheFileName = [self cachedFileNameForURLString:self.urlString];
-        }
+    NSString *fileName = nil;
+    if ([self.dataSource respondsToSelector:@selector(downloaderCacheFileName:urlString:)]) {
+        fileName = [self.dataSource downloaderCacheFileName:self urlString:self.urlString];
     }
-    return _cacheFileName;
+    if (fileName.length < 5) {
+        fileName = [self cachedFileNameForURLString:self.urlString];
+    }
+    return fileName;
 }
 
 //url进行md5

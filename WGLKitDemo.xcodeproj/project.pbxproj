@@ -44,11 +44,6 @@
 		09E4BE80224B966600A6E8B3 /* FFmpegConverOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE5A224B966500A6E8B3 /* FFmpegConverOC.m */; };
 		09E4BE81224B966600A6E8B3 /* WGLM3U8Processing.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE5B224B966500A6E8B3 /* WGLM3U8Processing.m */; };
 		09E4BE82224B966600A6E8B3 /* WGLM3U8Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE5D224B966500A6E8B3 /* WGLM3U8Parser.m */; };
-		09E4BE83224B966600A6E8B3 /* WGLM3U8Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE60224B966500A6E8B3 /* WGLM3U8Helper.m */; };
-		09E4BE84224B966600A6E8B3 /* WGLM3U8DownloadProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE62224B966500A6E8B3 /* WGLM3U8DownloadProvider.m */; };
-		09E4BE85224B966600A6E8B3 /* WGLM3U8DownloadDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE65224B966500A6E8B3 /* WGLM3U8DownloadDelegate.m */; };
-		09E4BE86224B966600A6E8B3 /* WGLM3U8Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE68224B966500A6E8B3 /* WGLM3U8Downloader.m */; };
-		09E4BE87224B966600A6E8B3 /* WGLM3U8DownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE6C224B966500A6E8B3 /* WGLM3U8DownloadTask.m */; };
 		09E4BE88224B966600A6E8B3 /* WGLM3U8Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE6F224B966500A6E8B3 /* WGLM3U8Entity.m */; };
 		09E4BE89224B966600A6E8B3 /* WGLM3U8DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE70224B966500A6E8B3 /* WGLM3U8DownloadManager.m */; };
 		09E4BE8D224B9A0F00A6E8B3 /* M3U8VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E4BE8C224B9A0F00A6E8B3 /* M3U8VC.m */; };
@@ -255,20 +250,9 @@
 		09E4BE5D224B966500A6E8B3 /* WGLM3U8Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8Parser.m; sourceTree = "<group>"; };
 		09E4BE5E224B966500A6E8B3 /* WGLM3U8DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8DownloadManager.h; sourceTree = "<group>"; };
 		09E4BE5F224B966500A6E8B3 /* WGLM3U8Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8Entity.h; sourceTree = "<group>"; };
-		09E4BE60224B966500A6E8B3 /* WGLM3U8Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8Helper.m; sourceTree = "<group>"; };
-		09E4BE62224B966500A6E8B3 /* WGLM3U8DownloadProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8DownloadProvider.m; sourceTree = "<group>"; };
-		09E4BE64224B966500A6E8B3 /* WGLM3U8DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8DownloadDelegate.h; sourceTree = "<group>"; };
-		09E4BE65224B966500A6E8B3 /* WGLM3U8DownloadDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8DownloadDelegate.m; sourceTree = "<group>"; };
-		09E4BE67224B966500A6E8B3 /* WGLM3U8Downloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8Downloader.h; sourceTree = "<group>"; };
-		09E4BE68224B966500A6E8B3 /* WGLM3U8Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8Downloader.m; sourceTree = "<group>"; };
-		09E4BE69224B966500A6E8B3 /* WGLM3U8Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8Util.h; sourceTree = "<group>"; };
-		09E4BE6A224B966500A6E8B3 /* WGLM3U8DownloadProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8DownloadProvider.h; sourceTree = "<group>"; };
-		09E4BE6C224B966500A6E8B3 /* WGLM3U8DownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8DownloadTask.m; sourceTree = "<group>"; };
-		09E4BE6D224B966500A6E8B3 /* WGLM3U8DownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8DownloadTask.h; sourceTree = "<group>"; };
 		09E4BE6E224B966500A6E8B3 /* WGLM3U8Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8Parser.h; sourceTree = "<group>"; };
 		09E4BE6F224B966500A6E8B3 /* WGLM3U8Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8Entity.m; sourceTree = "<group>"; };
 		09E4BE70224B966500A6E8B3 /* WGLM3U8DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLM3U8DownloadManager.m; sourceTree = "<group>"; };
-		09E4BE71224B966500A6E8B3 /* WGLM3U8Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLM3U8Helper.h; sourceTree = "<group>"; };
 		09E4BE8B224B9A0F00A6E8B3 /* M3U8VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M3U8VC.h; sourceTree = "<group>"; };
 		09E4BE8C224B9A0F00A6E8B3 /* M3U8VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = M3U8VC.m; sourceTree = "<group>"; };
 		09E4BE8E224BA9D000A6E8B3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -709,53 +693,10 @@
 				09E4BE5D224B966500A6E8B3 /* WGLM3U8Parser.m */,
 				09E4BE5F224B966500A6E8B3 /* WGLM3U8Entity.h */,
 				09E4BE6F224B966500A6E8B3 /* WGLM3U8Entity.m */,
-				09E4BE71224B966500A6E8B3 /* WGLM3U8Helper.h */,
-				09E4BE60224B966500A6E8B3 /* WGLM3U8Helper.m */,
 				09E4BE5E224B966500A6E8B3 /* WGLM3U8DownloadManager.h */,
 				09E4BE70224B966500A6E8B3 /* WGLM3U8DownloadManager.m */,
-				09E4BE61224B966500A6E8B3 /* Download */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		09E4BE61224B966500A6E8B3 /* Download */ = {
-			isa = PBXGroup;
-			children = (
-				09E4BE62224B966500A6E8B3 /* WGLM3U8DownloadProvider.m */,
-				09E4BE63224B966500A6E8B3 /* Delegate */,
-				09E4BE66224B966500A6E8B3 /* Downloader */,
-				09E4BE69224B966500A6E8B3 /* WGLM3U8Util.h */,
-				09E4BE6A224B966500A6E8B3 /* WGLM3U8DownloadProvider.h */,
-				09E4BE6B224B966500A6E8B3 /* Task */,
-			);
-			path = Download;
-			sourceTree = "<group>";
-		};
-		09E4BE63224B966500A6E8B3 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				09E4BE64224B966500A6E8B3 /* WGLM3U8DownloadDelegate.h */,
-				09E4BE65224B966500A6E8B3 /* WGLM3U8DownloadDelegate.m */,
-			);
-			path = Delegate;
-			sourceTree = "<group>";
-		};
-		09E4BE66224B966500A6E8B3 /* Downloader */ = {
-			isa = PBXGroup;
-			children = (
-				09E4BE67224B966500A6E8B3 /* WGLM3U8Downloader.h */,
-				09E4BE68224B966500A6E8B3 /* WGLM3U8Downloader.m */,
-			);
-			path = Downloader;
-			sourceTree = "<group>";
-		};
-		09E4BE6B224B966500A6E8B3 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				09E4BE6C224B966500A6E8B3 /* WGLM3U8DownloadTask.m */,
-				09E4BE6D224B966500A6E8B3 /* WGLM3U8DownloadTask.h */,
-			);
-			path = Task;
 			sourceTree = "<group>";
 		};
 		09E4BE8A224B99E800A6E8B3 /* M3U8Processing */ = {
@@ -964,7 +905,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E4BE87224B966600A6E8B3 /* WGLM3U8DownloadTask.m in Sources */,
 				09E4BE77224B966500A6E8B3 /* FFmpegManager.m in Sources */,
 				0941FB8F223758D50071B0E8 /* CategoryVC.m in Sources */,
 				0941FE0F223BC9E10071B0E8 /* NSDataVC.m in Sources */,
@@ -974,18 +914,14 @@
 				0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */,
 				09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */,
 				09E4BE8D224B9A0F00A6E8B3 /* M3U8VC.m in Sources */,
-				09E4BE84224B966600A6E8B3 /* WGLM3U8DownloadProvider.m in Sources */,
 				09E4BE75224B966500A6E8B3 /* ffmpeg.c in Sources */,
-				09E4BE85224B966600A6E8B3 /* WGLM3U8DownloadDelegate.m in Sources */,
 				09E4BE76224B966500A6E8B3 /* ffmpeg_videotoolbox.c in Sources */,
-				09E4BE86224B966600A6E8B3 /* WGLM3U8Downloader.m in Sources */,
 				09E4BE88224B966600A6E8B3 /* WGLM3U8Entity.m in Sources */,
 				0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */,
 				09E4BE80224B966600A6E8B3 /* FFmpegConverOC.m in Sources */,
 				0941FC92223B44EF0071B0E8 /* NSStringVC.m in Sources */,
 				09C31153219D6C9B00C8701E /* ViewController.m in Sources */,
 				09E4BE73224B966500A6E8B3 /* ffmpeg_filter.c in Sources */,
-				09E4BE83224B966600A6E8B3 /* WGLM3U8Helper.m in Sources */,
 				0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */,
 				09C3115E219D6C9B00C8701E /* main.m in Sources */,
 				09E4BE89224B966600A6E8B3 /* WGLM3U8DownloadManager.m in Sources */,
