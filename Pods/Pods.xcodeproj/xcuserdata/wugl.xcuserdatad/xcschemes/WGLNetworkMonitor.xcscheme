@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "500FECD960E670BAE08350CA4FD7DF95"
+               BlueprintIdentifier = "3A6157A2C46FF6D32AF0441785460C29"
                BuildableName = "libWGLNetworkMonitor.a"
                BlueprintName = "WGLNetworkMonitor"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -10,6 +10,8 @@ PODS:
   - WGLDownloadProvider (0.2.3):
     - WGLFileCache (~> 0.0.3)
   - WGLFileCache (0.0.3)
+  - WGLFileManager (0.0.1)
+  - WGLHorizontalScrollFlowLayout (0.0.1)
   - WGLNetworkMonitor (0.0.12)
   - WGLSegmentView (0.7.0)
   - WGLTrafficMonitor (0.0.5)
@@ -25,6 +27,8 @@ DEPENDENCIES:
   - WGLCircleProgressView (= 0.0.4)
   - WGLDownloadProvider (= 0.2.3)
   - WGLFileCache (= 0.0.3)
+  - WGLFileManager (= 0.0.1)
+  - WGLHorizontalScrollFlowLayout (= 0.0.1)
   - WGLNetworkMonitor (= 0.0.12)
   - WGLSegmentView (= 0.7.0)
   - WGLTrafficMonitor (= 0.0.5)
@@ -41,6 +45,8 @@ SPEC REPOS:
     - WGLCircleProgressView
     - WGLDownloadProvider
     - WGLFileCache
+    - WGLFileManager
+    - WGLHorizontalScrollFlowLayout
     - WGLNetworkMonitor
     - WGLSegmentView
     - WGLTrafficMonitor
@@ -56,10 +62,12 @@ SPEC CHECKSUMS:
   WGLCircleProgressView: f3452c8349d813e8ce1232ed47cf7cbc398e4352
   WGLDownloadProvider: 10ee51b675ff6057d671896420324e4c12b22a2d
   WGLFileCache: dee526403b21733fd3319983117f6b802ce31d95
+  WGLFileManager: 431bf50d40121ff35b6e87a0d5a1f3f4d04773a4
+  WGLHorizontalScrollFlowLayout: 6b9a2db41fcfb0a67eaa889adf19e42b0a42a96b
   WGLNetworkMonitor: ad531e5aab5e45aae22287b94740ccf925e198bf
   WGLSegmentView: 8fd8f87e679e0d78bc1dec098ffb65413b540300
   WGLTrafficMonitor: f127177ae7375c1485241fb56eb0af50322cfd78
 
-PODFILE CHECKSUM: edf59e6eee29a9ddbf00f8aceba2eece13f01f82
+PODFILE CHECKSUM: a377014da84af185304588508f56f58b96a55212
 
 COCOAPODS: 1.6.1

@@ -9,7 +9,8 @@ pod 'WGLCircleProgressView', '0.0.4'
 pod 'WGLCategories', '0.0.10'
 pod 'WGLNetworkMonitor', '0.0.12'
 pod 'WGLTrafficMonitor', '0.0.5'
-
+pod 'WGLHorizontalScrollFlowLayout', '0.0.1'
+pod 'WGLFileManager', '0.0.1'
 
 #third SDK Library
 #pod 'ZipArchive', '1.4.0'

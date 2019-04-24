@@ -13,6 +13,7 @@
 #import "DownloadVC.h"
 #import "CategoryVC.h"
 #import "M3U8VC.h"
+#import "UploadVC.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -61,6 +62,7 @@
         _titles =
         [@[
            @"SegmentView", @"Downloader", @"Categories", @"M3U8Processing",
+           @"Uploader",
            ] mutableCopy];
     }
     return _titles;
@@ -74,6 +76,7 @@
            NSStringFromClass([DownloadVC class]),
            NSStringFromClass([CategoryVC class]),
            NSStringFromClass([M3U8VC class]),
+           NSStringFromClass([UploadVC class]),
            ] mutableCopy];
     }
     return _controlViews;
