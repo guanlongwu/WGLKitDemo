@@ -128,7 +128,17 @@
 }
 
 - (void)uploadFilePath:(NSString *)filePath forCell:(UploadCell *)cell {
-    
+    [self.uploadProvider uploadWithFilePath:filePath start:^(WGLUploadProvider *ulProvider, WGLUploadFileInfo *fileInfo) {
+        
+    } progress:^(WGLUploadProvider *ulProvider, WGLUploadFileInfo *fileInfo) {
+        
+    } success:^(WGLUploadProvider *ulProvider, WGLUploadFileInfo *fileInfo) {
+        
+    } failure:^(WGLUploadProvider *ulProvider, WGLUploadFileInfo *fileInfo, NSError *error) {
+        
+    } cancel:^(WGLUploadProvider *ulProvider, WGLUploadFileInfo *fileInfo) {
+        
+    }];
 }
 
 #pragma mark - WGLUploadProviderDataSource
@@ -151,6 +161,11 @@
 //上传分片所需参数
 - (NSDictionary *)uploadProviderGetChunkUploadParams:(WGLUploadProvider *)ulProvider params:(NSDictionary *)params chunkIndex:(NSInteger)chunkIndex {
     return nil;
+}
+
+//下载开始
+- (void)uploadProviderDidStart:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
+    NSLog(@"----上传开始：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld \n", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
 }
 
 //上传中
