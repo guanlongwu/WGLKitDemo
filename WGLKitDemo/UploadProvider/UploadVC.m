@@ -133,13 +133,44 @@
 
 #pragma mark - WGLUploadProviderDataSource
 
-- (NSURLRequest *)uploaderGetUploadURLRequest:(WGLUploadProvider *)ulProvider {
+//上传urlrequest
+- (NSURLRequest *)uploadProviderGetUploadURLRequest:(WGLUploadProvider *)ulProvider {
     NSURL *url = [NSURL URLWithString:@"xxx/upload/file"];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", @"1a2b3c"] forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"v1" forHTTPHeaderField:@"api_version"];
     return request;
+}
+
+//文件上传之前的所需参数
+- (void)uploadProviderGetParamsBeforeUpload:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo completion:(WGLGetFileParamsBeforeUploadCompletion)completion {
+    
+}
+
+//上传分片所需参数
+- (NSDictionary *)uploadProviderGetChunkUploadParams:(WGLUploadProvider *)ulProvider params:(NSDictionary *)params chunkIndex:(NSInteger)chunkIndex {
+    return nil;
+}
+
+//上传中
+- (void)uploadProviderUploading:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
+    NSLog(@"----上传中：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld \n", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
+}
+
+//上传成功
+- (void)uploadProviderDidFinish:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
+    NSLog(@"----上传成功：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
+}
+
+//上传失败
+- (void)uploadProviderDidFailure:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo error:(NSError *)error {
+    NSLog(@"----上传失败：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld, erro:%@", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize, error.description);
+}
+
+//上传取消
+- (void)uploadProviderDidCancel:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
+    NSLog(@"----上传取消：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
 }
 
 #pragma mark - 选相册

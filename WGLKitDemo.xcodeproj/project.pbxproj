@@ -17,6 +17,7 @@
 		0913963D22708DA900F52D06 /* UploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913963C22708DA900F52D06 /* UploadCell.m */; };
 		091396442270924200F52D06 /* HYVideoAlbumAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 091396402270924200F52D06 /* HYVideoAlbumAsset.m */; };
 		091396452270924200F52D06 /* HYVideoSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 091396412270924200F52D06 /* HYVideoSelector.m */; };
+		0913964922715A2D00F52D06 /* WGLUploadFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913964822715A2D00F52D06 /* WGLUploadFileInfo.m */; };
 		09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410030223F864C0071B0E8 /* NSFileManagerVC.m */; };
 		09410037223F8EDF0071B0E8 /* NSDateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410036223F8EDF0071B0E8 /* NSDateVC.m */; };
 		0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410039223F91420071B0E8 /* UIDeviceVC.m */; };
@@ -102,6 +103,8 @@
 		091396412270924200F52D06 /* HYVideoSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYVideoSelector.m; sourceTree = "<group>"; };
 		091396422270924200F52D06 /* HYVideoAlbumAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYVideoAlbumAsset.h; sourceTree = "<group>"; };
 		091396432270924200F52D06 /* HYVideoSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYVideoSelector.h; sourceTree = "<group>"; };
+		0913964722715A2D00F52D06 /* WGLUploadFileInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGLUploadFileInfo.h; sourceTree = "<group>"; };
+		0913964822715A2D00F52D06 /* WGLUploadFileInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGLUploadFileInfo.m; sourceTree = "<group>"; };
 		0941002F223F864C0071B0E8 /* NSFileManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSFileManagerVC.h; sourceTree = "<group>"; };
 		09410030223F864C0071B0E8 /* NSFileManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerVC.m; sourceTree = "<group>"; };
 		09410035223F8EDF0071B0E8 /* NSDateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDateVC.h; sourceTree = "<group>"; };
@@ -335,6 +338,7 @@
 			children = (
 				0913963022708CAE00F52D06 /* WGLUploadProvider.h */,
 				0913962322708CAD00F52D06 /* WGLUploadProvider.m */,
+				09139646227159FC00F52D06 /* Entity */,
 				0913962022708CAD00F52D06 /* Uploader */,
 				0913962422708CAD00F52D06 /* Utils */,
 				0913962822708CAD00F52D06 /* FileStreamOperation */,
@@ -367,8 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				0913962922708CAD00F52D06 /* WGLStreamFragment.h */,
-				0913962A22708CAD00F52D06 /* WGLFileStreamOperation.h */,
 				0913962B22708CAD00F52D06 /* WGLStreamFragment.m */,
+				0913962A22708CAD00F52D06 /* WGLFileStreamOperation.h */,
 				0913962C22708CAD00F52D06 /* WGLFileStreamOperation.m */,
 			);
 			path = FileStreamOperation;
@@ -377,8 +381,8 @@
 		0913962D22708CAE00F52D06 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				0913962E22708CAE00F52D06 /* WGLUploadTask.m */,
 				0913962F22708CAE00F52D06 /* WGLUploadTask.h */,
+				0913962E22708CAE00F52D06 /* WGLUploadTask.m */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -411,6 +415,15 @@
 				091396432270924200F52D06 /* HYVideoSelector.h */,
 			);
 			path = VideoSelector;
+			sourceTree = "<group>";
+		};
+		09139646227159FC00F52D06 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				0913964722715A2D00F52D06 /* WGLUploadFileInfo.h */,
+				0913964822715A2D00F52D06 /* WGLUploadFileInfo.m */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		094196FB221552520073AFFE /* DownloadProvider */ = {
@@ -1029,6 +1042,7 @@
 				0941FE0F223BC9E10071B0E8 /* NSDataVC.m in Sources */,
 				0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */,
 				09419792221A5CE50073AFFE /* DownloadCell.m in Sources */,
+				0913964922715A2D00F52D06 /* WGLUploadFileInfo.m in Sources */,
 				09E4BE72224B966500A6E8B3 /* ffmpeg_opt.c in Sources */,
 				0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */,
 				09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */,
