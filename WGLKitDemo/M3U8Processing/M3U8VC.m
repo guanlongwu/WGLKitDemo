@@ -13,7 +13,7 @@
 #import "WGLCircleProgressView.h"
 #import "WGLM3U8Processing.h"
 
-static NSString *const _m3u8URL = @"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";
+static NSString *const _m3u8URL = @"http://v-replay.cdn.huya.com/record/huyalive/1447023449-1447023449-6214918390000123904-100281904-10060-A-0-1_2000/2019-05-30-18:12:00_2019-05-30-18:18:34_v.m3u8";//@"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";
 
 @interface M3U8VC ()
 @property (nonatomic, strong) UILabel *tipLabel;

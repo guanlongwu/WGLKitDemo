@@ -11,6 +11,7 @@
 #import "UIColor+Convertor.h"
 #import "UIControl+Block.h"
 #import "HYVideoSelector.h"
+#import "SVProgressHUD.h"
 
 #import "WGLUploadProvider.h"
 #import "UploadCell.h"
@@ -115,7 +116,7 @@
     [self uploadFilePath:filePath forCell:cell];
 }
 
-#pragma mark - download
+#pragma mark - upload
 
 - (WGLUploadProvider *)uploadProvider {
     if (!_uploadProvider) {
@@ -146,7 +147,7 @@
 //上传urlrequest
 - (NSURLRequest *)uploadProviderGetUploadURLRequest:(WGLUploadProvider *)ulProvider {
     NSURL *url = [NSURL URLWithString:@"xxx/upload/file"];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", @"1a2b3c"] forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"v1" forHTTPHeaderField:@"api_version"];
@@ -155,12 +156,26 @@
 
 //文件上传之前的所需参数
 - (void)uploadProviderGetParamsBeforeUpload:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo completion:(WGLGetFileParamsBeforeUploadCompletion)completion {
-    
+    //异步获取到上传参数后，执行回调
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSDictionary *map
+        = @{
+            @"name":@"wugl",
+            @"filePath" : fileInfo.filePath,
+            @"fileName" : fileInfo.fileName,
+            @"fileSize" : @(fileInfo.fileSize),
+            @"fragmentCount" : @(fileInfo.fragmentCount),
+            @"uploadProgress" : @(fileInfo.uploadProgress),
+            };
+        completion(map);
+    });
 }
 
 //上传分片所需参数
 - (NSDictionary *)uploadProviderGetChunkUploadParams:(WGLUploadProvider *)ulProvider params:(NSDictionary *)params chunkIndex:(NSInteger)chunkIndex {
-    return nil;
+    NSMutableDictionary *map = [NSMutableDictionary dictionaryWithDictionary:params];
+    [map setObject:@(chunkIndex) forKey:@"chunkIndex"];
+    return map;
 }
 
 //下载开始
@@ -171,21 +186,25 @@
 //上传中
 - (void)uploadProviderUploading:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
     NSLog(@"----上传中：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld \n", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
+    [SVProgressHUD showProgress:fileInfo.uploadProgress];
 }
 
 //上传成功
 - (void)uploadProviderDidFinish:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
     NSLog(@"----上传成功：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
+    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
 }
 
 //上传失败
 - (void)uploadProviderDidFailure:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo error:(NSError *)error {
     NSLog(@"----上传失败：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld, erro:%@", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize, error.description);
+    [SVProgressHUD showErrorWithStatus:@"上传失败"];
 }
 
 //上传取消
 - (void)uploadProviderDidCancel:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
     NSLog(@"----上传取消：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
+    [SVProgressHUD showErrorWithStatus:@"取消上传"];
 }
 
 #pragma mark - 选相册
