@@ -145,17 +145,23 @@
 #pragma mark - WGLUploadProviderDataSource
 
 //上传urlrequest
-- (NSURLRequest *)uploadProviderGetUploadURLRequest:(WGLUploadProvider *)ulProvider {
-    NSURL *url = [NSURL URLWithString:@"xxx/upload/file"];
+- (NSMutableURLRequest *)uploadProviderGetUploadURLRequest:(WGLUploadProvider *)ulProvider {
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@index.php", [HYHostDomainHelper host_v_upload]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@index.php", @"xxx"]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", @"1a2b3c"] forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"v1" forHTTPHeaderField:@"api_version"];
+    
     return request;
 }
 
+- (void)uploadProviderGetParamsForAppendPartData:(WGLUploadProvider *)ulProvider handler:(WGLGetParamsForAppendPartDataHandler)handler {
+    handler(@"chunk", @"chunk", @"application/octet-stream");
+}
+
 //文件上传之前的所需参数
-- (void)uploadProviderGetParamsBeforeUpload:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo completion:(WGLGetFileParamsBeforeUploadCompletion)completion {
+- (void)uploadProviderGetParamsBeforeUpload:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo handler:(WGLGetFileParamsBeforeUploadHandler)handler {
     //异步获取到上传参数后，执行回调
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSDictionary *map
@@ -167,7 +173,7 @@
             @"fragmentCount" : @(fileInfo.fragmentCount),
             @"uploadProgress" : @(fileInfo.uploadProgress),
             };
-        completion(map);
+        handler(map);
     });
 }
 
