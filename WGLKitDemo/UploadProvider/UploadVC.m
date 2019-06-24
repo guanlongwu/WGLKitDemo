@@ -184,7 +184,7 @@
     return map;
 }
 
-//下载开始
+//上传开始
 - (void)uploadProviderDidStart:(WGLUploadProvider *)ulProvider fileInfo:(WGLUploadFileInfo *)fileInfo {
     NSLog(@"----上传开始：fileName:%@, totalCount:%ld, progress:%f, uploadedSize:%ld \n", fileInfo.fileName, (long)fileInfo.fragmentCount, fileInfo.uploadProgress, fileInfo.uploadedSize);
 }
