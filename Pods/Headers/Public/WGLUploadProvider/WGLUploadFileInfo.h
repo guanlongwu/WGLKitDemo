@@ -1,0 +1,1 @@
+../../../WGLUploadProvider/WGLUploadProvider/Entity/WGLUploadFileInfo.h

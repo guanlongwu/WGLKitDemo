@@ -14,6 +14,7 @@
 #import "CategoryVC.h"
 #import "M3U8VC.h"
 #import "UploadVC.h"
+#import "WebJSBridgeVC.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -62,7 +63,7 @@
         _titles =
         [@[
            @"SegmentView", @"Downloader", @"Categories", @"M3U8Processing",
-           @"Uploader",
+           @"Uploader", @"WebJSBridge",
            ] mutableCopy];
     }
     return _titles;
@@ -77,6 +78,7 @@
            NSStringFromClass([CategoryVC class]),
            NSStringFromClass([M3U8VC class]),
            NSStringFromClass([UploadVC class]),
+           NSStringFromClass([WebJSBridgeVC class]),
            ] mutableCopy];
     }
     return _controlViews;

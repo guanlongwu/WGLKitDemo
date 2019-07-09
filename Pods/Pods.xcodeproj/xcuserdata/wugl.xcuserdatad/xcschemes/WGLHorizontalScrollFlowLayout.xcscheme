@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B248A85AE277CCF06CA5FC3ECC777C38"
+               BlueprintIdentifier = "B2CD650F0E05196143E662B708D2F5D8"
                BuildableName = "libWGLHorizontalScrollFlowLayout.a"
                BlueprintName = "WGLHorizontalScrollFlowLayout"
                ReferencedContainer = "container:Pods.xcodeproj">

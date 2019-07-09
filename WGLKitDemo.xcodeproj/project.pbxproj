@@ -7,17 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0913963122708CAE00F52D06 /* WGLUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913962222708CAD00F52D06 /* WGLUploader.m */; };
-		0913963222708CAE00F52D06 /* WGLUploadProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913962322708CAD00F52D06 /* WGLUploadProvider.m */; };
-		0913963322708CAE00F52D06 /* WGLUploadUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913962622708CAD00F52D06 /* WGLUploadUtils.m */; };
-		0913963422708CAE00F52D06 /* WGLStreamFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913962B22708CAD00F52D06 /* WGLStreamFragment.m */; };
-		0913963522708CAE00F52D06 /* WGLFileStreamOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913962C22708CAD00F52D06 /* WGLFileStreamOperation.m */; };
-		0913963622708CAE00F52D06 /* WGLUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913962E22708CAE00F52D06 /* WGLUploadTask.m */; };
 		0913963A22708D2A00F52D06 /* UploadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913963922708D2A00F52D06 /* UploadVC.m */; };
 		0913963D22708DA900F52D06 /* UploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913963C22708DA900F52D06 /* UploadCell.m */; };
 		091396442270924200F52D06 /* HYVideoAlbumAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 091396402270924200F52D06 /* HYVideoAlbumAsset.m */; };
 		091396452270924200F52D06 /* HYVideoSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 091396412270924200F52D06 /* HYVideoSelector.m */; };
-		0913964922715A2D00F52D06 /* WGLUploadFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0913964822715A2D00F52D06 /* WGLUploadFileInfo.m */; };
 		09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410030223F864C0071B0E8 /* NSFileManagerVC.m */; };
 		09410037223F8EDF0071B0E8 /* NSDateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410036223F8EDF0071B0E8 /* NSDateVC.m */; };
 		0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09410039223F91420071B0E8 /* UIDeviceVC.m */; };
@@ -32,6 +25,20 @@
 		0941FE0C223BAA8C0071B0E8 /* NSTimerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FE0B223BAA8C0071B0E8 /* NSTimerVC.m */; };
 		0941FE0F223BC9E10071B0E8 /* NSDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941FE0E223BC9E10071B0E8 /* NSDataVC.m */; };
 		0941FFA8223F39DA0071B0E8 /* gzipPackage.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0941FFA7223F39DA0071B0E8 /* gzipPackage.zip */; };
+		0991C89A22D3449F006B2B51 /* UI_WebToJS_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0991C89922D3449F006B2B51 /* UI_WebToJS_VC.m */; };
+		0991C89D22D344C0006B2B51 /* UI_JSToWeb_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0991C89C22D344C0006B2B51 /* UI_JSToWeb_VC.m */; };
+		0991C8A022D344D6006B2B51 /* WK_JSToWeb_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0991C89F22D344D6006B2B51 /* WK_JSToWeb_VC.m */; };
+		0991C8A322D344F7006B2B51 /* WK_WebToJS_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0991C8A222D344F7006B2B51 /* WK_WebToJS_VC.m */; };
+		0991C8A722D3494C006B2B51 /* UI_WebToJS.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8A422D3494C006B2B51 /* UI_WebToJS.html */; };
+		0991C8A822D3494C006B2B51 /* UIWebViewJS_location.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8A522D3494C006B2B51 /* UIWebViewJS_location.html */; };
+		0991C8A922D3494C006B2B51 /* UIWebViewJS_file.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8A622D3494C006B2B51 /* UIWebViewJS_file.html */; };
+		0991C8AC22D34BDF006B2B51 /* light_illstration.png in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8AA22D34BDF006B2B51 /* light_illstration.png */; };
+		0991C8AD22D34BDF006B2B51 /* light_advice.png in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8AB22D34BDF006B2B51 /* light_advice.png */; };
+		0991C8B022D34C18006B2B51 /* WebJSBridgeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0991C8AF22D34C18006B2B51 /* WebJSBridgeVC.m */; };
+		0991C8B222D3521B006B2B51 /* UI_JSToWeb.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B122D3521B006B2B51 /* UI_JSToWeb.html */; };
+		0991C8B622D434D1006B2B51 /* WKWebViewJS_file.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B322D434D1006B2B51 /* WKWebViewJS_file.html */; };
+		0991C8B722D434D1006B2B51 /* WK_WebToJS.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B422D434D1006B2B51 /* WK_WebToJS.html */; };
+		0991C8B822D434D1006B2B51 /* WKWebViewJS_location.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B522D434D1006B2B51 /* WKWebViewJS_location.html */; };
 		09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C3114F219D6C9A00C8701E /* AppDelegate.m */; };
 		09C31153219D6C9B00C8701E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31152219D6C9B00C8701E /* ViewController.m */; };
 		09C31156219D6C9B00C8701E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C31154219D6C9B00C8701E /* Main.storyboard */; };
@@ -82,19 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0913962122708CAD00F52D06 /* WGLUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLUploader.h; sourceTree = "<group>"; };
-		0913962222708CAD00F52D06 /* WGLUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLUploader.m; sourceTree = "<group>"; };
-		0913962322708CAD00F52D06 /* WGLUploadProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLUploadProvider.m; sourceTree = "<group>"; };
-		0913962522708CAD00F52D06 /* WGLUploadUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLUploadUtils.h; sourceTree = "<group>"; };
-		0913962622708CAD00F52D06 /* WGLUploadUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLUploadUtils.m; sourceTree = "<group>"; };
-		0913962722708CAD00F52D06 /* WGLUploadHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLUploadHead.h; sourceTree = "<group>"; };
-		0913962922708CAD00F52D06 /* WGLStreamFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLStreamFragment.h; sourceTree = "<group>"; };
-		0913962A22708CAD00F52D06 /* WGLFileStreamOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLFileStreamOperation.h; sourceTree = "<group>"; };
-		0913962B22708CAD00F52D06 /* WGLStreamFragment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLStreamFragment.m; sourceTree = "<group>"; };
-		0913962C22708CAD00F52D06 /* WGLFileStreamOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLFileStreamOperation.m; sourceTree = "<group>"; };
-		0913962E22708CAE00F52D06 /* WGLUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGLUploadTask.m; sourceTree = "<group>"; };
-		0913962F22708CAE00F52D06 /* WGLUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLUploadTask.h; sourceTree = "<group>"; };
-		0913963022708CAE00F52D06 /* WGLUploadProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGLUploadProvider.h; sourceTree = "<group>"; };
 		0913963822708D2A00F52D06 /* UploadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadVC.h; sourceTree = "<group>"; };
 		0913963922708D2A00F52D06 /* UploadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadVC.m; sourceTree = "<group>"; };
 		0913963B22708DA900F52D06 /* UploadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadCell.h; sourceTree = "<group>"; };
@@ -103,8 +97,6 @@
 		091396412270924200F52D06 /* HYVideoSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYVideoSelector.m; sourceTree = "<group>"; };
 		091396422270924200F52D06 /* HYVideoAlbumAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYVideoAlbumAsset.h; sourceTree = "<group>"; };
 		091396432270924200F52D06 /* HYVideoSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYVideoSelector.h; sourceTree = "<group>"; };
-		0913964722715A2D00F52D06 /* WGLUploadFileInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGLUploadFileInfo.h; sourceTree = "<group>"; };
-		0913964822715A2D00F52D06 /* WGLUploadFileInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGLUploadFileInfo.m; sourceTree = "<group>"; };
 		0941002F223F864C0071B0E8 /* NSFileManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSFileManagerVC.h; sourceTree = "<group>"; };
 		09410030223F864C0071B0E8 /* NSFileManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerVC.m; sourceTree = "<group>"; };
 		09410035223F8EDF0071B0E8 /* NSDateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDateVC.h; sourceTree = "<group>"; };
@@ -132,6 +124,25 @@
 		0941FE0D223BC9E10071B0E8 /* NSDataVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDataVC.h; sourceTree = "<group>"; };
 		0941FE0E223BC9E10071B0E8 /* NSDataVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDataVC.m; sourceTree = "<group>"; };
 		0941FFA7223F39DA0071B0E8 /* gzipPackage.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gzipPackage.zip; sourceTree = "<group>"; };
+		0991C89822D3449F006B2B51 /* UI_WebToJS_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI_WebToJS_VC.h; sourceTree = "<group>"; };
+		0991C89922D3449F006B2B51 /* UI_WebToJS_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UI_WebToJS_VC.m; sourceTree = "<group>"; };
+		0991C89B22D344C0006B2B51 /* UI_JSToWeb_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI_JSToWeb_VC.h; sourceTree = "<group>"; };
+		0991C89C22D344C0006B2B51 /* UI_JSToWeb_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UI_JSToWeb_VC.m; sourceTree = "<group>"; };
+		0991C89E22D344D6006B2B51 /* WK_JSToWeb_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WK_JSToWeb_VC.h; sourceTree = "<group>"; };
+		0991C89F22D344D6006B2B51 /* WK_JSToWeb_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WK_JSToWeb_VC.m; sourceTree = "<group>"; };
+		0991C8A122D344F7006B2B51 /* WK_WebToJS_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WK_WebToJS_VC.h; sourceTree = "<group>"; };
+		0991C8A222D344F7006B2B51 /* WK_WebToJS_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WK_WebToJS_VC.m; sourceTree = "<group>"; };
+		0991C8A422D3494C006B2B51 /* UI_WebToJS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UI_WebToJS.html; sourceTree = "<group>"; };
+		0991C8A522D3494C006B2B51 /* UIWebViewJS_location.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UIWebViewJS_location.html; sourceTree = "<group>"; };
+		0991C8A622D3494C006B2B51 /* UIWebViewJS_file.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UIWebViewJS_file.html; sourceTree = "<group>"; };
+		0991C8AA22D34BDF006B2B51 /* light_illstration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_illstration.png; sourceTree = "<group>"; };
+		0991C8AB22D34BDF006B2B51 /* light_advice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_advice.png; sourceTree = "<group>"; };
+		0991C8AE22D34C18006B2B51 /* WebJSBridgeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebJSBridgeVC.h; sourceTree = "<group>"; };
+		0991C8AF22D34C18006B2B51 /* WebJSBridgeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebJSBridgeVC.m; sourceTree = "<group>"; };
+		0991C8B122D3521B006B2B51 /* UI_JSToWeb.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UI_JSToWeb.html; sourceTree = "<group>"; };
+		0991C8B322D434D1006B2B51 /* WKWebViewJS_file.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewJS_file.html; sourceTree = "<group>"; };
+		0991C8B422D434D1006B2B51 /* WK_WebToJS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WK_WebToJS.html; sourceTree = "<group>"; };
+		0991C8B522D434D1006B2B51 /* WKWebViewJS_location.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewJS_location.html; sourceTree = "<group>"; };
 		09C3114B219D6C9A00C8701E /* WGLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WGLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C3114E219D6C9A00C8701E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09C3114F219D6C9A00C8701E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -333,60 +344,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0913961F22708CAD00F52D06 /* WGLUploadProvider */ = {
-			isa = PBXGroup;
-			children = (
-				0913963022708CAE00F52D06 /* WGLUploadProvider.h */,
-				0913962322708CAD00F52D06 /* WGLUploadProvider.m */,
-				09139646227159FC00F52D06 /* Entity */,
-				0913962022708CAD00F52D06 /* Uploader */,
-				0913962422708CAD00F52D06 /* Utils */,
-				0913962822708CAD00F52D06 /* FileStreamOperation */,
-				0913962D22708CAE00F52D06 /* Task */,
-			);
-			name = WGLUploadProvider;
-			path = ../../WGLUploadProvider/WGLUploadProvider;
-			sourceTree = "<group>";
-		};
-		0913962022708CAD00F52D06 /* Uploader */ = {
-			isa = PBXGroup;
-			children = (
-				0913962122708CAD00F52D06 /* WGLUploader.h */,
-				0913962222708CAD00F52D06 /* WGLUploader.m */,
-			);
-			path = Uploader;
-			sourceTree = "<group>";
-		};
-		0913962422708CAD00F52D06 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				0913962522708CAD00F52D06 /* WGLUploadUtils.h */,
-				0913962622708CAD00F52D06 /* WGLUploadUtils.m */,
-				0913962722708CAD00F52D06 /* WGLUploadHead.h */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		0913962822708CAD00F52D06 /* FileStreamOperation */ = {
-			isa = PBXGroup;
-			children = (
-				0913962922708CAD00F52D06 /* WGLStreamFragment.h */,
-				0913962B22708CAD00F52D06 /* WGLStreamFragment.m */,
-				0913962A22708CAD00F52D06 /* WGLFileStreamOperation.h */,
-				0913962C22708CAD00F52D06 /* WGLFileStreamOperation.m */,
-			);
-			path = FileStreamOperation;
-			sourceTree = "<group>";
-		};
-		0913962D22708CAE00F52D06 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				0913962F22708CAE00F52D06 /* WGLUploadTask.h */,
-				0913962E22708CAE00F52D06 /* WGLUploadTask.m */,
-			);
-			path = Task;
-			sourceTree = "<group>";
-		};
 		0913963722708D1400F52D06 /* UploadProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,15 +372,6 @@
 				091396432270924200F52D06 /* HYVideoSelector.h */,
 			);
 			path = VideoSelector;
-			sourceTree = "<group>";
-		};
-		09139646227159FC00F52D06 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				0913964722715A2D00F52D06 /* WGLUploadFileInfo.h */,
-				0913964822715A2D00F52D06 /* WGLUploadFileInfo.m */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		094196FB221552520073AFFE /* DownloadProvider */ = {
@@ -473,6 +421,80 @@
 			path = CategoryDemo;
 			sourceTree = "<group>";
 		};
+		0991C89122D34257006B2B51 /* WebViewJavaScriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				0991C8AE22D34C18006B2B51 /* WebJSBridgeVC.h */,
+				0991C8AF22D34C18006B2B51 /* WebJSBridgeVC.m */,
+				0991C89222D343BB006B2B51 /* UIWebView */,
+				0991C89322D343BB006B2B51 /* WKWebView */,
+			);
+			path = WebViewJavaScriptBridge;
+			sourceTree = "<group>";
+		};
+		0991C89222D343BB006B2B51 /* UIWebView */ = {
+			isa = PBXGroup;
+			children = (
+				0991C89422D3445C006B2B51 /* WebToJS */,
+				0991C89522D3445C006B2B51 /* JSToWeb */,
+			);
+			path = UIWebView;
+			sourceTree = "<group>";
+		};
+		0991C89322D343BB006B2B51 /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				0991C89722D34464006B2B51 /* WebToJS */,
+				0991C89622D34464006B2B51 /* JSToWeb */,
+			);
+			path = WKWebView;
+			sourceTree = "<group>";
+		};
+		0991C89422D3445C006B2B51 /* WebToJS */ = {
+			isa = PBXGroup;
+			children = (
+				0991C89822D3449F006B2B51 /* UI_WebToJS_VC.h */,
+				0991C89922D3449F006B2B51 /* UI_WebToJS_VC.m */,
+				0991C8A422D3494C006B2B51 /* UI_WebToJS.html */,
+				0991C8A622D3494C006B2B51 /* UIWebViewJS_file.html */,
+				0991C8A522D3494C006B2B51 /* UIWebViewJS_location.html */,
+				0991C8AB22D34BDF006B2B51 /* light_advice.png */,
+				0991C8AA22D34BDF006B2B51 /* light_illstration.png */,
+			);
+			path = WebToJS;
+			sourceTree = "<group>";
+		};
+		0991C89522D3445C006B2B51 /* JSToWeb */ = {
+			isa = PBXGroup;
+			children = (
+				0991C89B22D344C0006B2B51 /* UI_JSToWeb_VC.h */,
+				0991C89C22D344C0006B2B51 /* UI_JSToWeb_VC.m */,
+				0991C8B122D3521B006B2B51 /* UI_JSToWeb.html */,
+			);
+			path = JSToWeb;
+			sourceTree = "<group>";
+		};
+		0991C89622D34464006B2B51 /* JSToWeb */ = {
+			isa = PBXGroup;
+			children = (
+				0991C89E22D344D6006B2B51 /* WK_JSToWeb_VC.h */,
+				0991C89F22D344D6006B2B51 /* WK_JSToWeb_VC.m */,
+			);
+			path = JSToWeb;
+			sourceTree = "<group>";
+		};
+		0991C89722D34464006B2B51 /* WebToJS */ = {
+			isa = PBXGroup;
+			children = (
+				0991C8A122D344F7006B2B51 /* WK_WebToJS_VC.h */,
+				0991C8A222D344F7006B2B51 /* WK_WebToJS_VC.m */,
+				0991C8B422D434D1006B2B51 /* WK_WebToJS.html */,
+				0991C8B322D434D1006B2B51 /* WKWebViewJS_file.html */,
+				0991C8B522D434D1006B2B51 /* WKWebViewJS_location.html */,
+			);
+			path = WebToJS;
+			sourceTree = "<group>";
+		};
 		09C31142219D6C9A00C8701E = {
 			isa = PBXGroup;
 			children = (
@@ -500,20 +522,20 @@
 				09C3114F219D6C9A00C8701E /* AppDelegate.m */,
 				09C31151219D6C9A00C8701E /* ViewController.h */,
 				09C31152219D6C9B00C8701E /* ViewController.m */,
+				0991C89122D34257006B2B51 /* WebViewJavaScriptBridge */,
+				09E4BDBF224B966500A6E8B3 /* WGLM3U8Processing */,
 				0913963722708D1400F52D06 /* UploadProvider */,
 				09E4BE8A224B99E800A6E8B3 /* M3U8Processing */,
 				0941970722166D970073AFFE /* SegmentView */,
 				094196FB221552520073AFFE /* DownloadProvider */,
 				0941FB8C223758B20071B0E8 /* CategoryDemo */,
+				0913963E2270924200F52D06 /* Others */,
 				09C31154219D6C9B00C8701E /* Main.storyboard */,
 				09C31157219D6C9B00C8701E /* Assets.xcassets */,
 				09C31159219D6C9B00C8701E /* LaunchScreen.storyboard */,
 				09C3115C219D6C9B00C8701E /* Info.plist */,
 				09C3115D219D6C9B00C8701E /* main.m */,
 				0941970E22169B6F0073AFFE /* WGLKitDemo-prefix.pch */,
-				0913963E2270924200F52D06 /* Others */,
-				0913961F22708CAD00F52D06 /* WGLUploadProvider */,
-				09E4BDBF224B966500A6E8B3 /* WGLM3U8Processing */,
 			);
 			path = WGLKitDemo;
 			sourceTree = "<group>";
@@ -966,11 +988,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0991C8A822D3494C006B2B51 /* UIWebViewJS_location.html in Resources */,
+				0991C8B822D434D1006B2B51 /* WKWebViewJS_location.html in Resources */,
+				0991C8B622D434D1006B2B51 /* WKWebViewJS_file.html in Resources */,
 				09C3115B219D6C9B00C8701E /* LaunchScreen.storyboard in Resources */,
 				0941FB9122375CEF0071B0E8 /* originImage.jpg in Resources */,
 				09C31158219D6C9B00C8701E /* Assets.xcassets in Resources */,
+				0991C8A722D3494C006B2B51 /* UI_WebToJS.html in Resources */,
+				0991C8AD22D34BDF006B2B51 /* light_advice.png in Resources */,
 				0941FFA8223F39DA0071B0E8 /* gzipPackage.zip in Resources */,
 				09E4BE7D224B966600A6E8B3 /* libavcodec.a.zip in Resources */,
+				0991C8B722D434D1006B2B51 /* WK_WebToJS.html in Resources */,
+				0991C8A922D3494C006B2B51 /* UIWebViewJS_file.html in Resources */,
+				0991C8B222D3521B006B2B51 /* UI_JSToWeb.html in Resources */,
+				0991C8AC22D34BDF006B2B51 /* light_illstration.png in Resources */,
 				09C31156219D6C9B00C8701E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1035,14 +1066,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0991C89D22D344C0006B2B51 /* UI_JSToWeb_VC.m in Sources */,
+				0991C8A022D344D6006B2B51 /* WK_JSToWeb_VC.m in Sources */,
 				09E4BE77224B966500A6E8B3 /* FFmpegManager.m in Sources */,
 				0941FB8F223758D50071B0E8 /* CategoryVC.m in Sources */,
-				0913963122708CAE00F52D06 /* WGLUploader.m in Sources */,
 				091396442270924200F52D06 /* HYVideoAlbumAsset.m in Sources */,
 				0941FE0F223BC9E10071B0E8 /* NSDataVC.m in Sources */,
 				0941970D22169B0D0073AFFE /* SegmentVC.m in Sources */,
 				09419792221A5CE50073AFFE /* DownloadCell.m in Sources */,
-				0913964922715A2D00F52D06 /* WGLUploadFileInfo.m in Sources */,
 				09E4BE72224B966500A6E8B3 /* ffmpeg_opt.c in Sources */,
 				0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */,
 				09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */,
@@ -1054,23 +1085,21 @@
 				0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */,
 				09E4BE80224B966600A6E8B3 /* FFmpegConverOC.m in Sources */,
 				0941FC92223B44EF0071B0E8 /* NSStringVC.m in Sources */,
+				0991C8A322D344F7006B2B51 /* WK_WebToJS_VC.m in Sources */,
 				09C31153219D6C9B00C8701E /* ViewController.m in Sources */,
 				09E4BE73224B966500A6E8B3 /* ffmpeg_filter.c in Sources */,
 				0941970A22166D970073AFFE /* SubSegmentViewController.m in Sources */,
 				091396452270924200F52D06 /* HYVideoSelector.m in Sources */,
-				0913963622708CAE00F52D06 /* WGLUploadTask.m in Sources */,
 				09C3115E219D6C9B00C8701E /* main.m in Sources */,
 				09E4BE89224B966600A6E8B3 /* WGLM3U8DownloadManager.m in Sources */,
-				0913963422708CAE00F52D06 /* WGLStreamFragment.m in Sources */,
 				0941971F2216C2590073AFFE /* DownloadVC.m in Sources */,
+				0991C8B022D34C18006B2B51 /* WebJSBridgeVC.m in Sources */,
 				09E4BE74224B966500A6E8B3 /* cmdutils.c in Sources */,
 				09410037223F8EDF0071B0E8 /* NSDateVC.m in Sources */,
 				0941FE0C223BAA8C0071B0E8 /* NSTimerVC.m in Sources */,
-				0913963522708CAE00F52D06 /* WGLFileStreamOperation.m in Sources */,
-				0913963322708CAE00F52D06 /* WGLUploadUtils.m in Sources */,
 				0913963A22708D2A00F52D06 /* UploadVC.m in Sources */,
 				09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */,
-				0913963222708CAE00F52D06 /* WGLUploadProvider.m in Sources */,
+				0991C89A22D3449F006B2B51 /* UI_WebToJS_VC.m in Sources */,
 				09E4BE82224B966600A6E8B3 /* WGLM3U8Parser.m in Sources */,
 				09E4BE81224B966600A6E8B3 /* WGLM3U8Processing.m in Sources */,
 			);

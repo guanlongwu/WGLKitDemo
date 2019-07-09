@@ -11,6 +11,7 @@ pod 'WGLNetworkMonitor', '0.0.12'
 pod 'WGLTrafficMonitor', '0.0.5'
 pod 'WGLHorizontalScrollFlowLayout', '0.0.1'
 pod 'WGLFileManager', '0.0.1'
+pod 'WGLUploadProvider', '~> 0.0.4'
 
 #third SDK Library
 #pod 'ZipArchive', '1.4.0'

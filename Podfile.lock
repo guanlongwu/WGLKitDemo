@@ -15,6 +15,8 @@ PODS:
   - WGLNetworkMonitor (0.0.12)
   - WGLSegmentView (0.7.0)
   - WGLTrafficMonitor (0.0.5)
+  - WGLUploadProvider (0.0.4):
+    - WGLFileManager (~> 0.0.1)
 
 DEPENDENCIES:
   - DZNEmptyDataSet (~> 1.8.1)
@@ -32,6 +34,7 @@ DEPENDENCIES:
   - WGLNetworkMonitor (= 0.0.12)
   - WGLSegmentView (= 0.7.0)
   - WGLTrafficMonitor (= 0.0.5)
+  - WGLUploadProvider (~> 0.0.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -50,6 +53,7 @@ SPEC REPOS:
     - WGLNetworkMonitor
     - WGLSegmentView
     - WGLTrafficMonitor
+    - WGLUploadProvider
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -67,7 +71,8 @@ SPEC CHECKSUMS:
   WGLNetworkMonitor: ad531e5aab5e45aae22287b94740ccf925e198bf
   WGLSegmentView: 8fd8f87e679e0d78bc1dec098ffb65413b540300
   WGLTrafficMonitor: f127177ae7375c1485241fb56eb0af50322cfd78
+  WGLUploadProvider: 265651f746305a08712b8121fe34754c7596fa46
 
-PODFILE CHECKSUM: a377014da84af185304588508f56f58b96a55212
+PODFILE CHECKSUM: e3477338868e25775c2a9edd0184aed5d57eb528
 
 COCOAPODS: 1.6.1
