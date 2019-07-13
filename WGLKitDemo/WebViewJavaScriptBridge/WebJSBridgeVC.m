@@ -10,11 +10,6 @@
 #import "NSArray+Safe.h"
 #import "UIView+Extensions.h"
 
-#import "UI_WebToJS_VC.h"
-#import "UI_JSToWeb_VC.h"
-#import "WK_WebToJS_VC.h"
-#import "WK_JSToWeb_VC.h"
-
 @interface WebJSBridgeVC ()
 @property (nonatomic, strong) NSArray <NSString *> *titles;
 
@@ -59,6 +54,8 @@
         [@[
            @"UI_WebToJS_VC", @"UI_JSToWeb_VC",
            @"WK_WebToJS_VC", @"WK_JSToWeb_VC",
+           @"UI_WVJB_VC", @"WK_WVJB_VC",
+           @"JavaScriptCore_VC",
            ] mutableCopy];
     }
     return _titles;

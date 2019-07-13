@@ -32,11 +32,11 @@
 
 - (void)setupUI {
     
-    CGFloat width = 80;
+    CGFloat width = 90;
     CGFloat height = 50;
     for (int row = 0; row < 2; row++) {
         for (int column = 0; column < 4; column++) {
-            CGFloat originX = 10 + column * (width + 10);
+            CGFloat originX = 3 + column * (width + 3);
             CGFloat originY = 80 + row * (height + 30);
             
             UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, width, height)];
@@ -70,7 +70,7 @@
     if (!_titles) {
         _titles =
         [@[
-           @"insertHTML_byTagName", @"insertHTML_byId", @"insertJS",
+           @"insertHTML_byTagName", @"insertHTML_byId", @"insertJS_CallFunc",
            @"iOS_call_jsFunc", @"changeInputElementValue", @"replaceImgSrc",
            @"reload",
            ] mutableCopy];
@@ -113,7 +113,7 @@
 }
 
 //插入JS
-- (void)insertJS {
+- (void)insertJS_CallFunc {
     NSString *insertString =
     [NSString stringWithFormat:
      @"var script = document.createElement('script');"
@@ -125,16 +125,17 @@
      "document.getElementsByTagName('head')[0].appendChild(script);", self.someString];
     
     [self.myWeb evaluateJavaScript:insertString completionHandler:^(id item, NSError * _Nullable error) {
-        
+        NSLog(@"");
+        //提示：注入提示js代码有错，但是执行这段js中的函数jsFunc()还是成功的
     }];
     [self.myWeb evaluateJavaScript:@"jsFunc();" completionHandler:^(id item, NSError * _Nullable error) {
-        
+        NSLog(@"");
     }];
 }
 
 //iOS调用js方法
 - (void)iOS_call_jsFunc {
-    [self.myWeb evaluateJavaScript:@"showAlert(\"showAlert\");" completionHandler:^(id item, NSError * _Nullable error) {
+    [self.myWeb evaluateJavaScript:@"showAlert(\"iOS_call_jsFunc\");" completionHandler:^(id item, NSError * _Nullable error) {
         
     }];
 }
@@ -167,16 +168,16 @@
 }
 
 //uiwebview 中这个方法是私有方法 通过category可以拦截alert
-//- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-//    
-//    NSLog(@"%s", __FUNCTION__);
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-//    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        completionHandler();
-//    }]];
-//    
-//    [self presentViewController:alert animated:YES completion:NULL];
-//}
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    
+    NSLog(@"%s", __FUNCTION__);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:NULL];
+}
 
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler {
     
@@ -201,3 +202,15 @@
 
     
 @end
+
+
+/**
+ 总结：
+ 
+ WKWebView 的代理有两个，navigationDelegate和UIDelegate。
+ 我们要拦截 URL，就要通过navigationDelegate的一个代理方法来实现。
+ 如果在HTML 中要使用 alert 等弹窗，就必须得实现UIDelegate的相应代理方法。
+ 
+ */
+
+

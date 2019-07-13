@@ -70,7 +70,7 @@
     if (!_titles) {
         _titles =
         [@[
-           @"insertHTML_byTagName", @"insertHTML_byId", @"insertJS",
+           @"insertHTML_byTagName", @"insertHTML_byId", @"insertJS_CallFunc",
            @"iOS_call_jsFunc", @"changeInputElementValue", @"replaceImgSrc",
            @"reload",
            ] mutableCopy];
@@ -109,7 +109,7 @@
 }
 
 //插入JS
-- (void)insertJS {
+- (void)insertJS_CallFunc {
     NSString *insertString =
     [NSString stringWithFormat:
      @"var script = document.createElement('script');"

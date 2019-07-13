@@ -39,6 +39,14 @@
 		0991C8B622D434D1006B2B51 /* WKWebViewJS_file.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B322D434D1006B2B51 /* WKWebViewJS_file.html */; };
 		0991C8B722D434D1006B2B51 /* WK_WebToJS.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B422D434D1006B2B51 /* WK_WebToJS.html */; };
 		0991C8B822D434D1006B2B51 /* WKWebViewJS_location.html in Resources */ = {isa = PBXBuildFile; fileRef = 0991C8B522D434D1006B2B51 /* WKWebViewJS_location.html */; };
+		09B0D0F522D8869D00416832 /* WK_JSToWeb.html in Resources */ = {isa = PBXBuildFile; fileRef = 09B0D0F422D8869D00416832 /* WK_JSToWeb.html */; };
+		09B0D0FB22D9BD9A00416832 /* UI_WVJB_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B0D0FA22D9BD9A00416832 /* UI_WVJB_VC.m */; };
+		09B0D0FE22D9BDCF00416832 /* WK_WVJB_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B0D0FD22D9BDCF00416832 /* WK_WVJB_VC.m */; };
+		09B0D10022D9BFCA00416832 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 09B0D0FF22D9BFCA00416832 /* index.html */; };
+		09B0D10422D9F34300416832 /* JavaScriptCore_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B0D10322D9F34300416832 /* JavaScriptCore_VC.m */; };
+		09B0D10822D9F4EC00416832 /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 09B0D10522D9F4EC00416832 /* JSCallOC.html */; };
+		09B0D10922D9F4EC00416832 /* HighchartsView.html in Resources */ = {isa = PBXBuildFile; fileRef = 09B0D10622D9F4EC00416832 /* HighchartsView.html */; };
+		09B0D10A22D9F4EC00416832 /* OCCallJS.js in Resources */ = {isa = PBXBuildFile; fileRef = 09B0D10722D9F4EC00416832 /* OCCallJS.js */; };
 		09C31150219D6C9A00C8701E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C3114F219D6C9A00C8701E /* AppDelegate.m */; };
 		09C31153219D6C9B00C8701E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31152219D6C9B00C8701E /* ViewController.m */; };
 		09C31156219D6C9B00C8701E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C31154219D6C9B00C8701E /* Main.storyboard */; };
@@ -143,6 +151,17 @@
 		0991C8B322D434D1006B2B51 /* WKWebViewJS_file.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewJS_file.html; sourceTree = "<group>"; };
 		0991C8B422D434D1006B2B51 /* WK_WebToJS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WK_WebToJS.html; sourceTree = "<group>"; };
 		0991C8B522D434D1006B2B51 /* WKWebViewJS_location.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewJS_location.html; sourceTree = "<group>"; };
+		09B0D0F422D8869D00416832 /* WK_JSToWeb.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WK_JSToWeb.html; sourceTree = "<group>"; };
+		09B0D0F922D9BD9A00416832 /* UI_WVJB_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI_WVJB_VC.h; sourceTree = "<group>"; };
+		09B0D0FA22D9BD9A00416832 /* UI_WVJB_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UI_WVJB_VC.m; sourceTree = "<group>"; };
+		09B0D0FC22D9BDCF00416832 /* WK_WVJB_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WK_WVJB_VC.h; sourceTree = "<group>"; };
+		09B0D0FD22D9BDCF00416832 /* WK_WVJB_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WK_WVJB_VC.m; sourceTree = "<group>"; };
+		09B0D0FF22D9BFCA00416832 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		09B0D10222D9F34300416832 /* JavaScriptCore_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JavaScriptCore_VC.h; sourceTree = "<group>"; };
+		09B0D10322D9F34300416832 /* JavaScriptCore_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCore_VC.m; sourceTree = "<group>"; };
+		09B0D10522D9F4EC00416832 /* JSCallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSCallOC.html; sourceTree = "<group>"; };
+		09B0D10622D9F4EC00416832 /* HighchartsView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HighchartsView.html; sourceTree = "<group>"; };
+		09B0D10722D9F4EC00416832 /* OCCallJS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = OCCallJS.js; sourceTree = "<group>"; };
 		09C3114B219D6C9A00C8701E /* WGLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WGLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C3114E219D6C9A00C8701E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09C3114F219D6C9A00C8701E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -426,6 +445,8 @@
 			children = (
 				0991C8AE22D34C18006B2B51 /* WebJSBridgeVC.h */,
 				0991C8AF22D34C18006B2B51 /* WebJSBridgeVC.m */,
+				09B0D10122D9F32A00416832 /* JavaScriptCore */,
+				09B0D0F622D8947000416832 /* WebJSBridgeView */,
 				0991C89222D343BB006B2B51 /* UIWebView */,
 				0991C89322D343BB006B2B51 /* WKWebView */,
 			);
@@ -479,6 +500,7 @@
 			children = (
 				0991C89E22D344D6006B2B51 /* WK_JSToWeb_VC.h */,
 				0991C89F22D344D6006B2B51 /* WK_JSToWeb_VC.m */,
+				09B0D0F422D8869D00416832 /* WK_JSToWeb.html */,
 			);
 			path = JSToWeb;
 			sourceTree = "<group>";
@@ -493,6 +515,46 @@
 				0991C8B522D434D1006B2B51 /* WKWebViewJS_location.html */,
 			);
 			path = WebToJS;
+			sourceTree = "<group>";
+		};
+		09B0D0F622D8947000416832 /* WebJSBridgeView */ = {
+			isa = PBXGroup;
+			children = (
+				09B0D0FF22D9BFCA00416832 /* index.html */,
+				09B0D0F722D9BD8100416832 /* UI_WVJB */,
+				09B0D0F822D9BD8100416832 /* WK_WVJB */,
+			);
+			path = WebJSBridgeView;
+			sourceTree = "<group>";
+		};
+		09B0D0F722D9BD8100416832 /* UI_WVJB */ = {
+			isa = PBXGroup;
+			children = (
+				09B0D0F922D9BD9A00416832 /* UI_WVJB_VC.h */,
+				09B0D0FA22D9BD9A00416832 /* UI_WVJB_VC.m */,
+			);
+			path = UI_WVJB;
+			sourceTree = "<group>";
+		};
+		09B0D0F822D9BD8100416832 /* WK_WVJB */ = {
+			isa = PBXGroup;
+			children = (
+				09B0D0FC22D9BDCF00416832 /* WK_WVJB_VC.h */,
+				09B0D0FD22D9BDCF00416832 /* WK_WVJB_VC.m */,
+			);
+			path = WK_WVJB;
+			sourceTree = "<group>";
+		};
+		09B0D10122D9F32A00416832 /* JavaScriptCore */ = {
+			isa = PBXGroup;
+			children = (
+				09B0D10222D9F34300416832 /* JavaScriptCore_VC.h */,
+				09B0D10322D9F34300416832 /* JavaScriptCore_VC.m */,
+				09B0D10622D9F4EC00416832 /* HighchartsView.html */,
+				09B0D10522D9F4EC00416832 /* JSCallOC.html */,
+				09B0D10722D9F4EC00416832 /* OCCallJS.js */,
+			);
+			path = JavaScriptCore;
 			sourceTree = "<group>";
 		};
 		09C31142219D6C9A00C8701E = {
@@ -989,9 +1051,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0991C8A822D3494C006B2B51 /* UIWebViewJS_location.html in Resources */,
+				09B0D0F522D8869D00416832 /* WK_JSToWeb.html in Resources */,
 				0991C8B822D434D1006B2B51 /* WKWebViewJS_location.html in Resources */,
 				0991C8B622D434D1006B2B51 /* WKWebViewJS_file.html in Resources */,
 				09C3115B219D6C9B00C8701E /* LaunchScreen.storyboard in Resources */,
+				09B0D10922D9F4EC00416832 /* HighchartsView.html in Resources */,
 				0941FB9122375CEF0071B0E8 /* originImage.jpg in Resources */,
 				09C31158219D6C9B00C8701E /* Assets.xcassets in Resources */,
 				0991C8A722D3494C006B2B51 /* UI_WebToJS.html in Resources */,
@@ -1000,9 +1064,12 @@
 				09E4BE7D224B966600A6E8B3 /* libavcodec.a.zip in Resources */,
 				0991C8B722D434D1006B2B51 /* WK_WebToJS.html in Resources */,
 				0991C8A922D3494C006B2B51 /* UIWebViewJS_file.html in Resources */,
+				09B0D10822D9F4EC00416832 /* JSCallOC.html in Resources */,
 				0991C8B222D3521B006B2B51 /* UI_JSToWeb.html in Resources */,
 				0991C8AC22D34BDF006B2B51 /* light_illstration.png in Resources */,
+				09B0D10A22D9F4EC00416832 /* OCCallJS.js in Resources */,
 				09C31156219D6C9B00C8701E /* Main.storyboard in Resources */,
+				09B0D10022D9BFCA00416832 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,10 +1143,13 @@
 				09419792221A5CE50073AFFE /* DownloadCell.m in Sources */,
 				09E4BE72224B966500A6E8B3 /* ffmpeg_opt.c in Sources */,
 				0941FC8F223A80140071B0E8 /* UIImageVC.m in Sources */,
+				09B0D10422D9F34300416832 /* JavaScriptCore_VC.m in Sources */,
 				09410031223F864C0071B0E8 /* NSFileManagerVC.m in Sources */,
 				09E4BE8D224B9A0F00A6E8B3 /* M3U8VC.m in Sources */,
 				09E4BE75224B966500A6E8B3 /* ffmpeg.c in Sources */,
+				09B0D0FB22D9BD9A00416832 /* UI_WVJB_VC.m in Sources */,
 				0913963D22708DA900F52D06 /* UploadCell.m in Sources */,
+				09B0D0FE22D9BDCF00416832 /* WK_WVJB_VC.m in Sources */,
 				09E4BE76224B966500A6E8B3 /* ffmpeg_videotoolbox.c in Sources */,
 				09E4BE88224B966600A6E8B3 /* WGLM3U8Entity.m in Sources */,
 				0941003A223F91420071B0E8 /* UIDeviceVC.m in Sources */,

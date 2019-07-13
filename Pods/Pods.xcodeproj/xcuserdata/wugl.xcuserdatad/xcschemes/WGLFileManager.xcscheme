@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A3CBC408477DFDF45311861ADA8AC1F"
+               BlueprintIdentifier = "58C280370F7C3EA2244F3C9C7F9D779B"
                BuildableName = "libWGLFileManager.a"
                BlueprintName = "WGLFileManager"
                ReferencedContainer = "container:Pods.xcodeproj">

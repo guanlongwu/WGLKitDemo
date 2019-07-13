@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2F0B232884524828009DFF9FD0E4CD51"
+               BlueprintIdentifier = "AB0AB1E83E877158EC6DE4A78C224433"
                BuildableName = "libWGLUploadProvider.a"
                BlueprintName = "WGLUploadProvider"
                ReferencedContainer = "container:Pods.xcodeproj">

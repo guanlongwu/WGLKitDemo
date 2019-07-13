@@ -125,3 +125,35 @@
 }
 
 @end
+
+/**
+ 总结：
+ 
+ JS 调用原生 OC
+ 我们可以利用 JS 发起一个假的 URL 请求，然后利用 UIWebView 的代理方法拦截这次请求，然后再做相应的处理。
+ 
+ 问题：
+ 为什么定义一个loadURL方法，不直接使用window.location.href?
+ 答：
+ 因为如果当前网页正在使用window.location.href加载网页的同时，调用window.location.href去调用 OC 原生方法，会导致加载网页的操作被取消掉。
+ 同样的，如果连续使用window.location.href执行两次 OC 原生调用，也有可能导致第一次的操作被取消掉。
+ 所以我们使用自定义的loadURL，来避免这个问题。
+ JS用打开一个iFrame的方式替代直接用document.location的方式，以避免多次请求，被替换覆盖的问题。
+ 
+ JS代码如下：
+function loadURL(url) {
+    var iFrame;
+    iFrame = document.createElement("iframe");
+    iFrame.setAttribute("src", url);
+    iFrame.setAttribute("style", "display:none;");
+    iFrame.setAttribute("height", "0px");
+    iFrame.setAttribute("width", "0px");
+    iFrame.setAttribute("frameborder", "0");
+    document.body.appendChild(iFrame);
+    // 发起请求后这个 iFrame 就没用了，所以把它从 dom 上移除掉
+    iFrame.parentNode.removeChild(iFrame);
+    iFrame = null;
+    }
+ 
+ 
+*/

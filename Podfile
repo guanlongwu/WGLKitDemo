@@ -21,6 +21,7 @@ pod 'SVProgressHUD', '~> 2.2.5'
 pod 'DZNEmptyDataSet', '~> 1.8.1'
 pod 'PSTAlertController', '~> 1.2.0'
 pod 'TMCache', '~> 2.1.0'
+pod 'WebViewJavascriptBridge', '~> 6.0'
 
 end
 

@@ -5,6 +5,7 @@ PODS:
   - SVProgressHUD (2.2.5)
   - TMCache (2.1.0)
   - Toast (4.0.0)
+  - WebViewJavascriptBridge (6.0.3)
   - WGLCategories (0.0.10)
   - WGLCircleProgressView (0.0.4)
   - WGLDownloadProvider (0.2.3):
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - SVProgressHUD (~> 2.2.5)
   - TMCache (~> 2.1.0)
   - Toast (~> 4.0.0)
+  - WebViewJavascriptBridge (~> 6.0)
   - WGLCategories (= 0.0.10)
   - WGLCircleProgressView (= 0.0.4)
   - WGLDownloadProvider (= 0.2.3)
@@ -44,6 +46,7 @@ SPEC REPOS:
     - SVProgressHUD
     - TMCache
     - Toast
+    - WebViewJavascriptBridge
     - WGLCategories
     - WGLCircleProgressView
     - WGLDownloadProvider
@@ -62,6 +65,7 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
   WGLCategories: d9048673ee83cb388b226e592ed2bb4ba6f51cc8
   WGLCircleProgressView: f3452c8349d813e8ce1232ed47cf7cbc398e4352
   WGLDownloadProvider: 10ee51b675ff6057d671896420324e4c12b22a2d
@@ -73,6 +77,6 @@ SPEC CHECKSUMS:
   WGLTrafficMonitor: f127177ae7375c1485241fb56eb0af50322cfd78
   WGLUploadProvider: 265651f746305a08712b8121fe34754c7596fa46
 
-PODFILE CHECKSUM: e3477338868e25775c2a9edd0184aed5d57eb528
+PODFILE CHECKSUM: 5f86c03fdaa87a0fa69670fd5d8f5a3d333677d2
 
 COCOAPODS: 1.6.1

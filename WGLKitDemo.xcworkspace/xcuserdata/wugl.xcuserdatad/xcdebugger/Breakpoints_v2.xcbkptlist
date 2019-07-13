@@ -9,13 +9,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../WGLUploadProvider/WGLUploadProvider/Uploader/WGLUploader.m"
-            timestampString = "582541236.191882"
+            filePath = "WGLKitDemo/WebViewJavaScriptBridge/WKWebView/JSToWeb/WK_JSToWeb_VC.m"
+            timestampString = "584710386.3966579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
-            landmarkName = "-getHTTPBodyDataWithParams:uploadData:"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-insertJSBtn"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WGLKitDemo/WebViewJavaScriptBridge/WKWebView/JSToWeb/WK_JSToWeb_VC.m"
+            timestampString = "584710386.396737"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-userContentController:didReceiveScriptMessage:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WGLKitDemo/WebViewJavaScriptBridge/WebJSBridgeView/UI_WVJB/UI_WVJB_VC.m"
+            timestampString = "584710386.396801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-registShareFunction"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
