@@ -90,9 +90,6 @@
 {
     // commit 0
     NSLog(@"commit 0");
-    
-    // commit 1
-    NSLog(@"commit 1");
 }
 
 
