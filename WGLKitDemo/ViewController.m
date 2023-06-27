@@ -88,8 +88,6 @@
 
 - (void)commit
 {
-    // commit 0
-    NSLog(@"commit 0");
 }
 
 
