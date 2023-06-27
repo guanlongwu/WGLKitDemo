@@ -84,5 +84,14 @@
     return _controlViews;
 }
 
+#pragma mark - 测试commit
+
+- (void)commit
+{
+    // commit 0
+    NSLog(@"commit 0");
+    
+}
+
 
 @end
