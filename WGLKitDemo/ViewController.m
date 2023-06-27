@@ -93,9 +93,6 @@
     
     // commit 1
     NSLog(@"commit 1");
-    
-    // commit 2
-    NSLog(@"commit 2");
 }
 
 
